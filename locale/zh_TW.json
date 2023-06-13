@@ -692,13 +692,10 @@
   "Status": "",
   "Status: disabled": "",
   "Status: enabled": "",
-  "Stay Informed": "",
   "Step One": "",
   "Step Three": "",
   "Step Two": "",
   "Submit": "",
-  "Subscribe": "",
-  "Subscribe to our newsletter.": "",
   "Success": "",
   "Success!": "",
   "Success! Deposit Submitted": "",
@@ -953,7 +950,7 @@
   "{0} tokens": "",
   "{0} {1} per \nEFT": "",
   "{0}/{1} Burned": "",
-  "© 2022 by Dex": "",
+  "© 2023 by Dex": "",
   "← Previous Step": "",
   "⚠️ Loading Error": ""
 }

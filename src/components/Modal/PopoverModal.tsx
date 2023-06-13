@@ -161,7 +161,7 @@ const PopoverModalControlled: FC<ControlledModalProps> = ({
                 <div
                   className={classNames(
                     transparent ? "" : popoverPanelClass,
-                    `!bg-[#747474] border border-Gray overflow-auto hide-scrollbar`,
+                    `!bg-ternary border border-Gray overflow-auto hide-scrollbar`,
                     isDesktop
                       ? `w-1/2 max-h-[38vh]`
                       : "w-1/2 max-h-[50vh] mx-auto",

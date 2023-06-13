@@ -40,12 +40,12 @@ const ExchangeHeader: FC<ExchangeHeaderProps> = ({
     <div className="flex items-center justify-between mb-4 pb-1.5 space-x-3 border-b border-gray-600">
       <div className="flex h-11">
         <NavLink
-          activeClassName="font-bold rounded text-white border-dark-800 !bg-black"
+          activeClassName="font-bold rounded text-white border-dark-800 !bg-[#eebd54]"
           href={`/${!isRemove ? "add" : "remove"}${
             input ? `/${currencyId(input)}` : ""
           }${output ? `/${currencyId(output)}` : ""}`}
         >
-          <a className="flex items-center  h-9 justify-center px-4 text-base font-medium text-center rounded-md text-secondary hover:text-high-emphesis">
+          <a className="flex items-center  h-9 justify-center px-4 text-base font-medium text-center rounded-md !text-black">
             {i18n._(t`Liquidity`)}
           </a>
         </NavLink>

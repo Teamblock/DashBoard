@@ -13,7 +13,7 @@ const Back = React.forwardRef<HTMLButtonElement, BackProps>(
       <div className={className}>
         <a
           onClick={router.back}
-          className="flex items-center space-x-2 text-base text-center cursor-pointer font text-black/90 hover:text-black/80"
+          className="flex items-center space-x-2 text-base text-center cursor-pointer font text-white hover:text-white/80"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -46,7 +46,7 @@ const HeaderNew: FC<HeaderNewProps> = ({
           }}
         >
           <Typography
-            className={classNames("!text-black/90 hover:text-white", className)}
+            className={classNames("!text-white", className)}
           >
             {i18n._(t`Swap`)}
           </Typography>

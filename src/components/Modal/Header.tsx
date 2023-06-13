@@ -36,7 +36,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
           className="flex items-center justify-center w-6 h-6 cursor-pointer"
           onClick={onClose}
         >
-          <XIcon width={24} height={24} className="text-black" />
+          <XIcon width={24} height={24} className="text-[#eebd54]" />
         </div>
       )}
     </div>

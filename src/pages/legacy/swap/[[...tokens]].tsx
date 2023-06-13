@@ -480,7 +480,7 @@ const Swap = ({ banners }) => {
           <div className="flex justify-center -my-[45px] z-0">
             <div role="button" className="p-3 rounded-full bg-Gray-700">
               <ButtonSwap
-                className="p-3 rounded-full shadow-btnShadow !bg-[#A466FF]"
+                className="p-3 rounded-full shadow-btnShadow !bg-[#eebd54]"
                 onClick={() => {
                   setApprovalSubmitted(false); // reset 2 step UI for approvals
                   onSwitchTokens();
@@ -535,14 +535,14 @@ const Swap = ({ banners }) => {
               color="red"
               disabled
               fullWidth
-              className="w-full text-base font-normal text-white bg-primary rounded-[0.350rem] h-12"
+              className="w-full text-base font-normal text-white bg-[#eebd54] rounded-[0.350rem] h-12"
             >
               {i18n._(t`Unsupported Asset`)}
             </Button>
           ) : !account ? (
             <>
               {isDesktop ? (
-                <Web3Connect className="w-full text-base font-normal text-white bg-black hover:bg-black/80 rounded-[0.350rem] !h-12" />
+                <Web3Connect className="w-full text-base font-normal text-black bg-[#eebd54] hover:bg-[#eebd54]/80 rounded-[0.350rem] !h-12" />
               ) : (
                 <Web3Status web3ConnectClass="bg-black hover:bg-black/80 hover:text-white/90 font-normal text-white rounded-[0.350rem]  w-full !h-12" />
               )}

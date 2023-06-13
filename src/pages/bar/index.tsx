@@ -54,7 +54,7 @@ const sendTx = async (txFunc: () => Promise<any>): Promise<boolean> => {
 
 const tabStyle =
   "flex justify-center items-center h-12 w-full rounded-[0.350rem] cursor-pointer md:text-base";
-const activeTabStyle = `${tabStyle} text-white font-medium bg-black rounded-[0.350rem] `;
+const activeTabStyle = `${tabStyle} text-black font-medium bg-[#eebd54] rounded-[0.350rem] `;
 const inactiveTabStyle = `${tabStyle} text-white font-medium maxMd:border border-Gray`;
 
 const buttonStyle =
@@ -220,24 +220,24 @@ console.log("block1d",block1d);
     return (
       <div className="flex items-center justify-between w-full rounded bg-transparent ">
         <div className="flex w-full flex-col">
-          <Typography className="mb-3 text-sm whitespace-nowrap md:text-lg md:leading-5 text-black">
+          <Typography className="mb-3 text-sm whitespace-nowrap md:text-lg md:leading-5 text-white">
             {i18n._(t`Staking APR`)}
           </Typography>
           <Link href={`/`}>
             <Button
               variant="filled"
               color="green"
-              className="!h-10 mb-3 font-medium !w-full max-w-[10rem] rounded-[0.350rem] !bg-black !text-white"
+              className="!h-10 mb-3 font-medium !w-full max-w-[10rem] rounded-[0.350rem] !bg-[#eebd54] !text-black"
             >
               {i18n._(t`View Stats`)}
             </Button>
           </Link>
         </div>
         <div className="flex flex-col">
-          <Typography className="mb-1 !font-semibold text-lg text-right text-black">
+          <Typography className="mb-1 !font-semibold text-lg text-right text-white">
             {`${APY1d ? APY1d.toFixed(2) + "%" : i18n._(t`Loading...`)}`}
           </Typography>
-          <Typography className="w-32 !text-sm text-right text-black md:w-64">
+          <Typography className="w-32 !text-sm text-right text-white md:w-64">
             {i18n._(t`Yesterday's APR`)}
           </Typography>
         </div>
@@ -296,7 +296,7 @@ console.log("LINE:::::::::237");
         <Typography variant="h2" className="text-black mb-5 !text-xl">
           {i18n._(t`Staking`)}
         </Typography>
-        <div className="bg-[#CDCDCD] rounded-[0.350rem] py-4 px-6 maxMd:px-3 maxMd:py-2">
+        <div className="bg-[#1a202e] rounded-[0.350rem] py-4 px-6 maxMd:px-3 maxMd:py-2">
           <div className="maxSm:hidden">
             <StackingAPR />
             <Divider className="border-Gray" />
@@ -350,7 +350,7 @@ console.log("LINE:::::::::237");
                     </div>
                   </div>
                   <div className="flex items-center justify-between w-full mt-4">
-                    <Typography className="maxMd:hidden font-medium text-xl !text-black">
+                    <Typography className="maxMd:hidden font-medium text-xl !text-white">
                       {activeTab === 0
                         ? i18n._(t`Stake EFT`)
                         : i18n._(t`Unstake`)}
@@ -403,7 +403,7 @@ console.log("LINE:::::::::237");
                       </div>
                     </div>
                   </div>
-                  <div className="mt-1 mb-3 text-black/80 !text-sm">
+                  <div className="mt-1 mb-3 text-white/80 !text-sm">
                     {`1 xEFT = ${Number(bar?.ratio ?? 0)?.toFixed(4)} EFT`}
                   </div>
                   {(approvalState === ApprovalState.NOT_APPROVED ||
@@ -425,9 +425,9 @@ console.log("LINE:::::::::237");
                   ) : !account ? (
                     <>
                       {isDesktop ? (
-                        <Web3Connect className="w-full text-base font-normal text-white bg-black hover:bg-black/95 rounded-[0.350rem] !h-12" />
+                        <Web3Connect className="w-full text-base font-normal text-white bg-white hover:bg-black/95 rounded-[0.350rem] !h-11" />
                       ) : (
-                        <Web3Status web3ConnectClass="bg-black hover:bg-black/90 hover:text-white/90 font-normal text-white rounded-[0.350rem]  w-full !h-12" />
+                        <Web3Status web3ConnectClass="bg-black hover:bg-black/90 hover:text-white/90 font-normal text-white rounded-[0.350rem]  w-full !h-11" />
                       )}
                     </>
                   ) : (
@@ -452,7 +452,7 @@ console.log("LINE:::::::::237");
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-3 rounded bg-[#474747] p-6 maxMd:p-5 maxMd:mt-7">
+            <div className="flex flex-col gap-3 rounded bg-ternary p-6 maxMd:p-5 maxMd:mt-7">
               <Typography className="!font-normal text-sm md:text-base text-white">
                 {i18n._(t`Balance`)}
               </Typography>

@@ -67,18 +67,18 @@ export default function ChartCard({
     <div className="w-full p-4 space-y-4 font-bold">
       <div className="flex justify-between">
         <div>
-          <div className="text-xs text-secondary">{subheader}</div>
-          <div className="text-black">{header}</div>
+          <div className="text-xs text-white">{subheader}</div>
+          <div className="text-white-700">{header}</div>
         </div>
         <div>
-          <div className="flex justify-end text-2xl text-primary">
+          <div className="flex justify-end text-2xl text-[#eebd54]">
             {formatNumber(overrideFigure ?? figure, true, false)}
           </div>
           <div className="flex flex-row items-center justify-end">
             {selectedIndex === chartFiltered?.length - 1 && (
               <ColoredNumber number={change} percent={true} />
             )}
-            <div className="ml-3 font-normal">
+            <div className="ml-3 font-normal text-white-700">
               {overrideDate
                 ? formatDate(new Date(overrideDate))
                 : "Past 24 Hours"}
@@ -90,7 +90,7 @@ export default function ChartCard({
         {chartFiltered && (
           <LineGraph
             data={chartFiltered}
-            stroke={{ solid: "#0FB871" }}
+            stroke={{ solid: "#eebd54" }}
             setSelectedIndex={setSelectedIndex}
           />
         )}
@@ -101,7 +101,7 @@ export default function ChartCard({
             key={i}
             className={classNames(
               t === timespan
-                ? "text-white bg-primary rounded-2xl font-bold"
+                ? "text-black bg-[#eebd54] rounded-2xl font-bold"
                 : "text-secondary",
               "text-sm px-4 py-[0.3rem]"
             )}

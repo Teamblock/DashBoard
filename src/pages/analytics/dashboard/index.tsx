@@ -410,7 +410,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
 
   const Launchpad: FC = () => {
     return (
-      <div id="launchpad" className="w-full h-full p-4 pt-7 Topheading">
+      <div id="launchpad" className="w-full h-full p-10 Topheading">
         <Container maxWidth="6xl" className="mx-auto w-full h-full">
           <div className="">
             <Typography
@@ -420,7 +420,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
             >
               Launchpad
             </Typography>
-            <Typography className="text-white text-xs md:text-lg mt-2 max-w-[45%] maxLg:max-w-full">
+            <Typography className="text-white-700 text-xs md:text-lg mt-2 max-w-[45%] maxLg:max-w-full">
               Cross-Chain and permissionless rugpull proof Launchpad
             </Typography>
           </div>
@@ -506,7 +506,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
             <Slider {...settings} className="">
               <Card
                 cardDesc="bg-[#1a202e] rounded-b-xl"
-                className="w-full max-w-md border-gray-300 border-2"
+                className="w-full max-w-md border !border-Gray"
                 header={
                   <>
                     <Card.Header className="bg-[#fff] flex-col justify-center !py-2">
@@ -559,7 +559,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
               </Card>
               <Card
                 cardDesc="bg-[#1a202e] rounded-b-xl"
-                className="w-full max-w-md border-gray-300 border-2"
+                className="w-full max-w-md border !border-Gray "
                 header={
                   <>
                     <Card.Header className="bg-[#fff] flex-col justify-center !py-2">
@@ -612,7 +612,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
               </Card>
               <Card
                 cardDesc="bg-[#1a202e] rounded-b-xl"
-                className="w-full max-w-md border-gray-300 border-2"
+                className="w-full max-w-md border !border-Gray "
                 header={
                   <>
                     <Card.Header className="bg-[#fff] flex-col justify-center !py-2">
@@ -665,7 +665,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
               </Card>
               <Card
                 cardDesc="bg-[#1a202e] rounded-b-xl"
-                className="w-full max-w-md border-gray-300 border-2"
+                className="w-full max-w-md border !border-Gray"
                 header={
                   <>
                     <Card.Header className="bg-[#fff] flex-col justify-center !py-2">
@@ -725,7 +725,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
 
   const EFTStats: FC = () => {
     return (
-      <div className="w-full h-full px-4 pt-2 maxMd:pt-0 Topheading">
+      <div className="w-full h-full p-10  Topheading">
         <Container maxWidth="6xl" className="mx-auto w-full h-full">
           <div className="">
             <Typography
@@ -822,7 +822,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
     );
 
     return (
-      <div className="w-full h-full pt-5 px-4 maxMd:pt-0">
+      <div className="w-full h-full p-10">
         <Container maxWidth="6xl" className="mx-auto w-full h-full Topheading">
           <div className="mt-1 md:mb-2">
             <Typography
@@ -1129,7 +1129,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
     }, [type, pairs, pairs1d, pairs2d, pairs1w, pairs2w]);
 
     return (
-      <div className="w-full h-full p-4 maxMd:pt-0">
+      <div className="w-full h-full p-10">
         <Container maxWidth="6xl" className="mx-auto w-full h-full Topheading">
           <div className="mt-7">
             <Typography
@@ -1269,7 +1269,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
     });
 
     return (
-      <div className="w-full h-full p-4 maxMd:pt-0">
+      <div className="w-full h-full p-10">
         <Container maxWidth="6xl" className="mx-auto w-full h-full Topheading">
           <div className="mt-3">
             <Typography
@@ -1380,7 +1380,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                               data={items.graph}
                               stroke={{
                                 solid:
-                                  items?.change1w > 0 ? "#0FB871" : "#A466FF",
+                                  items?.change1w > 0 ? "#0FB871" : "#eebd54",
                               }}
                             />
                           </div>

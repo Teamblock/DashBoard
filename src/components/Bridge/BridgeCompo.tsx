@@ -120,7 +120,6 @@ export default function BridgeCompo() {
               labelBridge="Wallets Connected from"
               popoverPanelClass="w-full !absolute"
               transitionCss="w-full max-w-[100%] relative"
-              selectPanelClass="!bg-[#474747]"
               currency={currency0}
               onClick={() => setActiveField(Fields.TOKEN0)}
               onCurrencySelect={handleCurrencySelect}
@@ -138,7 +137,7 @@ export default function BridgeCompo() {
               labelBridge="Transferring to"
               popoverPanelClass="w-full !absolute"
               transitionCss="w-full max-w-[100%] relative"
-              selectPanelClass="!bg-[#474747] z-[0]"
+              selectPanelClass="z-[0]"
               currency={currency1}
               onClick={() => setActiveField(Fields.TOKEN1)}
               onCurrencySelect={handleCurrencySelect}

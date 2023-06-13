@@ -86,7 +86,7 @@ const FarmList = ({ farms, term }) => {
   return items ? (
     <>
       <div className="w-full hide-scrollbar overflow-auto">
-        <div className="flex justify-between bg-[#4F4F4F] min-w-[768px] rounded-[0.350rem] !w-full overflow-auto">
+        <div className="flex justify-between border border-1 border-gray-500 min-w-[768px] rounded-[0.350rem] !w-full overflow-auto">
           <div
             className={classNames(
               "flex gap-1 items-center cursor-pointer",

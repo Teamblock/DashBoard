@@ -74,7 +74,7 @@ export default function Alert({
   return message && show ? (
     <div
       className={classNames(
-        "flex flex-row rounded p-4 gap-3 !bg-[#474747]",
+        "flex flex-row rounded p-4 gap-3 !bg-ternary",
         color,
         className
       )}

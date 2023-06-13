@@ -359,8 +359,8 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 }
 
 .Cus-gradient{
-  background: linear-gradient(135.69deg, #fff1db -3.98%, #ece1fe 97.48%);
-  border: 2px solid #e3d3d3;
+  /* background: linear-gradient(135.69deg, #fff1db -3.98%, #ece1fe 97.48%); */
+  border: 1px solid Gray;
   border-radius: 10px;
 }
 
@@ -375,7 +375,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 }
 
 .shadow-btnShadow{
-    background: linear-gradient(135.69deg, #FFC00B -3.98%, #A466FF 97.48%);
+    background: linear-gradient(135.69deg, #fdde85 -3.98%, #eebd54 97.48%);
 }
 
 @media screen and (max-width: 767px) {

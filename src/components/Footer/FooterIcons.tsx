@@ -18,13 +18,13 @@ const FooterIcons: React.FC<FooterIconsProps> = ({ footerIconsCss }) => {
   return (
     <div className={classNames("flex items-center gap-6", footerIconsCss)}>
       <div className="flex items-center justify-around w-full max-w-[15rem]">
-        <a href="https://twitter.com/thoughtwin">
+        <a href="https://twitter.com/thoughtwin" className="mr-4">
           <TwitterIcon className="text-black cursor-pointer w-[33px]" />
         </a>
-        <a href="https://m.facebook.com/thoughtwin">
+        <a href="https://m.facebook.com/thoughtwin" className="mr-4">
           <Meduim2Icon className="text-black cursor-pointer w-[33px]" />
         </a>
-        <a href="https://in.linkedin.com/company/thoughtwin">
+        <a href="https://in.linkedin.com/company/thoughtwin" className="mr-4">
           <TelegramIcon className="!text-black cursor-pointer w-[33px]" />
         </a>
         <a href="https://www.instagram.com/thoughtwin_solutions/">

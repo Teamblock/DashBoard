@@ -274,7 +274,7 @@ export const NetworkModal: FC<NetworkModalProps> = ({ popoverCss }) => {
               return (
                 <div
                   key={i}
-                  className="bg-[rgba(0,0,0,0.2)] focus:outline-none flex items-center gap-4 w-full px-3 py-2 rounded border border-purple cursor-default"
+                  className="bg-[rgba(0,0,0,0.2)] focus:outline-none flex items-center gap-4 w-full px-3 py-2 rounded border border-[#eebd54] cursor-default"
                 >
                   <img
                     // @ts-ignore TYPE NEEDS FIXING

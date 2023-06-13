@@ -28,7 +28,7 @@ export default function LiquidityPrice({
         className
       )}
     >
-      <div className="flex flex-col w-full text-black/80">
+      <div className="flex flex-col w-full text-white">
         <Typography
           variant="sm"
           className="select-none md:text-sm text-[9px] md:w-full  w-[162px]"
@@ -52,7 +52,7 @@ export default function LiquidityPrice({
           )}
         </Typography>
       </div>
-      <div className="flex flex-col w-full text-right text-black/80">
+      <div className="flex flex-col w-full text-right text-white">
         <Typography variant="sm" className="select-none md:text-sm  text-[9px]">
           {noLiquidity && price
             ? "100"

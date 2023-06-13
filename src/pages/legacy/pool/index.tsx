@@ -52,11 +52,11 @@ export default function Pool() {
           />
         </Head>
 
-        <div className="m-2 p-6 md:min-w-[40rem] rounded border border-Gray maxMd:border-none maxMd:m-0 !bg-[#EAEAEA]">
+        <div className="m-2 p-6 md:min-w-[40rem] rounded border border-Gray maxMd:border-none maxMd:m-0 !bg-[#1a202e]">
           <div className="mb-3 space-y-3">
             <Back className="ml-3 w-16 maxSm:ml-0" />
 
-            <Typography className="!text-2xl tracking-wide text-black/90 ml-4 maxSm:ml-0 maxMd:mb-3">
+            <Typography className="!text-2xl tracking-wide text-white ml-4 maxSm:ml-0 maxMd:mb-3">
               {i18n._(t`My Liquidity Positions`)}
             </Typography>
           </div>
@@ -73,7 +73,7 @@ export default function Pool() {
 
           {!account ? (
             // <Web3Connect className="w-full text-base font-normal text-white !bg-primary rounded-md h-11 maxSm:h-12" />
-            <Web3Status web3ConnectClass="w-full text-base font-normal text-white !bg-black rounded-md h-11 maxSm:h-12" />
+            <Web3Status web3ConnectClass="w-full text-base font-normal !text-black !bg-[#eebd54] rounded-md h-11 maxSm:h-12" />
           ) : (
             <div className="p-4 space-y-4 rounded-[0.350rem] bg-popupBg/80 overflow-auto hide-scrollbar">
               <div className="grid grid-flow-row gap-3">

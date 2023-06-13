@@ -692,13 +692,10 @@
   "Status": "Status",
   "Status: disabled": "Status: disabled",
   "Status: enabled": "Status: enabled",
-  "Stay Informed": "Stay Informed",
   "Step One": "Step One",
   "Step Three": "Step Three",
   "Step Two": "Step Two",
   "Submit": "Submit",
-  "Subscribe": "Subscribe",
-  "Subscribe to our newsletter.": "Subscribe to our newsletter.",
   "Success": "Success",
   "Success!": "Success!",
   "Success! Deposit Submitted": "Success! Deposit Submitted",
@@ -953,7 +950,7 @@
   "{0} tokens": "{0} tokens",
   "{0} {1} per \nEFT": "{0} {1} per \nEFT",
   "{0}/{1} Burned": "{0}/{1} Burned",
-  "© 2022 by Dex": "© 2022 by Dex",
+  "© 2023 by Dex": "© 2023 by Dex",
   "← Previous Step": "← Previous Step",
   "⚠️ Loading Error": "⚠️ Loading Error"
 }

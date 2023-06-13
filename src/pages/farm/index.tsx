@@ -65,23 +65,23 @@ console.log("Hello Farm",chainId);
     <div className="px-2 pt-10 pb-10 md:pb-20 w-full intro_section !h-auto">
       <Container
         maxWidth="5xl"
-        className="bg-[#EAEAEA] mx-auto p-3 md:p-8 rounded-[0.350rem]"
+        className="bg-[#1a202e] mx-auto p-3 md:p-8 rounded-[0.350rem]"
       >
         <TridentHeader className="flex flex-col justify-center items-center">
           <div className="flex flex-col justify-center items-center">
             <Typography
               variant="h1"
-              className="text-black !text-lg mb-2"
+              className="text-white !text-lg mb-2"
               weight={700}
             >
               {i18n._(t`Farming Menu`)}
             </Typography>
-            <Typography variant="sm" weight={400} className="text-black">
+            <Typography variant="sm" weight={400} className="text-white">
               {i18n._(
-                t`Earn fees and rewards by depositing and staking your tokens to the platform.`
+                t`Earn fees and rewards by depositing and  your tokens to the platform.`
               )}
             </Typography>
-            <button className="mt-3 capitalize border-2 disabled:pointer-events-none border-dark-700 hover:bg-dark-700/30 active:bg-dark-700/50 focus:bg-dark-700/30 text-sm rounded px-3 h-[36px] font-bold flex items-center justify-center gap-1 text-white bg-black hover:bg-black/90 hover:text-white font-bold text-white rounded-[0.350rem] w-[9rem] !h-[2.5rem] !border-none">
+            <button className="mt-3 capitalize border-2 disabled:pointer-events-none border-dark-700 hover:bg-dark-700/30 active:bg-dark-700/50 focus:bg-dark-700/30 text-sm rounded px-3 h-[36px] font-bold flex items-center justify-center gap-1 !text-black bg-[#eebd54] hover:bg-[#eebd54]/80 hover:text-white font-bold text-white rounded-[0.350rem] w-[9rem] !h-[2.5rem] !border-none">
               apply for onsen
             </button>
           </div>

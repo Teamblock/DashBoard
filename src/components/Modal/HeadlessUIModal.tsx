@@ -194,7 +194,7 @@ const HeadlessUiModalControlled: FC<ControlledModalProps> = ({
             <div
               className={classNames(
                 transparent ? "" : transitionChildCss,
-                "bg-[#EAEAEA] border border-Gray lg:!max-w-lg",
+                "bg-[#1a202e] border border-Gray lg:!max-w-lg",
                 isDesktop ? MAX_WIDTH_CLASS_MAPPING[maxWidth] : "",
                 isDesktop
                   ? `w-full`

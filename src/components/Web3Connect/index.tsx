@@ -73,7 +73,7 @@ export default function Web3Connect({ color = 'gray', size = 'sm', className = '
       onClick={handleConnect}
       variant="outlined"
       color={color}
-      className={classNames(className, '!border-none')}
+      className={classNames(className, '!border-none !bg-[#eebd54] !text-black')}
       size={size}
       {...rest}
     >

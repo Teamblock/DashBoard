@@ -129,7 +129,7 @@ const OnsenFilter = () => {
     <div className="flex gap-2 items-center w-full md:w-[180px]">
       <Menu as="div" className="relative inline-block w-full text-left">
         <div>
-          <Menu.Button className="w-full px-4 py-2.5 text-sm font-bold bg-[#4F4F4F] border rounded-[0.350rem] shadow-sm text-white/60 border-Gray ">
+          <Menu.Button className="w-full px-4 py-2.5 text-sm font-bold border rounded-[0.350rem] shadow-sm text-white/80 border-Gray placeholder:text-white/70">
             <div className="flex flex-row items-lightGray justify-between">
               <Typography weight={700} variant="sm">
                 {selected}
@@ -158,7 +158,7 @@ const OnsenFilter = () => {
               <div
                 key={index}
                 onClick={() => setSelected(k as FarmFilter)}
-                className="px-3 py-2  bg-ternary cursor-pointer hover:bg-ternary/80"
+                className="px-3 py-2  bg-transparent cursor-pointer hover:bg-ternary/80"
               >
                 {v}
               </div>

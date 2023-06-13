@@ -74,7 +74,7 @@ export const TABLE_WRAPPER_DIV_CLASSNAME =
 export const TABLE_TABLE_CLASSNAME = 'w-full border-collapse'
 // @ts-ignore TYPE NEEDS FIXING
 export const TABLE_TR_TH_CLASSNAME = (i, length) =>
-  classNames('text-white text-sm p-3 flex border-b border-Gray ')
+  classNames('text-white text-sm p-3 flex')
 export const TABLE_TBODY_TR_CLASSNAME = 'hover:cursor-pointer'
 // @ts-ignore TYPE NEEDS FIXING
 export const TABLE_TBODY_TD_CLASSNAME = (i, length) =>

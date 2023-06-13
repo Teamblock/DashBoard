@@ -78,7 +78,7 @@ const SwapAssetPanel = ({
         className
       )}
     >
-      <Typography variant="sm" className="flex text-Gray-500 whitespace-nowrap">
+      <Typography variant="sm" className="flex text-white whitespace-nowrap">
         {title}
       </Typography>
       {header({
@@ -292,7 +292,7 @@ const SwapAssetPanelHeader: FC<
     <div
       id={id}
       className={classNames(
-        'flex justify-between w-full bg-field border rounded-md border-Gray hover:border-Indigo',
+        'flex justify-between w-full bg-field border rounded-md border-Gray hover:border-[#eebd54]',
         selectcurrencyClass
       )}
     >
@@ -311,7 +311,7 @@ const SwapAssetPanelHeader: FC<
             >
               {!spendFromWallet ? currency.wrapped.symbol : currency.symbol}
             </Typography>
-            <Typography variant="sm" className="!text-xs text-Indigo">
+            <Typography variant="sm" className="!text-xs text-[#eebd54]">
               ({!spendFromWallet ? currency.wrapped.symbol : currency.symbol})
             </Typography>
           </div>
@@ -330,7 +330,7 @@ const SwapAssetPanelHeader: FC<
                 role="button"
                 onClick={handleClick}
                 variant="sm"
-                className="ml-1 !font-semibold text-sm text-Indigo"
+                className="ml-1 !font-semibold text-sm text-[#eebd54]"
               >
                 {balance ? balance.toSignificant(6) : '0.00'}
                 <span className="ml-0.5"></span>
@@ -341,7 +341,7 @@ const SwapAssetPanelHeader: FC<
               role="button"
               onClick={handleClick}
               variant="sm"
-              className="mt-2 text-sm text-Indigo flex justify-end"
+              className="mt-2 text-sm text-[#eebd54] flex justify-end"
             >
               {usdcValue?.greaterThan(ZERO) && (
                 <>$ {formatNumber(usdcValue?.toFixed(), false, true, 2)} </>
@@ -366,7 +366,7 @@ const SwapAssetPanelHeader: FC<
       size="sm"
       variant="filled"
       id={id}
-      className="w-full text-base font-normal text-white bg-Green hover:bg-Green/95 rounded-[0.350rem] h-10"
+      className="w-full text-base font-normal !text-white bg-black hover:bg-black/80 rounded-[0.350rem] h-12"
     >
       {i18n._(t`Select a Token`)}
       <ChevronDownIcon width={18} />
@@ -417,14 +417,14 @@ const SwapAssetPanelHeader: FC<
               )}
             </div>
             {!isItemShow && (
-              <Typography className="flex gap-2 text-sm !font-medium items-center  whitespace-nowrap text-Indigo">
+              <Typography className="flex gap-2 text-sm !font-medium items-center  whitespace-nowrap text-[#eebd54]">
                 {currency
                   ? !spendFromWallet
                     ? currency.wrapped.symbol
                     : currency.symbol
                   : null}
                 <Button
-                  className="text-lg !text-Gray-500 font-semiblod pointer-events-auto rounded-[0.350rem] !bg-transparent border border-Green py-1 px-3 hover:!text-white"
+                  className="text-lg !text-Gray-500 font-semiblod pointer-events-auto rounded-[0.350rem] !bg-transparent border border-[#eebd54] py-1 px-3 hover:!text-white"
                   onClick={handleClick}
                 >
                   {i18n._(t`Max`)}
