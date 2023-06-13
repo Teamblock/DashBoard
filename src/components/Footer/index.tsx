@@ -57,19 +57,22 @@ const Footer = () => {
                   Echain (Dex Chain) all while accelerating their adoption.`
                 )}
               </Typography>
-              <FooterIcons footerIconsCss="mt-4 md:-ml-3" />
+              
             </div>
             <div className="flex items-end">
               <div className="grid md:grid-cols-04 grid-cols-1 border-y pb-8 pt-8 w-full mt-[0.7rem] md:mt-[3.7rem]">
-                <div>
+              <div className="text-right">
+                <FooterIcons footerIconsCss="mt-4 md:-ml-3" />
+              </div>
+                {/* <div>
                   <Typography variant="lg" className="font-black text-black">
                     {i18n._(t`Stay Informed`)}
                   </Typography>
                   <Typography variant="sm" className="text-black/80 pt-1">
                     {i18n._(t`Subscribe to our newsletter.`)}
                   </Typography>
-                </div>
-                <div className="justify-center flex flex-col gap-1 w-full pt-8">
+                </div> */}
+                {/* <div className="justify-center flex flex-col gap-1 w-full pt-8">
                   <form
                     onSubmit={handleSubmit}
                     className="w-full indent-2 bg-transparent"
@@ -92,7 +95,7 @@ const Footer = () => {
                       {i18n._(t`Subscribe`)}
                     </Button>
                   </form>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

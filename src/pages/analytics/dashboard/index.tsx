@@ -321,7 +321,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
             currency={currency}
             size={40}
           />
-          <div className="ml-4 text-lg font-bold text-primary">
+          <div className="ml-4 text-lg font-bold text-white">
             {token.symbol}
           </div>
         </div>
@@ -731,18 +731,18 @@ const Dashboard: FC<DashboardProps> = ({}) => {
             <Typography
               variant="h1"
               component="h1"
-              className="!font-bold maxLg:text-lg text-black mb-4 maxLg:mb-0"
+              className="!font-bold maxLg:text-lg text-white mb-4 maxLg:mb-0"
             >
               EFT Stats
             </Typography>
             <div className="flex justify-between maxLg:flex-wrap gap-3">
-              <Typography className="text-gray-700 text-xs md:text-lg mt-2 max-w-[50%] maxLg:max-w-full">
+              <Typography className="text-white-700 text-xs md:text-lg mt-2 max-w-[50%] maxLg:max-w-full">
                 A collection of the core learning resources for developers
                 onboarding to Ecoswap
               </Typography>
               <Button
                 variant="filled"
-                className="text-base !text-white w-[10rem] md:w-[11rem] maxLg:text-sm maxLg:h-10 font-normal rounded-[0.350rem] h-14 !bg-black"
+                className="text-base !text-black w-[10rem] md:w-[11rem] maxLg:text-sm maxLg:h-10 font-normal rounded-[0.350rem] h-14 !bg-[#eebd54]"
                 onClick={() => {
                   router.push(`/analytics/xenergyfi`);
                 }}
@@ -828,18 +828,18 @@ const Dashboard: FC<DashboardProps> = ({}) => {
             <Typography
               variant="h1"
               component="h1"
-              className="!font-bold maxLg:text-lg text-black mb-4 maxLg:mb-0"
+              className="!font-bold maxLg:text-lg text-white mb-4 maxLg:mb-0"
             >
               Yield Farming
             </Typography>
             <div className="flex maxLg:flex-wrap justify-between gap-3">
-              <Typography className="text-gray-700 text-xs md:text-lg mt-2 max-w-[45%] maxLg:max-w-full">
+              <Typography className="text-white-700 text-xs md:text-lg mt-2 max-w-[45%] maxLg:max-w-full">
                 A collection of the core learning resources for developers
                 onboarding to EFTswap
               </Typography>
               <Button
                 variant="filled"
-                className="!text-white w-[10rem] md:w-[11rem] maxLg:text-sm maxLg:h-10 font-normal rounded-[0.350rem] h-14 !bg-black"
+                className="!text-black w-[10rem] md:w-[11rem] maxLg:text-sm maxLg:h-10 font-normal rounded-[0.350rem] h-14 !bg-[#eebd54]"
                 onClick={() => {
                   router.push(`/analytics/farms`);
                 }}
@@ -856,7 +856,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                   cardDesc="bg-trabsparent border !border-Gray p-4 w-full rounded-xl"
                   className="w-full max-w-md cursor-pointer"
                 >
-                  <div className="flex gap-2 items-center cursor-pointer text-primary font-bold">
+                  <div className="flex gap-2 items-center cursor-pointer text-white font-bold">
                     <img
                       src={ElogoIcon.src}
                       alt="circle"
@@ -870,24 +870,24 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                     USDT/GLMR
                   </div>
                   <div className="flex pt-4 justify-between">
-                    <Typography className="text-black">
+                    <Typography className="text-white">
                       APR
-                      <div className="items-center text-md mt-2 !font-semibold text-black">
+                      <div className="items-center text-md mt-2 !font-semibold text-white">
                         383.9%
                       </div>
                     </Typography>
                     <Typography>
                       <div className="flex text-sm flex-col">
-                        <div className="text-black">TVL</div>
-                        <div className="items-center mt-2 !font-semibold text-black">
+                        <div className="text-white">TVL</div>
+                        <div className="items-center mt-2 !font-semibold text-white">
                           $53.76
                         </div>
                       </div>
                     </Typography>
                     <Typography>
                       <div className="flex text-sm flex-col">
-                        <div className="text-black">Your Stake</div>
-                        <div className="items-center mt-2 !font-semibold text-black">
+                        <div className="text-white">Your Stake</div>
+                        <div className="items-center mt-2 !font-semibold text-white">
                           $0
                         </div>
                       </div>
@@ -898,7 +898,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                   cardDesc="bg-trabsparent border !border-Gray p-4 w-full rounded-xl"
                   className="w-full max-w-md cursor-pointer"
                 >
-                  <div className="flex gap-2 items-center cursor-pointer text-primary font-bold">
+                  <div className="flex gap-2 items-center cursor-pointer text-white font-bold">
                     <img
                       src={ElogoIcon.src}
                       alt="circle"
@@ -912,24 +912,24 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                     USDT/GLMR
                   </div>
                   <div className="flex pt-4 justify-between">
-                    <Typography className="text-black">
+                    <Typography className="text-white">
                       APR
-                      <div className="items-center text-md mt-2 !font-semibold text-black">
+                      <div className="items-center text-md mt-2 !font-semibold text-white">
                         383.9%
                       </div>
                     </Typography>
                     <Typography>
                       <div className="flex text-sm flex-col">
-                        <div className="text-black">TVL</div>
-                        <div className="items-center mt-2 !font-semibold text-black">
+                        <div className="text-white">TVL</div>
+                        <div className="items-center mt-2 !font-semibold text-white">
                           $53.76
                         </div>
                       </div>
                     </Typography>
                     <Typography>
                       <div className="flex text-sm flex-col">
-                        <div className="text-black">Your Stake</div>
-                        <div className="items-center mt-2 !font-semibold text-black">
+                        <div className="text-white">Your Stake</div>
+                        <div className="items-center mt-2 !font-semibold text-white">
                           $0
                         </div>
                       </div>
@@ -940,7 +940,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                   cardDesc="bg-trabsparent border !border-Gray p-4 w-full rounded-xl"
                   className="w-full max-w-md cursor-pointer"
                 >
-                  <div className="flex gap-2 items-center cursor-pointer text-primary font-bold">
+                  <div className="flex gap-2 items-center cursor-pointer text-white font-bold">
                     <img
                       src={ElogoIcon.src}
                       alt="circle"
@@ -954,24 +954,24 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                     USDT/GLMR
                   </div>
                   <div className="flex pt-4 justify-between">
-                    <Typography className="text-black">
+                    <Typography className="text-white">
                       APR
-                      <div className="items-center text-md mt-2 !font-semibold text-black">
+                      <div className="items-center text-md mt-2 !font-semibold text-white">
                         383.9%
                       </div>
                     </Typography>
                     <Typography>
                       <div className="flex text-sm flex-col">
-                        <div className="text-black">TVL</div>
-                        <div className="items-center mt-2 !font-semibold text-black">
+                        <div className="text-white">TVL</div>
+                        <div className="items-center mt-2 !font-semibold text-white">
                           $53.76
                         </div>
                       </div>
                     </Typography>
                     <Typography>
                       <div className="flex text-sm flex-col">
-                        <div className="text-black">Your Stake</div>
-                        <div className="items-center mt-2 !font-semibold text-black">
+                        <div className="text-white">Your Stake</div>
+                        <div className="items-center mt-2 !font-semibold text-white">
                           $0
                         </div>
                       </div>
@@ -982,7 +982,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                   cardDesc="bg-trabsparent border !border-Gray p-4 w-full rounded-xl"
                   className="w-full max-w-md cursor-pointer"
                 >
-                  <div className="flex gap-2 items-center cursor-pointer text-primary font-bold">
+                  <div className="flex gap-2 items-center cursor-pointer text-white font-bold">
                     <img
                       src={ElogoIcon.src}
                       alt="circle"
@@ -996,16 +996,16 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                     USDT/GLMR
                   </div>
                   <div className="flex pt-4 justify-between">
-                    <Typography className="text-black">
+                    <Typography className="text-white">
                       APR
-                      <div className="items-center text-md mt-2 !font-semibold text-black">
+                      <div className="items-center text-md mt-2 !font-semibold text-white">
                         383.9%
                       </div>
                     </Typography>
                     <Typography>
                       <div className="flex text-sm flex-col">
-                        <div className="text-black">TVL</div>
-                        <div className="items-center mt-2 !font-semibold text-black">
+                        <div className="text-white">TVL</div>
+                        <div className="items-center mt-2 !font-semibold text-white">
                           $53.76
                         </div>
                       </div>
@@ -1135,18 +1135,18 @@ const Dashboard: FC<DashboardProps> = ({}) => {
             <Typography
               variant="h1"
               component="h1"
-              className="!font-bold maxLg:text-lg text-black mb-4 maxLg:mb-0"
+              className="!font-bold maxLg:text-lg text-white mb-4 maxLg:mb-0"
             >
               Pairs
             </Typography>
             <div className="flex maxLg:flex-wrap justify-between gap-3">
-              <Typography className="text-gray-700 text-xs md:text-lg mt-2 max-w-[35%] maxLg:max-w-full">
+              <Typography className="text-white-700 text-xs md:text-lg mt-2 max-w-[35%] maxLg:max-w-full">
                 Click on the column name to sort pairs by its TVL, volume or
                 fees gained.
               </Typography>
               <Button
                 variant="filled"
-                className="!text-white w-[10rem] md:w-[11rem] maxLg:text-sm maxLg:h-10 font-normal rounded-[0.350rem] h-14 !bg-black"
+                className="!text-black w-[10rem] md:w-[11rem] maxLg:text-sm maxLg:h-10 font-normal rounded-[0.350rem] h-14 !bg-[#eebd54]"
                 onClick={() => {
                   router.push(`/analytics/pairs`);
                 }}
@@ -1181,16 +1181,16 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                       <div className="flex text-Gray text-sm justify-between my-4">
                         <Typography className="flex items-center text-lg font-normal !font-semibold">
                           <div className="flex flex-col text-sm">
-                            <div className="text-[#333333]"> TVL</div>
-                            <div className="text-[#1C1C1C]">
+                            <div className="text-white"> TVL</div>
+                            <div className="text-white">
                               {formatNumberScale(items.liquidity, true)}
                             </div>
                           </div>
                         </Typography>
                         <Typography className="flex items-center text-lg font-normal !font-semibold">
                           <div className="flex flex-col text-sm">
-                            <div className="text-[#333333]"> Annual APY</div>
-                            <div className="text-[#1C1C1C] pt-1 text-right text-sm">
+                            <div className="text-white"> Annual APY</div>
+                            <div className="text-white pt-1 text-right text-sm">
                               {getApy(items.volume1w, items.liquidity)}
                             </div>
                           </div>
@@ -1199,14 +1199,14 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                       <div className="flex text-Gray text-sm justify-between">
                         <Typography className="flex items-center text-lg font-normal !font-semibold">
                           <div className="flex flex-col text-sm gap-1">
-                            <div className="text-[#333333] text-sm font-normal">
+                            <div className="text-white text-sm font-normal">
                               Daily / Weekly Volume
                             </div>
                             <div>
-                              <div className="font-medium text-[#1C1C1C] font-semibold">
+                              <div className="font-medium text-white font-semibold">
                                 {formatNumber(items.volume1d, true, false, 2)}
                               </div>
-                              <div className="font-normal text-[#1C1C1C] font-semibold">
+                              <div className="font-normal text-white font-semibold">
                                 {formatNumber(items.volume1w, true, false, 2)}
                               </div>
                             </div>
@@ -1214,11 +1214,11 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                         </Typography>
                         <Typography className="flex items-center text-lg font-normal !font-semibold">
                           <div className="flex flex-col text-sm gap-1">
-                            <div className="text-[#333333] font-normal">
+                            <div className="text-white font-normal">
                               Daily / Weekly Fees
                             </div>
                             <div>
-                              <div className="font-medium text-right text-[#1C1C1C] text-sm font-semibold">
+                              <div className="font-medium text-right text-white text-sm font-semibold">
                                 {formatNumber(
                                   items.volume1d * 0.003,
                                   true,
@@ -1226,7 +1226,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                                   2
                                 )}
                               </div>
-                              <div className="font-normal text-right text-[#1C1C1C] font-semibold">
+                              <div className="font-normal text-right text-white font-semibold">
                                 {formatNumber(
                                   items.volume1w * 0.003,
                                   true,
@@ -1275,18 +1275,18 @@ const Dashboard: FC<DashboardProps> = ({}) => {
             <Typography
               variant="h1"
               component="h1"
-              className="!font-bold maxLg:text-lg text-black mb-4 maxLg:mb-0"
+              className="!font-bold maxLg:text-lg text-white mb-4 maxLg:mb-0"
             >
               Tokens
             </Typography>
             <div className="flex maxLg:flex-wrap flex justify-between gap-3">
-              <Typography className="text-gray-700 text-xs md:text-lg mt-2 max-w-[40%] maxLg:max-w-full">
+              <Typography className="text-white-700 text-xs md:text-lg mt-2 max-w-[40%] maxLg:max-w-full">
                 Click on the column name to sort tokens by it's price or trading
                 volume.
               </Typography>
               <Button
                 variant="filled"
-                className="!text-white w-[10rem] md:w-[11rem] maxLg:text-sm maxLg:h-10 font-normal rounded-[0.350rem] h-14 !bg-black"
+                className="!text-black w-[10rem] md:w-[11rem] maxLg:text-sm maxLg:h-10 font-normal rounded-[0.350rem] h-14 !bg-[#eebd54]"
                 onClick={() => {
                   router.push(`/analytics/tokens`);
                 }}
@@ -1322,16 +1322,16 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                       <div className="flex text-Gray text-sm justify-between my-4">
                         <Typography className="flex items-center text-lg !font-semibold">
                           <div className="flex flex-col text-sm">
-                            <div className="text-[#333333]"> Price</div>
-                            <div className="text-[#1C1C1C] text-right pt-1 text-sm">
+                            <div className="text-white"> Price</div>
+                            <div className="text-white text-right pt-1 text-sm">
                               {formatNumber(items.price, true, undefined, 2)}
                             </div>
                           </div>
                         </Typography>
                         <Typography className="flex items-center text-lg !font-semibold">
                           <div className="flex flex-col text-sm">
-                            <div className="text-[#333333]">Liquidity</div>
-                            <div className="text-[#1C1C1C] pt-1 text-right text-sm">
+                            <div className="text-white">Liquidity</div>
+                            <div className="text-white pt-1 text-right text-sm">
                               {formatNumber(items.liquidity, true, false)}
                             </div>
                           </div>
@@ -1340,15 +1340,15 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                       <div className="flex text-Gray text-sm justify-between">
                         <Typography className="flex items-center text-lg !font-semibold">
                           <div className="flex flex-col text-sm ">
-                            <div className="text-[#333333]">Daily/weekly</div>
-                            <div className="text-[#333333]">% Change</div>
+                            <div className="text-white">Daily/weekly</div>
+                            <div className="text-white">% Change</div>
                             <div>
                               <ColoredNumber
                                 className="font-medium"
                                 number={items?.change1d}
                                 percent={true}
                               />
-                              <div className="font-normal text-[#1C1C1C]">
+                              <div className="font-normal text-white">
                                 {items?.change1w > 0 && "+"}
                                 {formatPercent(items?.change1w)}
                               </div>
@@ -1357,22 +1357,22 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                         </Typography>
                         <Typography className="flex items-center text-lg !font-semibold">
                           <div className="flex flex-col text-sm ">
-                            <div className="text-[#333333]">Daily/weekly</div>
-                            <div className="text-right text-[#333333]">
+                            <div className="text-white">Daily/weekly</div>
+                            <div className="text-right text-white">
                               Volume
                             </div>
                             <div>
-                              <div className="font-medium text-right text-[#1C1C1C]">
+                              <div className="font-medium text-right text-white">
                                 {formatNumber(items?.volume1d, true, false, 2)}
                               </div>
-                              <div className="font-normal text-right text-[#1C1C1C]">
+                              <div className="font-normal text-right text-white">
                                 {formatNumber(items?.volume1w, true, false, 2)}
                               </div>
                             </div>
                           </div>
                         </Typography>
                       </div>
-                      <div className="pt-4 items-center text-Gray text-sm text-[#333333] w-full">
+                      <div className="pt-4 items-center text-Gray text-sm text-white w-full">
                         Last Week
                         <div className="flex w-full h-full py-2">
                           <div className="w-full h-20">
