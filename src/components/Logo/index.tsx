@@ -4,7 +4,7 @@ import React, { FC, useState } from 'react'
 import Image from '../Image'
 import { ELogo } from '../Icon'
 
-export const UNKNOWN_ICON = 'https://energyfi.app/cdn/logo.png'
+export const UNKNOWN_ICON = 'https://ik.imagekit.io/dkwlv6ot8/Thoughtwin_Icon/polygon.jpg?updatedAt=1686908462755'
 
 const BAD_SRCS: { [tokenAddress: string]: true } = {}
 
@@ -21,7 +21,7 @@ interface LogoProps {
  * Renders an image by sequentially trying a list of URIs, and then eventually a fallback triangle alert
  */
 const Logo: FC<LogoProps> = ({ srcs, width, height, alt = '', className, style }) => {
-  console.log('srcs',srcs)
+  console.log('srcs', srcs)
   const [, refresh] = useState<number>(0)
   const src = srcs.find((src) => {
     return !BAD_SRCS[src]
@@ -43,7 +43,7 @@ const Logo: FC<LogoProps> = ({ srcs, width, height, alt = '', className, style }
         />
         :
         <Image
-        src={UNKNOWN_ICON}
+          src={UNKNOWN_ICON}
           onError={() => {
             if (src) BAD_SRCS[src] = true
             refresh((i) => i + 1)
