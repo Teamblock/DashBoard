@@ -59,13 +59,11 @@ input:focus {
 }
 
 .striped-background {
-  background: repeating-linear-gradient(
-    45deg,
-    #161522,
-    #161522 10px,
-    #0d0415 10px,
-    #0d0415 20px
-  );
+  background: repeating-linear-gradient(45deg,
+      #161522,
+      #161522 10px,
+      #0d0415 10px,
+      #0d0415 20px);
 }
 
 input[type="datetime-local"]::-webkit-calendar-picker-indicator {
@@ -80,8 +78,10 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 }
 
 .hide-scrollbar {
-  -ms-overflow-style: none; /* for Internet Explorer, Edge */
-  scrollbar-width: none; /* for Firefox */
+  -ms-overflow-style: none;
+  /* for Internet Explorer, Edge */
+  scrollbar-width: none;
+  /* for Firefox */
   overflow-y: none;
 }
 
@@ -97,13 +97,16 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   background: #e0e0e0;
   border-radius: 20px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #bdbdbd;
   border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #999999;
 }
+
 .slick-initialized .slick-slide {
   padding: 10px;
 }
@@ -135,12 +138,14 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
+
 .slick-next:hover:before {
   background: #eebd54 !important;
   background-image: url("../../public/images/rightScrollIcon.svg") !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 }
+
 .slick-prev:before {
   background-image: url("../../public/images/leftScrollIcon.svg") !important;
   content: "" !important;
@@ -170,21 +175,26 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 }
 
 @media screen and (max-width: 767px) {
+
   /* .arrow_icon {
     margin: 3rem 6rem 0px auto;
   } */
   .arrow_icon {
     margin: 3rem 9rem 0px auto;
   }
+
   .slick-initialized .slick-slide {
     padding: 5px;
   }
+
   .slick-prev:before {
     display: none;
   }
+
   .slick-next:before {
     display: none;
   }
+
   .ilo_heading_Text {
     white-space: nowrap;
     width: 80% !important;
@@ -197,11 +207,12 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   .flex_box_relative {
     position: relative;
   }
+
   .flex_box_relative .mob_swap_width {
     width: 90% !important;
   }
-  .flex_box_relative .mob_pool_width {
-  }
+
+  .flex_box_relative .mob_pool_width {}
 }
 
 .border-top-0 {
@@ -240,7 +251,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   /* height: 92vh; */
   /* hight according to energyfi.io*/
   width: 100%;
-  background-color: #0c0e1b;
+  background-color: #000;
   /* background-image: url(../../public/images/dashboard/Objects.png); */
   background-repeat: no-repeat;
   background-size: cover;
@@ -260,21 +271,20 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 }
 
 .intro_left {
-    /* width: 100%; */
-    color: #fff;
-    text-decoration: none;
-    text-align: center !important;
-    padding: 20% 0px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
+  /* width: 100%; */
+  color: #fff;
+  text-decoration: none;
+  padding: 15% 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 .intro_left h1 {
   font-family: "Code Pro", sans-serif !important;
   font-weight: 700;
-  font-size: 60px;
-  line-height: 75px;
+  font-size: 50px;
+  line-height: 65px;
   margin-bottom: 20px;
 }
 
@@ -334,10 +344,9 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 }
 
 .intro_right .intro_circle img {
-  width: 100% !important;
+  width: 65% !important;
+  float: right;
 }
-
-
 
 .analytic_para {
   font-size: 14px;
@@ -358,30 +367,31 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   height: 1rem;
 }
 
-.Cus-gradient{
+.Cus-gradient {
   /* background: linear-gradient(135.69deg, #fff1db -3.98%, #ece1fe 97.48%); */
   border: 1px solid Gray;
   border-radius: 10px;
 }
 
-.Topheading h1{
+.Topheading h1 {
   font-weight: 700;
   font-size: 40px;
   line-height: 50px;
 }
 
-.bg-g-card1{
+.bg-g-card1 {
   background: linear-gradient(135.69deg, rgba(255, 192, 11, 0.1) -3.98%, rgba(164, 102, 255, 0.1) 97.48%);
 }
 
-.shadow-btnShadow{
-    background: linear-gradient(135.69deg, #fdde85 -3.98%, #eebd54 97.48%);
+.shadow-btnShadow {
+  background: linear-gradient(135.69deg, #fdde85 -3.98%, #eebd54 97.48%);
 }
 
 @media screen and (max-width: 767px) {
   .intro_section {
     overflow: hidden;
   }
+
   .curve_img {
     height: auto;
     margin-left: 43%;
@@ -402,12 +412,12 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     z-index: 9;
   }
 
-  .intro_right{
+  .intro_right {
     width: 100% !important;
     margin-top: 25px;
   }
 
-  .intro_right img{
+  .intro_right img {
     width: 100% !important;
   }
 
@@ -435,6 +445,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     bottom: 0%;
     right: 10%;
   }
+
   .analytic_para {
     margin-bottom: 0px;
   }
@@ -445,14 +456,17 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     overflow: hidden;
     height: 95vh;
   }
+
   .intro_circle {
     position: absolute;
     top: 1% !important;
     right: 30%;
   }
+
   .intro_right .intro_circle img {
     width: 125px !important;
   }
+
   .intro_left {
     width: 100% !important;
     padding: 20px 20px 0px;
@@ -460,33 +474,39 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     position: relative;
     z-index: 9;
   }
+
   .intro_left h1 {
     line-height: 36px !important;
     font-size: 26px !important;
     margin: 22.01px 0px;
   }
+
   .launch_btn {
     font-size: 15px;
     height: 45px;
     padding: 0px 9px;
   }
+
   .buy_btn {
     font-size: 15px;
     height: 45px;
     padding: 0px 10px;
     margin-left: 10px;
   }
+
   .curve_img {
     height: auto;
     margin-left: 55%;
     width: 65px;
     margin-top: -12%;
   }
+
   .intro_ellipse {
     position: absolute !important;
     bottom: 10% !important;
     right: 8% !important;
   }
+
   .intro_right .intro_ellipse img {
     width: 125px !important;
   }

@@ -73,7 +73,7 @@ const chartTimespans = [
   },
 ];
 
-interface DashboardProps {}
+interface DashboardProps { }
 
 interface FarmListProps {
   pools: {
@@ -158,7 +158,7 @@ interface TokenListNameProps {
 
 type IsButton = "upcoming" | "live" | "success" | "failed";
 
-const Dashboard: FC<DashboardProps> = ({}) => {
+const Dashboard: FC<DashboardProps> = ({ }) => {
   const { i18n } = useLingui();
   const { account } = useActiveWeb3React();
   const [ilosList, setIlosList] = useState([]);
@@ -211,7 +211,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
       volume1dChange:
         ((exchange?.volumeUSD - exchange1d?.volumeUSD) /
           (exchange1d?.volumeUSD - exchange2d?.volumeUSD)) *
-          100 -
+        100 -
         100,
       volumeChart: dayData
         // @ts-ignore TYPE NEEDS FIXING
@@ -376,10 +376,10 @@ const Dashboard: FC<DashboardProps> = ({}) => {
     };
     return (
       <>
-         <div className="intro_section">
+        <div className="intro_section">
           <div className="container flex justify-center items-center">
             <div className="intro_left">
-              <h1>Welcome to the Dex <br />Dashboard</h1>
+              <h1>Welcome to the <br /> Dex Dashboard</h1>
               {/* <p className="mb-3">
                 Discover NFTs by category, track the latest drops, and follow the
                 collections you love. Enjoy it!
@@ -397,11 +397,11 @@ const Dashboard: FC<DashboardProps> = ({}) => {
               </div> */}
             </div>
 
-            {/* <div className="intro_right">
+            <div className="intro_right">
               <div className="intro_circle">
                 <img src={BannerImg.src} alt="circle" />
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </>
@@ -1060,11 +1060,34 @@ const Dashboard: FC<DashboardProps> = ({}) => {
     const pairsFormatted = useMemo(() => {
       return type === "all"
         ? // @ts-ignore TYPE NEEDS FIXING
-          pairs?.slice(0, 9)?.map((pair) => {
+        pairs?.slice(0, 9)?.map((pair) => {
+          // @ts-ignore TYPE NEEDS FIXING
+          const pair1d = pairs1d?.find((p) => pair.id === p.id) ?? pair;
+          // @ts-ignore TYPE NEEDS FIXING
+          const pair1w = pairs1w?.find((p) => pair.id === p.id) ?? pair1d;
+
+          return {
+            pair: {
+              token0: pair.token0,
+              token1: pair.token1,
+              id: pair.id,
+            },
+            liquidity: pair.reserveUSD,
+            volume1d: pair.volumeUSD - pair1d.volumeUSD,
+            volume1w: pair.volumeUSD - pair1w.volumeUSD,
+          };
+        })
+        : pairs
+          // @ts-ignore TYPE NEEDS FIXING
+          ?.map((pair) => {
             // @ts-ignore TYPE NEEDS FIXING
             const pair1d = pairs1d?.find((p) => pair.id === p.id) ?? pair;
             // @ts-ignore TYPE NEEDS FIXING
-            const pair1w = pairs1w?.find((p) => pair.id === p.id) ?? pair1d;
+            const pair2d = pairs2d?.find((p) => pair.id === p.id) ?? pair1d;
+            // @ts-ignore TYPE NEEDS FIXING
+            const pair1w = pairs1w?.find((p) => pair.id === p.id) ?? pair2d;
+            // @ts-ignore TYPE NEEDS FIXING
+            const pair2w = pairs2w?.find((p) => pair.id === p.id) ?? pair1w;
 
             return {
               pair: {
@@ -1072,60 +1095,37 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                 token1: pair.token1,
                 id: pair.id,
               },
-              liquidity: pair.reserveUSD,
-              volume1d: pair.volumeUSD - pair1d.volumeUSD,
-              volume1w: pair.volumeUSD - pair1w.volumeUSD,
+              liquidityChangeNumber1d: pair.reserveUSD - pair1d.reserveUSD,
+              liquidityChangePercent1d:
+                (pair.reserveUSD / pair1d.reserveUSD) * 100 - 100,
+              liquidityChangeNumber1w: pair.reserveUSD - pair1w.reserveUSD,
+              liquidityChangePercent1w:
+                (pair.reserveUSD / pair1w.reserveUSD) * 100 - 100,
+
+              volumeChangeNumber1d:
+                pair.volumeUSD -
+                pair1d.volumeUSD -
+                (pair1d.volumeUSD - pair2d.volumeUSD),
+              volumeChangePercent1d:
+                ((pair.volumeUSD - pair1d.volumeUSD) /
+                  (pair1d.volumeUSD - pair2d.volumeUSD)) *
+                100 -
+                100,
+              volumeChangeNumber1w:
+                pair.volumeUSD -
+                pair1w.volumeUSD -
+                (pair1w.volumeUSD - pair2w.volumeUSD),
+              volumeChangePercent1w:
+                ((pair.volumeUSD - pair1w.volumeUSD) /
+                  (pair1w.volumeUSD - pair2w.volumeUSD)) *
+                100 -
+                100,
             };
           })
-        : pairs
-            // @ts-ignore TYPE NEEDS FIXING
-            ?.map((pair) => {
-              // @ts-ignore TYPE NEEDS FIXING
-              const pair1d = pairs1d?.find((p) => pair.id === p.id) ?? pair;
-              // @ts-ignore TYPE NEEDS FIXING
-              const pair2d = pairs2d?.find((p) => pair.id === p.id) ?? pair1d;
-              // @ts-ignore TYPE NEEDS FIXING
-              const pair1w = pairs1w?.find((p) => pair.id === p.id) ?? pair2d;
-              // @ts-ignore TYPE NEEDS FIXING
-              const pair2w = pairs2w?.find((p) => pair.id === p.id) ?? pair1w;
-
-              return {
-                pair: {
-                  token0: pair.token0,
-                  token1: pair.token1,
-                  id: pair.id,
-                },
-                liquidityChangeNumber1d: pair.reserveUSD - pair1d.reserveUSD,
-                liquidityChangePercent1d:
-                  (pair.reserveUSD / pair1d.reserveUSD) * 100 - 100,
-                liquidityChangeNumber1w: pair.reserveUSD - pair1w.reserveUSD,
-                liquidityChangePercent1w:
-                  (pair.reserveUSD / pair1w.reserveUSD) * 100 - 100,
-
-                volumeChangeNumber1d:
-                  pair.volumeUSD -
-                  pair1d.volumeUSD -
-                  (pair1d.volumeUSD - pair2d.volumeUSD),
-                volumeChangePercent1d:
-                  ((pair.volumeUSD - pair1d.volumeUSD) /
-                    (pair1d.volumeUSD - pair2d.volumeUSD)) *
-                    100 -
-                  100,
-                volumeChangeNumber1w:
-                  pair.volumeUSD -
-                  pair1w.volumeUSD -
-                  (pair1w.volumeUSD - pair2w.volumeUSD),
-                volumeChangePercent1w:
-                  ((pair.volumeUSD - pair1w.volumeUSD) /
-                    (pair1w.volumeUSD - pair2w.volumeUSD)) *
-                    100 -
-                  100,
-              };
-            })
-            // @ts-ignore TYPE NEEDS FIXING
-            .sort(
-              (a, b) => b.liquidityChangeNumber1d - a.liquidityChangeNumber1d
-            );
+          // @ts-ignore TYPE NEEDS FIXING
+          .sort(
+            (a, b) => b.liquidityChangeNumber1d - a.liquidityChangeNumber1d
+          );
     }, [type, pairs, pairs1d, pairs2d, pairs1w, pairs2w]);
 
     return (
@@ -1169,9 +1169,9 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                       onClick={
                         items?.pair.id
                           ? () => {
-                              router.push(`/analytics/pairs/${items?.pair.id}`);
-                            }
-                          : () => {}
+                            router.push(`/analytics/pairs/${items?.pair.id}`);
+                          }
+                          : () => { }
                       }
                       className="cursor-pointer"
                     >
@@ -1308,11 +1308,11 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                       onClick={
                         items?.token.id
                           ? () => {
-                              router.push(
-                                `/analytics/tokens/${items?.token.id}`
-                              );
-                            }
-                          : () => {}
+                            router.push(
+                              `/analytics/tokens/${items?.token.id}`
+                            );
+                          }
+                          : () => { }
                       }
                       className="cursor-pointer"
                     >
