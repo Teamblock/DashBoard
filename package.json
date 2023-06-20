@@ -259,7 +259,7 @@
     "react-slick": "^0.29.0",
     "react-use": "^17.4.0",
     "recoil": "^0.7.6",
-    "sharp": "^0.31.3",
+    "sharp": "^0.31.1",
     "slick-carousel": "^1.8.1",
     "uuidv4": "^6.2.13",
     "web3": "^1.8.2"
