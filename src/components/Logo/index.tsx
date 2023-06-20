@@ -21,7 +21,6 @@ interface LogoProps {
  * Renders an image by sequentially trying a list of URIs, and then eventually a fallback triangle alert
  */
 const Logo: FC<LogoProps> = ({ srcs, width, height, alt = '', className, style }) => {
-  console.log('srcs', srcs)
   const [, refresh] = useState<number>(0)
   const src = srcs.find((src) => {
     return !BAD_SRCS[src]

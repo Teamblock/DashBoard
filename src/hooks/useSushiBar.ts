@@ -13,6 +13,8 @@ const useSushiBar = () => {
       if (amount?.quotient) {
         try {
           const tx = await barContract?.enter(amount?.quotient.toString())
+          console.log(tx,"<><><<><><>><><><><><");
+          
           return addTransaction(tx, { summary: 'Enter EnergyFiBar' })
         } catch (e) {
           return e

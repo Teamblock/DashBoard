@@ -2788,9 +2788,9 @@
     tiny-warning "^1.0.0"
     toformat "^2.0.0"
 
-"@sushiswap/core-sdk@https://github.com/Teamblock/dex-sdk-build.git#c0401800ca828ba7455ed119d57642249c6b125b":
+"@sushiswap/core-sdk@https://github.com/Teamblock/dex-sdk-build.git#5aac380cedc671f4253aaccb6a9e24dba6738006":
   version "1.0.0-canary.77"
-  resolved "https://github.com/Teamblock/dex-sdk-build.git#c0401800ca828ba7455ed119d57642249c6b125b"
+  resolved "https://github.com/Teamblock/dex-sdk-build.git#5aac380cedc671f4253aaccb6a9e24dba6738006"
   dependencies:
     "@ethersproject/address" "^5.4.0"
     "@ethersproject/bignumber" "^5.4.0"

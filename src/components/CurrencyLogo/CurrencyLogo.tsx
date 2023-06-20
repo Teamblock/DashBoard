@@ -24,7 +24,7 @@ const BLOCKCHAIN = {
   [ChainId.AVALANCHE]: 'avalanche',
   [ChainId.MOONBEAM]: 'moonbeam',
   [ChainId.HARDHAT]: 'hardhat',
-  [ChainId.MATIC_TESTNET]: 'mumbai',
+  [ChainId.MATIC_TESTNET]: 'matic',
 }
 
 // @ts-ignore TYPE NEEDS FIXING

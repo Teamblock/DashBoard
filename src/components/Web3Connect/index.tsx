@@ -43,7 +43,7 @@ export default function Web3Connect({ color = 'gray', size = 'sm', className = '
                 chainId: web3.utils.toHex(chainId),
                 nativeCurrency: { name: "Matic Token", decimals: 18, symbol: "MATIC" },
                 rpcUrls: [RPC_URLS],
-                blockExplorerUrls: [`https://${chainId === 80001 ? 'mumbai' : ''}.polygonscan.com/`], 
+                blockExplorerUrls: [`https://${chainId === 80001 ? 'matic' : ''}.polygonscan.com/`], 
               },
             ],
           });

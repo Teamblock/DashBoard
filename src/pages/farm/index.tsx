@@ -19,7 +19,6 @@ import React from "react";
 export default function Farm(): JSX.Element {
   const { i18n } = useLingui();
   const { chainId } = useActiveWeb3React();
-console.log("Hello Farm",chainId);
 
   const router = useRouter();
   const type =
@@ -44,6 +43,9 @@ console.log("Hello Farm",chainId);
     // @ts-ignore TYPE NEEDS FIXING
     old: (farm) => farm.chef === Chef.OLD_FARMS,
   };
+
+ 
+  
 
   const rewards = useFarmRewards();
 

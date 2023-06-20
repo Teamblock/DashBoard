@@ -275,6 +275,12 @@ export default function useFarmRewards() {
             rewardPerDay: rewardPerSecond * 86400,
             rewardPrice: glimmerPrice,
           },
+          [ChainId.MATIC_TESTNET]: {
+            currency: NATIVE[ChainId.MATIC_TESTNET],
+            rewardPerBlock,
+            rewardPerDay: rewardPerSecond * 86400,
+            rewardPrice: glimmerPrice,
+          },
         }
 
         if (chainId === ChainId.FUSE) {

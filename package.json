@@ -98,7 +98,7 @@
     "@sushiswap/bentobox-sdk": "1.0.0-canary.119",
     "@sushiswap/chainlink-whitelist": "0.2.8",
     "@sushiswap/core": "^2.0.0-canary.1",
-    "@sushiswap/core-sdk": "https://github.com/Teamblock/dex-sdk-build.git#c0401800ca828ba7455ed119d57642249c6b125b",
+    "@sushiswap/core-sdk": "https://github.com/Teamblock/dex-sdk-build.git#5aac380cedc671f4253aaccb6a9e24dba6738006",
     "@sushiswap/default-token-list": "https://github.com/Teamblock/default-token-list-build.git#bdf231bad74b624761fbd3f500c59d1b551ab60c",
     "@sushiswap/kashi-sdk": "1.0.0-canary.110",
     "@sushiswap/limit-order-pair-list": "0.2.17",

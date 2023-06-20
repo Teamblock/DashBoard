@@ -60,6 +60,9 @@ export const getPairs = async (
   return pairs;
 };
 
+
+
+
 // @ts-ignore TYPE NEEDS FIXING
 export const getPairDayData = async (chainId = ChainId.MATIC_TESTNET, variables) => {
   // console.log('getTokens')
@@ -331,6 +334,9 @@ export const getFactory = async (
   const { factories } = await exchange(chainId, factoryQuery, variables);
   return factories[0];
 };
+
+
+
 
 export const getTransactions = async (
   chainId = ChainId.MATIC_TESTNET,

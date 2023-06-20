@@ -24,7 +24,7 @@ import {
   useNativePrice,
   useOneDayBlock,
   useTokens,
-} from "app/services/graph/hooks";
+} from "../../services/graph/hooks";
 import { useBar } from "app/services/graph/hooks/bar";
 import { useActiveWeb3React } from "app/services/web3";
 import { useWalletModalToggle } from "app/state/application/hooks";
@@ -42,10 +42,16 @@ const sendTx = async (txFunc: () => Promise<any>): Promise<boolean> => {
   let success = true;
   try {
     const ret = await txFunc();
+
+    
     if (ret?.error) {
+     
+      
       success = false;
     }
   } catch (e) {
+   
+    
     console.error(e);
     success = false;
   }
@@ -54,7 +60,7 @@ const sendTx = async (txFunc: () => Promise<any>): Promise<boolean> => {
 
 const tabStyle =
   "flex justify-center items-center h-12 w-full rounded-[0.350rem] cursor-pointer md:text-base";
-const activeTabStyle = `${tabStyle} text-black font-medium bg-[#eebd54] rounded-[0.350rem] `;
+const activeTabStyle = `${tabStyle} text-white font-medium bg-black rounded-[0.350rem] `;
 const inactiveTabStyle = `${tabStyle} text-white font-medium maxMd:border border-Gray`;
 
 const buttonStyle =
@@ -67,12 +73,12 @@ const buttonStyleConnectWallet = `${buttonStyle} text-white bg-primary hover:bg-
 export default function Stake() {
   const { i18n } = useLingui();
   const { account } = useActiveWeb3React();
+ 
   const sushiBalance = useTokenBalance(
     account ?? undefined,
-    SUSHI[ChainId.MOONBEAM]
+    SUSHI[ChainId.MATIC_TESTNET]
   );
   const xSushiBalance = useTokenBalance(account ?? undefined, XTWT_CALL);
-console.log("xSushiBalanceLINE:::::75",xSushiBalance);
 
   const { enter, leave } = useSushiBar();
 
@@ -81,29 +87,26 @@ console.log("xSushiBalanceLINE:::::75",xSushiBalance);
 
   const [activeTab, setActiveTab] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
-console.log("LINE::::::84");
 
   const [input, setInput] = useState<string>("");
   const [usingBalance, setUsingBalance] = useState(false);
 
   const balance = activeTab === 0 ? sushiBalance : xSushiBalance;
-  console.log("LINE::::::90");
 
   const formattedBalance = balance?.toSignificant(4);
 
   const parsedAmount = usingBalance
     ? balance
     : tryParseAmount(input, balance?.currency);
-    console.log("LINE::::::97");
 
   const [approvalState, approve] = useApproveCallback(
     parsedAmount,
     BAR_ADDRESS[ChainId.MATIC_TESTNET]
+    
   );
-  console.log("LINE::::::103");
+
 
   const handleInput = (v: string) => {
-    console.log("LINE::::::106");
 
    
     if (v.length <= INPUT_CHAR_LIMIT) {
@@ -123,7 +126,6 @@ console.log("LINE::::::84");
     );
     setUsingBalance(true);
   };
-  console.log("LINE::::::126");
 
   // @ts-ignore TYPE NEEDS FIXING
   const insufficientFunds =
@@ -137,10 +139,8 @@ console.log("LINE::::::84");
     !input || pendingTx || (parsedAmount && parsedAmount.equalTo(ZERO));
 
   const handleClickButton = async () => {
-   
-    
+debugger
     if (buttonDisabled) return;
-    console.log("LINE143");
     if (!walletConnected) {
       toggleWalletModal();
     } else {
@@ -148,15 +148,25 @@ console.log("LINE::::::84");
       
 
       if (activeTab === 0) {
+ 
+    
         if (approvalState === ApprovalState.NOT_APPROVED) {
           const success = await sendTx(() => approve());
+
+          
           if (!success) {
+            
             setPendingTx(false);
             // setModalOpen(true)
             return;
           }
         }
+        
         const success = await sendTx(() => enter(parsedAmount));
+        console.log("SUCCESSS",success);
+        
+       
+
         if (!success) {
           setPendingTx(false);
           setModalOpen(true);
@@ -177,10 +187,10 @@ console.log("LINE::::::84");
   };
 
   const block1d = useOneDayBlock({ chainId: ChainId.MATIC_TESTNET });
-console.log("block1d",block1d);
 
   const exchange = useFactory({ chainId: ChainId.MATIC_TESTNET });
-  console.log("blexchangeock1d",exchange);
+  console.log("EXCHANGE",exchange);
+  
 
   const exchange1d = useFactory({
     chainId: ChainId.MATIC_TESTNET,
@@ -189,62 +199,64 @@ console.log("block1d",block1d);
     },
     shouldFetch: !!block1d,
   });
+  console.log("exchange1d",exchange1d);
 
   const ethPrice = useNativePrice({ chainId: ChainId.MATIC_TESTNET });
-  console.log(ethPrice,"ethPrice");
   
 
   const xSushi = useTokens({
     chainId: ChainId.MATIC_TESTNET,
     variables: { where: { id: XTWT_CALL.address.toLowerCase() } },
   })?.[0];
-  console.log("xSushi",xSushi);
 
   const bar = useBar();
+  console.log(bar,"BARRRRR");
+  
   const [xSushiPrice] = [
     xSushi?.derivedETH * ethPrice,
     xSushi?.derivedETH * ethPrice * bar?.totalSupply,
   ];
-  console.log("bar",bar);
 
   const APY1d = aprToApy(
     (((exchange?.volumeUSD - exchange1d?.volumeUSD) * 0.0005 * 365.25) /
       (bar?.totalSupply * xSushiPrice)) *
       100 ?? 0
   );
+  console.log(APY1d,"APY1d");
 
-  console.log("APY1d",APY1d);
+  
+
   
   const isDesktop = useDesktopMediaQuery();
   const StackingAPR: FC = () => {
     return (
       <div className="flex items-center justify-between w-full rounded bg-transparent ">
         <div className="flex w-full flex-col">
-          <Typography className="mb-3 text-sm whitespace-nowrap md:text-lg md:leading-5 text-white">
+          <Typography className="mb-3 text-sm whitespace-nowrap md:text-lg md:leading-5 text-black">
             {i18n._(t`Staking APR`)}
           </Typography>
           <Link href={`/`}>
             <Button
               variant="filled"
               color="green"
-              className="!h-10 mb-3 font-medium !w-full max-w-[10rem] rounded-[0.350rem] !bg-[#eebd54] !text-black"
+              className="!h-10 mb-3 font-medium !w-full max-w-[10rem] rounded-[0.350rem] !bg-black !text-white"
             >
               {i18n._(t`View Stats`)}
             </Button>
           </Link>
         </div>
         <div className="flex flex-col">
-          <Typography className="mb-1 !font-semibold text-lg text-right text-white">
+          <Typography className="mb-1 !font-semibold text-lg text-right text-black">
             {`${APY1d ? APY1d.toFixed(2) + "%" : i18n._(t`Loading...`)}`}
           </Typography>
-          <Typography className="w-32 !text-sm text-right text-white md:w-64">
+          <Typography className="w-32 !text-sm text-right text-black md:w-64">
             {i18n._(t`Yesterday's APR`)}
           </Typography>
         </div>
       </div>
     );
   };
-console.log("LINE:::::::::237");
+
 
   return (
     <div className="w-full flex items-center intro_section !h-auto">
@@ -254,7 +266,7 @@ console.log("LINE:::::::::237");
         className="mx-auto px-2 pt-10 pb-10 md:pb-20 flex flex-col justify-center"
       >
         <Head>
-          <title key="title">Stake | Energyfi</title>
+          <title key="title">Stake | ThoughtWin</title>
           <meta
             key="description"
             name="description"
@@ -296,7 +308,7 @@ console.log("LINE:::::::::237");
         <Typography variant="h2" className="text-black mb-5 !text-xl">
           {i18n._(t`Staking`)}
         </Typography>
-        <div className="bg-[#1a202e] rounded-[0.350rem] py-4 px-6 maxMd:px-3 maxMd:py-2">
+        <div className="bg-[#CDCDCD] rounded-[0.350rem] py-4 px-6 maxMd:px-3 maxMd:py-2">
           <div className="maxSm:hidden">
             <StackingAPR />
             <Divider className="border-Gray" />
@@ -323,7 +335,7 @@ console.log("LINE:::::::::237");
                         }
                       >
                         <Typography className="font-medium text-md ">
-                          {i18n._(t`Stake EFT`)}
+                          {i18n._(t`Stake TWT`)}
                         </Typography>
                       </div>
                     </div>
@@ -342,7 +354,7 @@ console.log("LINE:::::::::237");
                         <Typography className="font-medium text-md">
                           {i18n._(t`Unstake`)}
                           <span className="md:hidden ml-1.5">
-                            {i18n._(t`EFT`)}
+                            {i18n._(t`TWT`)}
                           </span>
                         </Typography>
                         <p></p>
@@ -350,9 +362,9 @@ console.log("LINE:::::::::237");
                     </div>
                   </div>
                   <div className="flex items-center justify-between w-full mt-4">
-                    <Typography className="maxMd:hidden font-medium text-xl !text-white">
+                    <Typography className="maxMd:hidden font-medium text-xl !text-black">
                       {activeTab === 0
-                        ? i18n._(t`Stake EFT`)
+                        ? i18n._(t`Stake TWT`)
                         : i18n._(t`Unstake`)}
                     </Typography>
                   </div>
@@ -390,7 +402,7 @@ console.log("LINE:::::::::237");
                         >
                           {`${input ? input : "0"} ${
                             activeTab === 0 ? "" : "x"
-                          }EFT`}
+                          }TWT`}
                         </Typography>
                       </div>
                       <div className="flex items-center text-sm text-secondary md:text-base">
@@ -403,8 +415,8 @@ console.log("LINE:::::::::237");
                       </div>
                     </div>
                   </div>
-                  <div className="mt-1 mb-3 text-white/80 !text-sm">
-                    {`1 xEFT = ${Number(bar?.ratio ?? 0)?.toFixed(4)} EFT`}
+                  <div className="mt-1 mb-3 text-black/80 !text-sm">
+                    {`1 xTWT = ${Number(bar?.ratio ?? 0)?.toFixed(4)} TWT`}
                   </div>
                   {(approvalState === ApprovalState.NOT_APPROVED ||
                     approvalState === ApprovalState.PENDING) &&
@@ -425,9 +437,9 @@ console.log("LINE:::::::::237");
                   ) : !account ? (
                     <>
                       {isDesktop ? (
-                        <Web3Connect className="w-full text-base font-normal text-white bg-white hover:bg-black/95 rounded-[0.350rem] !h-11" />
+                        <Web3Connect className="w-full text-base font-normal text-white bg-black hover:bg-black/95 rounded-[0.350rem] !h-12" />
                       ) : (
-                        <Web3Status web3ConnectClass="bg-black hover:bg-black/90 hover:text-white/90 font-normal text-white rounded-[0.350rem]  w-full !h-11" />
+                        <Web3Status web3ConnectClass="bg-black hover:bg-black/90 hover:text-white/90 font-normal text-white rounded-[0.350rem]  w-full !h-12" />
                       )}
                     </>
                   ) : (
@@ -452,7 +464,7 @@ console.log("LINE:::::::::237");
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-3 rounded bg-ternary p-6 maxMd:p-5 maxMd:mt-7">
+            <div className="flex flex-col gap-3 rounded bg-[#474747] p-6 maxMd:p-5 maxMd:mt-7">
               <Typography className="!font-normal text-sm md:text-base text-white">
                 {i18n._(t`Balance`)}
               </Typography>
@@ -463,7 +475,7 @@ console.log("LINE:::::::::237");
                   </span>
                   <div className="flex items-center justify-between w-full">
                     <Typography className="!font-semibold text-sm md:text-base text-white ml-2">
-                      xEFT
+                      xTWT
                     </Typography>
                     <Typography className="text-sm !font-semibold text-white">
                       {xSushiBalance ? xSushiBalance.toSignificant(4) : "-"}
@@ -482,7 +494,7 @@ console.log("LINE:::::::::237");
                   </span>
                   <div className="flex items-center justify-between w-full">
                     <Typography className="!font-semibold text-sm md:text-base text-white ml-2">
-                      EFT
+                      TWT
                     </Typography>
                     <Typography className="text-sm !font-semibold text-white">
                       {sushiBalance ? sushiBalance.toSignificant(4) : "-"}
@@ -492,12 +504,12 @@ console.log("LINE:::::::::237");
               </div>
 
               {account && (
-                <Link href={`/analytics/xenergyfi`}>
+                <Link href={`/analytics/xtwin`}>
                   <Button
                     variant="outlined"
                     className="h-[3.1rem] w-full mt-[0.4rem] rounded-[0.350rem] transition hover:bg-Green text-white hover:border-Green"
                   >
-                    {i18n._(t`Your xEFT Stats`)}
+                    {i18n._(t`Your xTWT Stats`)}
                   </Button>
                 </Link>
               )}
