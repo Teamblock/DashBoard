@@ -31,7 +31,7 @@ const RPC = {
   // [ChainId.CELO]: 'https://forno.celo.org',
   // [ChainId.TELOS]: 'https://mainnet.telos.net/evm',
   [ChainId.MOONBEAM]: 'https://rpc.api.moonbeam.network',
-  [ChainId.MATIC_TESTNET]: 'https://polygon-mumbai.infura.io/v3/4458cf4d1689497b9a38b1d6bbf05e78',
+  [ChainId.MATIC_TESTNET]: 'https://polygon-mumbai.g.alchemy.com/v2/Gq4vF6EdgrD5yv8VBe9qE89Nzx2WH6Hs',
 }
 
 export default RPC
