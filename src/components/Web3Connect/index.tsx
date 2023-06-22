@@ -19,7 +19,7 @@ export default function Web3Connect({ color = 'gray', size = 'sm', className = '
   // const { chainId } = useActiveWeb3React()
 
   const chainId = ChainId.MATIC_TESTNET;
-  const RPC_URLS = 'https://matic-mumbai.chainstacklabs.com';
+  const RPC_URLS = 'https://polygon-mumbai.g.alchemy.com/v2/17l1siPugCQ7voFL8OphAvbuYrfGVLkY';
 
   const handleConnect = async () => {
     // if (!Web3.givenProvider && !window.ethereum) {

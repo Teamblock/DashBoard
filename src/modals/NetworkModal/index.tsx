@@ -229,7 +229,7 @@ export const SUPPORTED_NETWORKS: {
       symbol: 'MATIC',
       decimals: 18,
     },
-    rpcUrls: ['https://polygon-mumbai.g.alchemy.com/v2/Gq4vF6EdgrD5yv8VBe9qE89Nzx2WH6Hs'],
+    rpcUrls: ['https://polygon-mumbai.g.alchemy.com/v2/17l1siPugCQ7voFL8OphAvbuYrfGVLkY'],
     blockExplorerUrls: ['https://mumbai.polygonscan.com/'],
   },
 }
