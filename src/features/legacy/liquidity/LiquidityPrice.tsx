@@ -34,7 +34,7 @@ export default function LiquidityPrice({
           className="select-none md:text-sm text-[9px] md:w-full  w-[162px]"
         >
           {i18n._(
-            t`${price?.toSignificant(6) ?? "-"} EFT per ${
+            t`${price?.toSignificant(6) ?? "-"} TWT per ${
               currencies[Field.CURRENCY_A]?.symbol
             }`
           )}
@@ -47,7 +47,7 @@ export default function LiquidityPrice({
             t`${price?.invert()?.toSignificant(6) ?? "-"} ${
               currencies[Field.CURRENCY_A]?.symbol
             } per 
-            EFT
+            TWT
             `
           )}
         </Typography>

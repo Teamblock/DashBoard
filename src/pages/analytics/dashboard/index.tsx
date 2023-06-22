@@ -733,7 +733,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
               component="h1"
               className="!font-bold maxLg:text-lg text-white mb-4 maxLg:mb-0"
             >
-              EFT Stats
+              TWT Stats
             </Typography>
             <div className="flex justify-between maxLg:flex-wrap gap-3">
               <Typography className="text-white-700 text-xs md:text-lg mt-2 max-w-[50%] maxLg:max-w-full">
@@ -747,7 +747,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
                   router.push(`/analytics/xtwin`);
                 }}
               >
-                EFT Stats
+                TWT Stats
               </Button>
             </div>
           </div>
@@ -760,7 +760,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
               <div className="Cus-gradient">
                 <ChartCard
                   header="TVL"
-                  subheader="Energyfi AMM"
+                  subheader="Twin AMM"
                   figure={chartData.liquidity}
                   change={chartData.liquidityChange}
                   chart={chartData.liquidityChart}
@@ -776,7 +776,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
               <div className="Cus-gradient">
                 <ChartCard
                   header="Volume"
-                  subheader="Energyfi AMM"
+                  subheader="Twin AMM"
                   figure={chartData.volume1d}
                   change={chartData.volume1dChange}
                   chart={chartData.volumeChart}
@@ -835,7 +835,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
             <div className="flex maxLg:flex-wrap justify-between gap-3">
               <Typography className="text-white-700 text-xs md:text-lg mt-2 max-w-[45%] maxLg:max-w-full">
                 A collection of the core learning resources for developers
-                onboarding to EFTswap
+                onboarding to TWTswap
               </Typography>
               <Button
                 variant="filled"
@@ -867,7 +867,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
                       alt="circle"
                       className="w-10 border-2 border-gray-500 rounded-full"
                     />
-                    USDT/GLMR
+                    USDT/MATIC
                   </div>
                   <div className="flex pt-4 justify-between">
                     <Typography className="text-white">
@@ -909,7 +909,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
                       alt="circle"
                       className="w-10 border-2 border-gray-500 rounded-full"
                     />
-                    USDT/GLMR
+                    USDT/MATIC
                   </div>
                   <div className="flex pt-4 justify-between">
                     <Typography className="text-white">
@@ -951,7 +951,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
                       alt="circle"
                       className="w-10 border-2 border-gray-500 rounded-full"
                     />
-                    USDT/GLMR
+                    USDT/MATIC
                   </div>
                   <div className="flex pt-4 justify-between">
                     <Typography className="text-white">
@@ -993,7 +993,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
                       alt="circle"
                       className="w-10 border-2 border-gray-500 rounded-full"
                     />
-                    USDT/GLMR
+                    USDT/MATIC
                   </div>
                   <div className="flex pt-4 justify-between">
                     <Typography className="text-white">

@@ -246,7 +246,7 @@ export default function Dashboard(): JSX.Element {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <ChartCard
                 header="TVL"
-                subheader="ENERGYFI AMM"
+                subheader="Twin AMM"
                 figure={chartData.liquidity}
                 change={chartData.liquidityChange}
                 chart={chartData.liquidityChart}
@@ -255,7 +255,7 @@ export default function Dashboard(): JSX.Element {
               />
           <ChartCard
             header="Volume"
-            subheader="ENERGYFI AMM"
+            subheader="Twin AMM"
             figure={chartData.volume1d}
             change={chartData.volume1dChange}
             chart={chartData.volumeChart}

@@ -53,8 +53,8 @@ const Footer = () => {
                 className=" text-white-700 leading-[1.5rem]"
               >
                 {i18n._(
-                  t`Dex is designing green and cost-effective Decentralized Finance by providing a complete set of DeFi features on Avax, Near, Bsc and 
-                  Echain (Dex Chain) all while accelerating their adoption.`
+                  t`Dex is designing green and cost-effective Decentralized Finance by providing a complete set of DeFi features on Bsc and 
+                Polygon all while accelerating their adoption.`
                 )}
               </Typography>
               
