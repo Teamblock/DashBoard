@@ -504,7 +504,7 @@ debugger
               </div>
 
               {account && (
-                <Link href={`/analytics/xtwin`}>
+                <Link href={`/analytics/xEFT`}>
                   <Button
                     variant="outlined"
                     className="h-[3.1rem] w-full mt-[0.4rem] rounded-[0.350rem] transition hover:bg-Green text-white hover:border-Green"

@@ -744,7 +744,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
                 variant="filled"
                 className="text-base !text-black w-[10rem] md:w-[11rem] maxLg:text-sm maxLg:h-10 font-normal rounded-[0.350rem] h-14 !bg-[#eebd54]"
                 onClick={() => {
-                  router.push(`/analytics/xtwin`);
+                  router.push(`/analytics/xEFT`);
                 }}
               >
                 TWT Stats

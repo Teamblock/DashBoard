@@ -22,7 +22,7 @@ import {
 } from '@sushiswap/core-sdk'
 import { LIMIT_ORDER_HELPER_ADDRESS, STOP_LIMIT_ORDER_ADDRESS } from '@sushiswap/limit-order-sdk'
 import MISO from '@sushiswap/miso/exports/all.json'
-import TRIDENT from '@sushiswap/trident/exports/all.json'
+import TRIDENT from '@sushiswap/trident/exports/exports.json'
 import { OLD_FARMS } from 'app/config/farms'
 import { tridentMigrationContracts } from 'app/config/tridentMigration'
 import {
