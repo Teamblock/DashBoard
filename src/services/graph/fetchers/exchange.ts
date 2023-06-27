@@ -148,8 +148,8 @@ export const getEthPrice = async (variables = undefined) => {
 };
 
 export const getGlimmerPrice = async (variables = {}) => {
-  return getTokenPrice(ChainId.MOONBEAM, tokenPriceQuery, {
-    id: "0xacc15dc74880c9944775448304b263d191c6077f",
+  return getTokenPrice(ChainId.MATIC_TESTNET, tokenPriceQuery, {
+    id: "0x2D513351f026521Dd90AFbd00781C436227F4632",
     ...variables,
   });
 };
@@ -227,8 +227,8 @@ export const getMphPrice = async (variables = {}) => {
 };
 
 export const getSushiPrice = async (variables = {}) => {
-  return getTokenPrice(ChainId.MOONBEAM, tokenPriceQuery, {
-    id: "0xa423e7eeb60547d9c7b65005477b63ae7ce67e62",
+  return getTokenPrice(ChainId.MATIC_TESTNET, tokenPriceQuery, {
+    id: "0xb2791027021bCC6C41485A95Fb40eC3C5a5A9B14",
     ...variables,
   });
 };
@@ -240,7 +240,7 @@ export const getGnoPrice = async () => {
 };
 
 export const getOnePrice = async (variables = undefined) => {
-  return getNativePrice(ChainId.HARMONY, variables);
+  return getNativePrice(ChainId.MATIC_TESTNET, variables);
 };
 
 export const getAvaxPrice = async (variables = undefined) => {

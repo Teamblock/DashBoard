@@ -40,7 +40,7 @@ import { GraphProps } from "../interfaces";
 import { ethPriceQuery } from "../queries";
 
 export function useFactory({
-  chainId = ChainId.ETHEREUM,
+  chainId = ChainId.MATIC_TESTNET,
   variables,
   shouldFetch = true,
   swrConfig = undefined,
@@ -55,7 +55,7 @@ export function useFactory({
 }
 
 export function useNativePrice({
-  chainId = ChainId.ETHEREUM,
+  chainId = ChainId.MATIC_TESTNET,
   variables,
   shouldFetch = true,
   swrConfig = undefined,
@@ -306,7 +306,7 @@ export function useBundle(
 }
 
 export function useLiquidityPositions({
-  chainId = ChainId.ETHEREUM,
+  chainId = ChainId.MATIC_TESTNET,
   variables,
   shouldFetch = true,
   swrConfig = undefined,
@@ -320,7 +320,7 @@ export function useLiquidityPositions({
 }
 
 export function useSushiPairs({
-  chainId = ChainId.ETHEREUM,
+  chainId = ChainId.MATIC_TESTNET,
   variables,
   shouldFetch = true,
   swrConfig = undefined,
@@ -355,7 +355,7 @@ export function useSushiPairs({
 }
 
 export function useTokens({
-  chainId = ChainId.ETHEREUM,
+  chainId = ChainId.MATIC_TESTNET,
   variables,
   shouldFetch = true,
   swrConfig = undefined,
@@ -369,7 +369,7 @@ export function useTokens({
 }
 
 export function usePairDayData({
-  chainId = ChainId.ETHEREUM,
+  chainId = ChainId.MATIC_TESTNET,
   variables,
   shouldFetch = true,
   swrConfig = undefined,
@@ -417,7 +417,7 @@ export function useDayData({
 }
 
 export function useTokenPairs({
-  chainId = ChainId.ETHEREUM,
+  chainId = ChainId.MATIC_TESTNET,
   variables,
   shouldFetch = true,
   swrConfig = undefined,

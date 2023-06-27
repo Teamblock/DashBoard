@@ -24,6 +24,8 @@ export const MINICHEF = {
   [ChainId.FANTOM]: 'sushiswap/fantom-minichef',
   [ChainId.MOONBEAM]: 'energyfidevops/moonbeam-minichefv2',
   [ChainId.MOONBEAM_TESTNET]: 'chandu-thoughtwin/minichef',
+  [ChainId.MATIC_TESTNET]: 'abhishekwin/twin_minichef',
+
 }
 
 export const OLD_MINICHEF = {
@@ -110,7 +112,7 @@ export const getOldMiniChefFarms = async (chainId = ChainId.ETHEREUM) => {
   return pools
 }
 
-export const getMiniChefFarms = async (chainId = ChainId.ETHEREUM, variables = undefined) => {
+export const getMiniChefFarms = async (chainId = ChainId.MATIC_TESTNET, variables = undefined) => {
   const { pools } = await miniChef(miniChefPoolsQuery, chainId, variables)
   return pools
 }

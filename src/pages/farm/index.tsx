@@ -19,7 +19,6 @@ import React from "react";
 export default function Farm(): JSX.Element {
   const { i18n } = useLingui();
   const { chainId } = useActiveWeb3React();
-
   const router = useRouter();
   const type =
     router.query.filter === null ? "all" : (router.query.filter as string);
@@ -48,7 +47,8 @@ export default function Farm(): JSX.Element {
   
 
   const rewards = useFarmRewards();
-
+    console.log(rewards,"REWARDSSSSS");
+    
   const data = rewards.filter((farm) => {
     // @ts-ignore TYPE NEEDS FIXING
     return type in FILTER ? FILTER[type](farm) : true;

@@ -38,6 +38,7 @@ export default function useFarmRewards() {
 
   // @ts-ignore TYPE NEEDS FIXING
   const positions = usePositions(chainId)
+  console.log("LINE 42",positions);
 
   // console.log({ positions })
 
@@ -45,6 +46,9 @@ export default function useFarmRewards() {
 
   // @ts-ignore TYPE NEEDS FIXING
   const farms = useFarms({ chainId })
+
+  console.log("LINE 50 ", farms);
+  
   const farmAddresses = useMemo(() => farms.map((farm) => farm.pair), [farms])
 
   const swapPairs = useSushiPairs({
@@ -56,6 +60,8 @@ export default function useFarmRewards() {
     },
     shouldFetch: !!farmAddresses,
   })
+
+  
 
 
   const swapPairs1d = useSushiPairs({
