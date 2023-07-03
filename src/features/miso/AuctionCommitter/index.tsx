@@ -24,6 +24,7 @@ const AuctionCommitter: FC = () => {
   const { account } = useActiveWeb3React()
   const [review, setReview] = useState(false)
   const balance = useCurrencyBalance(account ?? undefined, auction?.paymentToken)
+  
   const [value, setValue] = useState<string>()
   const whitelistedAmount = useAuctionPointListPoints(
     auction?.pointListAddress,

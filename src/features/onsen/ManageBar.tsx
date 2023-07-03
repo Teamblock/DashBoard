@@ -52,6 +52,8 @@ const APPROVAL_ADDRESSES = {
     [ChainId.FANTOM]: MINICHEF_ADDRESS[ChainId.FANTOM],
     [ChainId.MOONBEAM_TESTNET]: MINICHEF_ADDRESS[ChainId.MOONBEAM_TESTNET],
     [ChainId.MOONBEAM]: MINICHEF_ADDRESS[ChainId.MOONBEAM],
+    [ChainId.MATIC_TESTNET]: MINICHEF_ADDRESS[ChainId.MATIC_TESTNET],
+
   },
   [Chef.OLD_FARMS]: {
     [ChainId.CELO]: OLD_FARMS[ChainId.CELO],
@@ -74,7 +76,7 @@ const ManageBar = ({ farm }) => {
     chainId || 1,
     getAddress(farm.pair.id),
     farm.pair.type === PairType.KASHI ? Number(farm.pair.asset.decimals) : 18,
-    farm.pair.type === PairType.KASHI ? "KMP" : "ELP"
+    farm.pair.type === PairType.KASHI ? "KMP" : "TLP"
   );
   const balance = useCurrencyBalance(account ?? undefined, liquidityToken);
 

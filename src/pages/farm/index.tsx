@@ -44,12 +44,16 @@ export default function Farm(): JSX.Element {
   };
 
   const rewards = useFarmRewards();
-  console.log(rewards, "REWARDSSSSS");
-
+  
+    console.log(rewards,"REWARDS::::");
+    
   const data = rewards.filter((farm) => {
     // @ts-ignore TYPE NEEDS FIXING
     return type in FILTER ? FILTER[type](farm) : true;
   });
+
+
+  
   const options = {
     keys: ["pair.id", "pair.token0.symbol", "pair.token1.symbol"],
     threshold: 0.4,

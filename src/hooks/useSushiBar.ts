@@ -15,7 +15,7 @@ const useSushiBar = () => {
           const tx = await barContract?.enter(amount?.quotient.toString())
           console.log(tx,"<><><<><><>><><><><><");
           
-          return addTransaction(tx, { summary: 'Enter EnergyFiBar' })
+          return addTransaction(tx, { summary: 'Enter TwinBar' })
         } catch (e) {
           return e
         }
@@ -29,7 +29,7 @@ const useSushiBar = () => {
       if (amount?.quotient) {
         try {
           const tx = await barContract?.leave(amount?.quotient.toString())
-          return addTransaction(tx, { summary: 'Leave EnergyFiBar' })
+          return addTransaction(tx, { summary: 'Leave TwinBar' })
         } catch (e) {
           return e
         }

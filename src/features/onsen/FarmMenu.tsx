@@ -61,7 +61,7 @@ enum FarmFilter {
   All = "All Farms",
   Portfolio = "Your Farms",
   Kashi = "Kashi Farms",
-  Energyfi = "Energyfi Farms",
+  Twin = "Twin Farms",
   Old = "Old Farms",
 }
 
@@ -70,7 +70,7 @@ const filters: Record<string, FarmFilter> = {
   farm: FarmFilter.All,
   kashi: FarmFilter.Kashi,
   old: FarmFilter.Old,
-  energyfi: FarmFilter.Energyfi,
+  energyfi: FarmFilter.Twin,
 };
 
 const OnsenFilter = () => {
@@ -103,11 +103,11 @@ const OnsenFilter = () => {
             label={i18n._(t`Kashi Farms`)}
           />
         ) : undefined,
-      [FarmFilter.Energyfi]:
-        chainId === ChainId.ETHEREUM ? (
+      [FarmFilter.Twin]:
+        chainId === ChainId.MATIC_TESTNET ? (
           <MenuLink
             href={"/farm?filter=energyfi"}
-            label={i18n._(t`EnergyfiSwap Farms`)}
+            label={i18n._(t`Twin Farms`)}
           />
         ) : undefined,
       // @ts-ignore TYPE NEEDS FIXING

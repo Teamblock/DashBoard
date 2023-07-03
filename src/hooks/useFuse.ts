@@ -10,6 +10,7 @@ function fuzzySearch({ fuse, data, term }) {
 
 // @ts-ignore TYPE NEEDS FIXING
 function useFuse({ data, options }) {
+
   const [term, setTerm] = useState<string>('')
   const fuseOptions = {
     ...options,
