@@ -1,40 +1,50 @@
-import { Disclosure, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/outline'
-import { t } from '@lingui/macro'
-import { useLingui } from '@lingui/react'
-import { Currency, Route, TradeVersion } from '@sushiswap/core-sdk'
-import Typography from 'app/components/Typography'
-import TradePrice from 'app/features/legacy/swap/TradePrice'
-import { classNames, computeRealizedLPFeePercent, shortenAddress } from 'app/functions'
-import { getTradeVersion } from 'app/functions/getTradeVersion'
-import useSwapSlippageTolerance from 'app/hooks/useSwapSlippageTollerence'
-import { TradeUnion } from 'app/types'
-import React, { FC, Fragment, useState } from 'react'
-import { isAddress } from 'web3-utils'
+import { Disclosure, Transition } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/outline";
+import { t } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
+import { Currency, Route, TradeVersion } from "@sushiswap/core-sdk";
+import Typography from "app/components/Typography";
+import TradePrice from "app/features/legacy/swap/TradePrice";
+import {
+  classNames,
+  computeRealizedLPFeePercent,
+  shortenAddress,
+} from "app/functions";
+import { getTradeVersion } from "app/functions/getTradeVersion";
+import useSwapSlippageTolerance from "app/hooks/useSwapSlippageTollerence";
+import { TradeUnion } from "app/types";
+import React, { FC, Fragment, useState } from "react";
+import { isAddress } from "web3-utils";
 
 interface SwapDetailsContent {
-  trade?: TradeUnion
-  recipient?: string
+  trade?: TradeUnion;
+  recipient?: string;
 }
 
 interface SwapDetails {
-  inputCurrency?: Currency
-  outputCurrency?: Currency
-  recipient?: string
-  trade?: TradeUnion
-  className?: string
+  inputCurrency?: Currency;
+  outputCurrency?: Currency;
+  recipient?: string;
+  trade?: TradeUnion;
+  className?: string;
 }
 
-const SwapDetails: FC<SwapDetails> = ({ inputCurrency, outputCurrency, recipient, trade, className }) => {
-  const [inverted, setInverted] = useState(false)
+const SwapDetails: FC<SwapDetails> = ({
+  inputCurrency,
+  outputCurrency,
+  recipient,
+  trade,
+  className,
+}) => {
+  const [inverted, setInverted] = useState(false);
 
   return (
     <Disclosure as="div">
       {({ open }) => (
         <div
           className={classNames(
-            open ? 'bg-black/90 border border-Indigo' : '',
-            'shadow-inner flex flex-col gap-2 py-3 rounded-[0.350rem] px-2 border border-Gray transition hover:!border-Indigo',
+            open ? "bg-ternary  border border-[#eebd54]" : "",
+            "bg-ternary  flex flex-col gap-2 py-3 rounded-[0.350rem] px-2 border border-Gray transition hover:!border-[#eebd54]",
             className
           )}
         >
@@ -52,7 +62,10 @@ const SwapDetails: FC<SwapDetails> = ({ inputCurrency, outputCurrency, recipient
               <div className="flex flex-grow items-center justify-end p-1 cursor-pointer rounded">
                 <ChevronDownIcon
                   width={20}
-                  className={classNames(open ? 'transform rotate-180' : '', 'transition hover:text-white')}
+                  className={classNames(
+                    open ? "transform rotate-180" : "",
+                    "transition hover:text-white"
+                  )}
                 />
               </div>
             </Disclosure.Button>
@@ -71,18 +84,20 @@ const SwapDetails: FC<SwapDetails> = ({ inputCurrency, outputCurrency, recipient
         </div>
       )}
     </Disclosure>
-  )
-}
+  );
+};
 
 const SwapDetailsContent: FC<SwapDetails> = ({ trade, recipient }) => {
-  const { i18n } = useLingui()
-  const allowedSlippage = useSwapSlippageTolerance(trade)
-  const minReceived = trade?.minimumAmountOut(allowedSlippage)
-  const realizedLpFeePercent = trade ? computeRealizedLPFeePercent(trade) : undefined
+  const { i18n } = useLingui();
+  const allowedSlippage = useSwapSlippageTolerance(trade);
+  const minReceived = trade?.minimumAmountOut(allowedSlippage);
+  const realizedLpFeePercent = trade
+    ? computeRealizedLPFeePercent(trade)
+    : undefined;
 
-  let path
+  let path;
   if (trade && getTradeVersion(trade) === TradeVersion.V2TRADE) {
-    path = (trade.route as Route<Currency, Currency>).path
+    path = (trade.route as Route<Currency, Currency>).path;
   }
 
   return (
@@ -91,7 +106,8 @@ const SwapDetailsContent: FC<SwapDetails> = ({ trade, recipient }) => {
         <div className="flex justify-between gap-4">
           <Typography variant="xs">{i18n._(t`Expected Output`)}</Typography>
           <Typography weight={700} variant="xs" className="text-right">
-            {trade?.outputAmount?.toSignificant(6)} {trade?.outputAmount?.currency.symbol}
+            {trade?.outputAmount?.toSignificant(6)}{" "}
+            {trade?.outputAmount?.currency.symbol}
           </Typography>
         </div>
         <div className="flex justify-between gap-4">
@@ -112,7 +128,8 @@ const SwapDetailsContent: FC<SwapDetails> = ({ trade, recipient }) => {
       <div className="flex flex-col gap-1 pt-2">
         <div className="flex justify-between gap-4">
           <Typography variant="xs" className="text-secondary">
-            {i18n._(t`Minimum received after slippage`)} ({allowedSlippage.toFixed(2)}%)
+            {i18n._(t`Minimum received after slippage`)} (
+            {allowedSlippage.toFixed(2)}%)
           </Typography>
           <Typography variant="xs" className="text-right text-secondary">
             {minReceived?.toSignificant(6)} {minReceived?.currency.symbol}
@@ -134,13 +151,13 @@ const SwapDetailsContent: FC<SwapDetails> = ({ trade, recipient }) => {
               {i18n._(t`Route`)}
             </Typography>
             <Typography variant="xs" className="text-right text-secondary">
-              {path.map((el) => el.symbol).join(' > ')}
+              {path.map((el) => el.symbol).join(" > ")}
             </Typography>
           </div>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SwapDetails
+export default SwapDetails;

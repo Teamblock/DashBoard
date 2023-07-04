@@ -146,7 +146,7 @@ const FarmList = ({ farms, term }) => {
           >
             {items.slice(0, numDisplayed).map((farm, index) => (
               <FarmListItem
-                farmListCss={`${index % 2 === 0 ? "bg-[#474747] rounded" : ""}`}
+                farmListCss={`${index % 2 === 0 ? "bg-ternary rounded" : ""}`}
                 key={index}
                 farm={farm}
                 onClick={() => {
@@ -169,7 +169,7 @@ const FarmList = ({ farms, term }) => {
         isOpen={open}
         onDismiss={() => dispatch(setOnsenModalOpen(false))}
         afterLeave={handleDismiss}
-        transitionChildCss="!bg-[#CDCDCD]"
+        transitionChildCss="!bg-[#1a202e]"
         dialogCss="-mt-20"
       >
         {selectedFarm && (

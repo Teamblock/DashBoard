@@ -217,7 +217,7 @@ export function CurrencySearch({
           <Button
             color="green"
             variant="filled"
-            className="!rounded-[0.350rem] !font-normal !text-white !h-10 bg-black w-full"
+            className="!rounded-[0.350rem] !font-normal !text-black !h-10 bg-[#eebd54] w-full"
             id="list-token-manage-button"
             onClick={() => setView(CurrencyModalView.manage)}
           >

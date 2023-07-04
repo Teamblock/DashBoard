@@ -17,7 +17,7 @@ const HEADER_HEIGHT = 68;
 
 const Desktop: FC = () => {
   const menu = useMenu();
-  console.log("menu",menu)
+  console.log("menu", menu);
   const { account, chainId, library } = useActiveWeb3React();
   const userEthBalance = useETHBalances(account ? [account] : [])?.[
     account ?? ""
@@ -54,7 +54,7 @@ const Desktop: FC = () => {
                   <div className="hidden sm:inline-block">
                     <Web3Network popoverCss="max-w-[13rem]" />
                   </div>
-                  <div className="flex w-full items-center border border-[black] h-10 rounded-[0.350rem]">
+                  <div className="flex w-full items-center border border-[#eebd54] h-10 rounded-[0.350rem]">
                     <div>
                       {account && chainId && userEthBalance && (
                         <Link href={`/portfolio/${account}`} passHref={true}>

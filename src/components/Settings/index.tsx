@@ -66,11 +66,11 @@ const SettingsTab: FC<SettingsTabProps> = ({
         content={
           <div
             ref={modalRef}
-            className="flex flex-col gap-3 p-3 border rounded-md bg-[#7E7E7E] w-full border-[#B4B4B4]"
+            className="flex flex-col gap-3 p-3 border rounded-md bg-ternary w-full border-[#eebd54]"
           >
             <div className="flex flex-col gap-4 p-3 rounded border-Gray/90">
               <div className="flex items-center justify-between">
-                <Typography className="text-black/70 text-[10px] font-normal">
+                <Typography className="text-white text-[10px] font-normal">
                   {i18n._(t`Transaction Settings`)}
                 </Typography>
                 <div className="flex items-center justify-center  cursor-pointer ">
@@ -88,7 +88,7 @@ const SettingsTab: FC<SettingsTabProps> = ({
               />
             </div>
             <div className="flex flex-col p-2  rounded border-Gray/90">
-              <Typography className="text-black/70 text-[10px] font-normal">
+              <Typography className="text-white text-[10px] font-normal">
                 {i18n._(t`Interface Settings`)}
               </Typography>
               {!trident && (

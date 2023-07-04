@@ -109,7 +109,7 @@ const ManageBar = ({ farm }) => {
             <Typography
               variant="lg"
               weight={700}
-              className="text-black !text-lg"
+              className="text-white !text-lg"
             >
               {toggle
                 ? i18n._(t`Stake liquidity`)
@@ -124,7 +124,7 @@ const ManageBar = ({ farm }) => {
               uncheckedIcon={<MinusIcon className="text-dark-1000" />}
             />
           </div>
-          <Typography variant="sm" className="text-black/80">
+          <Typography variant="sm" className="text-white">
             {i18n._(
               t`Use one of the buttons to set a percentage or enter a value manually using the input field`
             )}
@@ -161,7 +161,7 @@ const ManageBar = ({ farm }) => {
                   ? "focus:ring-Gray hover:ring-Gray border-Gray"
                   : "!bg-black border-Gray",
                 selectedTab === multiplier
-                  ? "!bg-black border-black border !text-white"
+                  ? "!bg-[#eebd54] border-black border !text-black"
                   : "border-Gray !bg-transparent"
               )}
             >

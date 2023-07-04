@@ -24,7 +24,7 @@ export default function LiquidityPrice({
   return (
     <div
       className={classNames(
-        "flex  items-center rounded border border-Gray h-20 py-2 px-4 bg-black/30",
+        "flex  items-center rounded border border-Gray h-20 py-2 px-4 !bg-ternary",
         className
       )}
     >

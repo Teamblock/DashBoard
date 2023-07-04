@@ -243,7 +243,7 @@ const InvestmentDetails = ({ farm }) => {
         fullWidth
         color="btn_primary"
         variant="filled"
-        className="!rounded-[0.350rem] !font-normal !text-white !h-[40px] !bg-black"
+        className="!rounded-[0.350rem] !font-normal !text-black !h-[40px] !bg-[#eebd54]"
         disabled={
           pendingTx ||
           !(

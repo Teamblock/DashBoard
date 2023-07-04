@@ -89,7 +89,7 @@ export default function BridgeCompo() {
   );
 
   const prerequisiteMessage = (
-    <div className="!p-5 mx-3 md:mx-6 text-center rounded-[0.350rem] bg-ternary/30">
+    <div className="!p-5 mx-3 md:mx-6 text-center rounded-[0.350rem] bg-ternary">
       {i18n._(t`Select a token to find your liquidity`)}
     </div>
   );
@@ -129,7 +129,7 @@ export default function BridgeCompo() {
             <div className="flex justify-center items-center">
               <Button className="z-10 -my-[1.7rem] rounded-full !bg-[#474747] p-2.5">
                 <div className="p-2.5 rounded-full shadow-btnShadow">
-                  <Plus size="32" stroke-width="1" color="white" />
+                  <Plus size="32" stroke-width="1" color="black" />
                 </div>
               </Button>
             </div>
@@ -175,7 +175,7 @@ export default function BridgeCompo() {
                       <Button
                         color="green"
                         variant="filled"
-                        className="w-full text-base font-normal !text-white bg-primary hover:bg-primary/95 rounded-[0.350rem] !h-10"
+                        className="w-full text-base font-normal !text-white bg-[#eebd54] hover:bg-[#eebd54]/95 rounded-[0.350rem] !h-10"
                       >
                         {i18n._(t`Add liquidity`)}
                       </Button>

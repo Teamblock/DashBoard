@@ -107,7 +107,7 @@ export default function CurrencySelectPanel({
                     size="sm"
                     variant="filled"
                     id={id}
-                    className="w-full text-base font-normal !text-white bg-black rounded-[0.350rem] h-10"
+                    className="w-full text-base font-normal !text-black bg-[#eebd54] rounded-[0.350rem] h-10"
                   >
                     {i18n._(t`Select a Token`)}
                     <ChevronDownIcon width={18} />

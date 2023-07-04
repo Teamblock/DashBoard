@@ -89,7 +89,7 @@ export default function PoolFinder() {
   );
 
   const prerequisiteMessage = (
-    <div className="!p-5 mx-3 md:mx-6 text-center rounded-[0.350rem] bg-ternary/30">
+    <div className="!p-5 mx-3 md:mx-6 text-center rounded-[0.350rem] bg-ternary">
       {i18n._(t`Select a token to find your liquidity`)}
     </div>
   );
@@ -148,8 +148,8 @@ export default function PoolFinder() {
             />
             <div className="flex justify-center items-center">
               <Button className="z-10 -my-[1.7rem] rounded-full bg-Gray-900 shadow-btnShadow p-2.5">
-                <div className="p-2.5 rounded-full shadow-btnShadow">
-                  <Plus size="32" stroke-width="1" color="white" />
+                <div className="p-2.5 rounded-full">
+                  <Plus size="32" stroke-width="1" color="black" />
                 </div>
               </Button>
             </div>
@@ -202,7 +202,7 @@ export default function PoolFinder() {
                       currency1
                     )}`}
                   >
-                    <Button className="w-full text-base font-normal !text-white bg-primary hover:bg-primary/95 rounded-[0.350rem] h-[40px]">
+                    <Button className="w-full text-base font-normal !text-white bg-[#eebd54] hover:bg-[#eebd54]/95 rounded-[0.350rem] h-[40px]">
                       {i18n._(t`Create pool`)}
                     </Button>
                   </Link>

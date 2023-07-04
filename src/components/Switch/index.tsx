@@ -53,7 +53,7 @@ const Switch: FC<SwitchProps> = ({
       onChange={onChange}
       className={classNames(
         checked
-          ? `flex items-center bg-primary relative inline-flex flex-shrink-0 rounded-full cursor-pointer ease-in-out duration-200 ${id}`
+          ? `flex items-center bg-[#eebd54] relative inline-flex flex-shrink-0 rounded-full cursor-pointer ease-in-out duration-200 ${id}`
           : `flex items-center bg-Gray relative inline-flex flex-shrink-0 rounded-full cursor-pointer ease-in-out duration-200 ${id}`
       )}
       style={{ height, width }}

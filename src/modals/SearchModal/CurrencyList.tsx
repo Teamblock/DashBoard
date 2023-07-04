@@ -112,7 +112,7 @@ const CurrencyRow: FC<CurrencyRow> = ({ currency, style }) => {
             <Typography
               variant="sm"
               weight={700}
-              className="text-black/70 hover:text-blue"
+              className="text-[#eebd54] hover:[#eebd54]/80"
             >
               {currency.symbol}
             </Typography>

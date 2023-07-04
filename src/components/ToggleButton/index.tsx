@@ -96,7 +96,7 @@ ToggleButtonGroup.Button = ({
           variant={checked ? "empty" : "filled"}
           color={checked ? "btnPrimary" : "transparent"}
           className={classNames(
-            "text-white h-10 rounded-[0.350rem] maxMd:!text-sm",
+            "!text-white h-10 rounded-[0.350rem] maxMd:!text-sm",
             className
           )}
           type="button"

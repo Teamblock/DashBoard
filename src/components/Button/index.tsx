@@ -48,14 +48,14 @@ const FILLED = {
   gray: "bg-dark-700",
   transparent: "bg-transparent",
   Indigo: "bg-[#a466ff80]",
-  btn_primary: "bg-primary",
+  btn_primary: "bg-[#eebd54]",
   green: "bg-Green",
   btnSecondary: "bg-Grean",
   btnTernary: "bg-ternary",
 };
 
 const OUTLINED = {
-  default: "border-2 disabled:pointer-events-none",
+  default: "border-1 disabled:pointer-events-none",
   blue: "border-blue hover:bg-blue/10 active:bg-blue/20 text-blue focus:bg-blue/10",
   red: "border-red hover:bg-red/10 active:bg-red/20 text-red focus:bg-red/10",
   pink: "border-pink hover:bg-pink/10 active:bg-pink/20 text-pink focus:bg-pink/10",
@@ -72,7 +72,7 @@ const OUTLINED = {
 
 const EMPTY = {
   default:
-    "bg-transparent hover:brightness-[90%] focus:brightness-[90%] active:brightness-[80%] disabled:pointer-events-none shadow",
+    "bg-[#eebd54] !text-black hover:bg-[#eebd54] focus:brightness-[90%] active:brightness-[80%] disabled:pointer-events-none shadow",
   blue: "text-blue",
   orange: "text-orange",
   green: "text-Green",
@@ -82,7 +82,7 @@ const EMPTY = {
   gray: "text-higher-emphesis",
   gradient:
     "!bg-gradient-to-r from-blue to-pink-600 hover:from-blue/80 hover:to-pink-600/80 focus:from-blue/80 focus:to-pink-600/80 active:from-blue/70 active:to-pink-600/70",
-  btn_primary: "bg-primary",
+  btn_primary: "bg-[#eebd54]",
   btnSecondary: "bg-Green",
   Indigo: "bg-[#a466ff80]",
   transparent: "bg-transparent",

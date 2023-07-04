@@ -606,7 +606,7 @@ const Swap = ({ banners }) => {
                     approvalState !== ApprovalState.APPROVED ||
                     (priceImpactSeverity > 3 && !isExpertMode)
                   }
-                  className="w-full text-base font-normal text-white hover:bg-primary/95 rounded-[0.350rem] !h-10"
+                  className="w-full text-base font-normal text-white !bg-[#eebd54] hover:bg-[#eebd54]/95 rounded-[0.350rem] !h-10"
                 >
                   {priceImpactSeverity > 3 && !isExpertMode
                     ? i18n._(t`Price Impact High`)
@@ -646,7 +646,7 @@ const Swap = ({ banners }) => {
                 id="swap-button"
                 //disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                 disabled={!isValid || !!swapCallbackError}
-                className="w-full text-base font-normal text-white hover:bg-primary/95 rounded-[0.350rem] !h-10"
+                className="w-full !bg-[#eebd54] text-base font-normal text-white hover:bg-[#eebd54]/90 rounded-[0.350rem] !h-10"
               >
                 {swapInputError
                   ? swapInputError

@@ -43,15 +43,10 @@ const sendTx = async (txFunc: () => Promise<any>): Promise<boolean> => {
   try {
     const ret = await txFunc();
 
-    
     if (ret?.error) {
-     
-      
       success = false;
     }
   } catch (e) {
-   
-    
     console.error(e);
     success = false;
   }
@@ -60,7 +55,7 @@ const sendTx = async (txFunc: () => Promise<any>): Promise<boolean> => {
 
 const tabStyle =
   "flex justify-center items-center h-12 w-full rounded-[0.350rem] cursor-pointer md:text-base";
-const activeTabStyle = `${tabStyle} text-white font-medium bg-black rounded-[0.350rem] `;
+const activeTabStyle = `${tabStyle} text-black font-medium bg-[#eebd54] rounded-[0.350rem] `;
 const inactiveTabStyle = `${tabStyle} text-white font-medium maxMd:border border-Gray`;
 
 const buttonStyle =
@@ -73,7 +68,7 @@ const buttonStyleConnectWallet = `${buttonStyle} text-white bg-primary hover:bg-
 export default function Stake() {
   const { i18n } = useLingui();
   const { account } = useActiveWeb3React();
- 
+
   const sushiBalance = useTokenBalance(
     account ?? undefined,
     SUSHI[ChainId.MATIC_TESTNET]
@@ -102,13 +97,9 @@ export default function Stake() {
   const [approvalState, approve] = useApproveCallback(
     parsedAmount,
     BAR_ADDRESS[ChainId.MATIC_TESTNET]
-    
   );
 
-
   const handleInput = (v: string) => {
-
-   
     if (v.length <= INPUT_CHAR_LIMIT) {
       setUsingBalance(false);
       setInput(v);
@@ -139,33 +130,26 @@ export default function Stake() {
     !input || pendingTx || (parsedAmount && parsedAmount.equalTo(ZERO));
 
   const handleClickButton = async () => {
-debugger
+    debugger;
     if (buttonDisabled) return;
     if (!walletConnected) {
       toggleWalletModal();
     } else {
       setPendingTx(true);
-      
 
       if (activeTab === 0) {
- 
-    
         if (approvalState === ApprovalState.NOT_APPROVED) {
           const success = await sendTx(() => approve());
 
-          
           if (!success) {
-            
             setPendingTx(false);
             // setModalOpen(true)
             return;
           }
         }
-        
+
         const success = await sendTx(() => enter(parsedAmount));
-        console.log("SUCCESSS",success);
-        
-       
+        console.log("SUCCESSS", success);
 
         if (!success) {
           setPendingTx(false);
@@ -189,8 +173,7 @@ debugger
   const block1d = useOneDayBlock({ chainId: ChainId.MATIC_TESTNET });
 
   const exchange = useFactory({ chainId: ChainId.MATIC_TESTNET });
-  console.log("EXCHANGE",exchange);
-  
+  console.log("EXCHANGE", exchange);
 
   const exchange1d = useFactory({
     chainId: ChainId.MATIC_TESTNET,
@@ -199,10 +182,9 @@ debugger
     },
     shouldFetch: !!block1d,
   });
-  console.log("exchange1d",exchange1d);
+  console.log("exchange1d", exchange1d);
 
   const ethPrice = useNativePrice({ chainId: ChainId.MATIC_TESTNET });
-  
 
   const xSushi = useTokens({
     chainId: ChainId.MATIC_TESTNET,
@@ -210,8 +192,8 @@ debugger
   })?.[0];
 
   const bar = useBar();
-  console.log(bar,"BARRRRR");
-  
+  console.log(bar, "BARRRRR");
+
   const [xSushiPrice] = [
     xSushi?.derivedETH * ethPrice,
     xSushi?.derivedETH * ethPrice * bar?.totalSupply,
@@ -222,41 +204,37 @@ debugger
       (bar?.totalSupply * xSushiPrice)) *
       100 ?? 0
   );
-  console.log(APY1d,"APY1d");
+  console.log(APY1d, "APY1d");
 
-  
-
-  
   const isDesktop = useDesktopMediaQuery();
   const StackingAPR: FC = () => {
     return (
       <div className="flex items-center justify-between w-full rounded bg-transparent ">
         <div className="flex w-full flex-col">
-          <Typography className="mb-3 text-sm whitespace-nowrap md:text-lg md:leading-5 text-black">
+          <Typography className="mb-3 text-sm whitespace-nowrap md:text-lg md:leading-5 text-white">
             {i18n._(t`Staking APR`)}
           </Typography>
           <Link href={`/`}>
             <Button
               variant="filled"
               color="green"
-              className="!h-10 mb-3 font-medium !w-full max-w-[10rem] rounded-[0.350rem] !bg-black !text-white"
+              className="!h-10 mb-3 font-medium !w-full max-w-[10rem] rounded-[0.350rem] !bg-[#eebd54] !text-black"
             >
               {i18n._(t`View Stats`)}
             </Button>
           </Link>
         </div>
         <div className="flex flex-col">
-          <Typography className="mb-1 !font-semibold text-lg text-right text-black">
+          <Typography className="mb-1 !font-semibold text-lg text-right text-white">
             {`${APY1d ? APY1d.toFixed(2) + "%" : i18n._(t`Loading...`)}`}
           </Typography>
-          <Typography className="w-32 !text-sm text-right text-black md:w-64">
+          <Typography className="w-32 !text-sm text-right text-white md:w-64">
             {i18n._(t`Yesterday's APR`)}
           </Typography>
         </div>
       </div>
     );
   };
-
 
   return (
     <div className="w-full flex items-center intro_section !h-auto">
@@ -308,7 +286,7 @@ debugger
         <Typography variant="h2" className="text-black mb-5 !text-xl">
           {i18n._(t`Staking`)}
         </Typography>
-        <div className="bg-[#CDCDCD] rounded-[0.350rem] py-4 px-6 maxMd:px-3 maxMd:py-2">
+        <div className="bg-[#1a202e] rounded-[0.350rem] py-4 px-6 maxMd:px-3 maxMd:py-2 border border-Gray">
           <div className="maxSm:hidden">
             <StackingAPR />
             <Divider className="border-Gray" />
@@ -362,7 +340,7 @@ debugger
                     </div>
                   </div>
                   <div className="flex items-center justify-between w-full mt-4">
-                    <Typography className="maxMd:hidden font-medium text-xl !text-black">
+                    <Typography className="maxMd:hidden font-medium text-xl !text-white">
                       {activeTab === 0
                         ? i18n._(t`Stake TWT`)
                         : i18n._(t`Unstake`)}
@@ -373,7 +351,7 @@ debugger
                     value={input}
                     onUserInput={handleInput}
                     className={classNames(
-                      `w-full h-14 pl-[3rem] mt-3 md:mt-4 rounded-[0.350rem] bg-[#474747] text-sm md:text-lg font-bold text-dark-800 whitespace-nowrap caret-high-emphesis ${
+                      `w-full h-14 pl-[3rem] mt-3 md:mt-4 rounded-[0.350rem] bg-ternary text-sm md:text-lg font-bold text-white whitespace-nowrap caret-high-emphesis ${
                         inputError ? "!pl-[5rem]" : ""
                       }`,
                       inputError ? " pl-9 md:pl-12" : ""
@@ -407,7 +385,7 @@ debugger
                       </div>
                       <div className="flex items-center text-sm text-secondary md:text-base">
                         <Button
-                          className="text-lg !text-Gray-500 font-semiblod pointer-events-auto rounded-[0.350rem] !bg-transparent py-1 px-3"
+                          className="text-lg !text-white font-semiblod pointer-events-auto rounded-[0.350rem] !bg-transparent py-1 px-3"
                           onClick={handleClickMax}
                         >
                           {i18n._(t`Max`)}
@@ -415,7 +393,7 @@ debugger
                       </div>
                     </div>
                   </div>
-                  <div className="mt-1 mb-3 text-black/80 !text-sm">
+                  <div className="mt-1 mb-3 text-white/80 !text-sm">
                     {`1 xTWT = ${Number(bar?.ratio ?? 0)?.toFixed(4)} TWT`}
                   </div>
                   {(approvalState === ApprovalState.NOT_APPROVED ||
@@ -446,7 +424,7 @@ debugger
                     <Button
                       color="btn_primary"
                       variant="filled"
-                      className="w-full h-12 rounded-[0.350rem] mt-3 text-white bg-black"
+                      className="w-full h-12 rounded-[0.350rem] mt-3 bg-[#eebd54]"
                       onClick={handleClickButton}
                       disabled={inputError}
                     >
@@ -464,7 +442,7 @@ debugger
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-3 rounded bg-[#474747] p-6 maxMd:p-5 maxMd:mt-7">
+            <div className="flex flex-col gap-3 rounded bg-ternary  p-6 maxMd:p-5 maxMd:mt-7">
               <Typography className="!font-normal text-sm md:text-base text-white">
                 {i18n._(t`Balance`)}
               </Typography>
@@ -507,7 +485,7 @@ debugger
                 <Link href={`/analytics/xEFT`}>
                   <Button
                     variant="outlined"
-                    className="h-[3.1rem] w-full mt-[0.4rem] rounded-[0.350rem] transition hover:bg-Green text-white hover:border-Green"
+                    className="h-[3.1rem] w-full mt-[0.4rem] border border-white rounded-[0.350rem] transition hover:!bg-[#eebd54] !text-white hover:!text-black hover:border-[#eebd54]"
                   >
                     {i18n._(t`Your xTWT Stats`)}
                   </Button>

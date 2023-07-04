@@ -320,7 +320,7 @@ const AssetInputPanel = ({
         "border",
         error ? "border-red border-opacity-40" : "border-Gray",
         headerRight ? "" : "lg:rounded",
-        "flex-1 rounded-[0.350rem] bg-[#4B4B4B] flex flex-col overflow-hidden"
+        "flex-1 rounded-[0.350rem] bg-ternary flex flex-col overflow-hidden"
       )}
     >
       {/*This acts as a reference to get input width*/}

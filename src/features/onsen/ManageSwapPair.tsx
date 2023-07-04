@@ -23,7 +23,7 @@ const ManageSwapPair = ({ farm }) => {
     () => (
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <Typography weight={700} className="text-black">
+          <Typography weight={700} className="text-white">
             {toggle ? i18n._(t`Add liquidity`) : i18n._(t`Remove liquidity`)}
           </Typography>
           <div className="flex gap-4">

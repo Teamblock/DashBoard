@@ -48,9 +48,9 @@ const FarmListItem: FC<FarmListItem> = ({ farm, onClick, farmListCss }) => {
             <Typography weight={700} className="flex gap-1 text-high-emphesis">
               <span
                 className={
-                  farmListCss == "bg-[#474747] rounded"
+                  farmListCss == "!bg-[#474747]rounded"
                     ? "text-white"
-                    : "text-black"
+                    : "text-white"
                 }
               >
                 {farm?.pair?.token1?.symbol}
@@ -59,7 +59,7 @@ const FarmListItem: FC<FarmListItem> = ({ farm, onClick, farmListCss }) => {
                 className={
                   farmListCss == "bg-[#474747] rounded"
                     ? "text-white"
-                    : "text-black"
+                    : "text-white"
                 }
               >
                 /
@@ -68,7 +68,7 @@ const FarmListItem: FC<FarmListItem> = ({ farm, onClick, farmListCss }) => {
                 className={
                   farmListCss == "bg-[#474747] rounded"
                     ? "text-white"
-                    : "text-black"
+                    : "text-white"
                 }
               >
                 {farm?.pair?.token1?.symbol}
@@ -80,7 +80,7 @@ const FarmListItem: FC<FarmListItem> = ({ farm, onClick, farmListCss }) => {
                   className={
                     farmListCss == "bg-[#474747] rounded"
                       ? "text-white"
-                      : "text-black"
+                      : "text-white"
                   }
                 >
                   {i18n._(t`EnergyfiSwap Farm`)}
@@ -100,7 +100,7 @@ const FarmListItem: FC<FarmListItem> = ({ farm, onClick, farmListCss }) => {
             className={
               farmListCss == "bg-[#474747] rounded"
                 ? "text-white"
-                : "text-black"
+                : "text-white"
             }
           >
             {" "}
@@ -126,7 +126,7 @@ const FarmListItem: FC<FarmListItem> = ({ farm, onClick, farmListCss }) => {
                 className={
                   farmListCss == "bg-[#474747] rounded"
                     ? "text-white"
-                    : "text-black"
+                    : "text-white"
                 }
               >
                 {formatNumber(reward.rewardPerDay)}{" "}
@@ -150,7 +150,7 @@ const FarmListItem: FC<FarmListItem> = ({ farm, onClick, farmListCss }) => {
             className={
               farmListCss == "bg-[#474747] rounded"
                 ? "flex gap-0.5 items-center text-white"
-                : "flex gap-0.5 items-center text-black"
+                : "flex gap-0.5 items-center text-white"
             }
           >
             {farm?.tvl !== 0
@@ -187,7 +187,7 @@ const FarmListItem: FC<FarmListItem> = ({ farm, onClick, farmListCss }) => {
               {i18n._(t`annualized`)} 1
             </Typography>
           ) : (
-            <Typography variant="xs" className="text-black">
+            <Typography variant="xs" className="text-white">
               {i18n._(t`annualized`)}1{" "}
             </Typography>
           )}

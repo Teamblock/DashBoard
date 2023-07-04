@@ -1,24 +1,24 @@
-import { ChevronDownIcon } from '@heroicons/react/solid';
-import { t } from '@lingui/macro';
-import { useLingui } from '@lingui/react';
-import { Currency, Percent, ZERO } from '@sushiswap/core-sdk';
-import Button from 'app/components/Button';
-import { CurrencyLogo } from 'app/components/CurrencyLogo';
-import Divider from 'app/components/Divider';
-import NumericalInput from 'app/components/Input/Numeric';
-import QuestionHelper from 'app/components/QuestionHelper';
-import Typography from 'app/components/Typography';
+import { ChevronDownIcon } from "@heroicons/react/solid";
+import { t } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
+import { Currency, Percent, ZERO } from "@sushiswap/core-sdk";
+import Button from "app/components/Button";
+import { CurrencyLogo } from "app/components/CurrencyLogo";
+import Divider from "app/components/Divider";
+import NumericalInput from "app/components/Input/Numeric";
+import QuestionHelper from "app/components/QuestionHelper";
+import Typography from "app/components/Typography";
 import {
   classNames,
   formatNumber,
   maxAmountSpend,
   tryParseAmount,
   warningSeverity,
-} from 'app/functions';
-import { useBentoOrWalletBalance } from 'app/hooks/useBentoOrWalletBalance';
-import { useUSDCValue } from 'app/hooks/useUSDCPrice';
-import CurrencySearchModal from 'app/modals/SearchModal/CurrencySearchModal';
-import { useActiveWeb3React } from 'app/services/web3';
+} from "app/functions";
+import { useBentoOrWalletBalance } from "app/hooks/useBentoOrWalletBalance";
+import { useUSDCValue } from "app/hooks/useUSDCPrice";
+import CurrencySearchModal from "app/modals/SearchModal/CurrencySearchModal";
+import { useActiveWeb3React } from "app/services/web3";
 import React, {
   FC,
   useCallback,
@@ -26,9 +26,9 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from 'react';
+} from "react";
 
-import BentoBoxFundingSourceModal from '../add/BentoBoxFundingSourceModal';
+import BentoBoxFundingSourceModal from "../add/BentoBoxFundingSourceModal";
 
 interface SwapAssetPanel {
   error?: boolean;
@@ -74,7 +74,7 @@ const SwapAssetPanel = ({
   return (
     <div
       className={classNames(
-        'rounded-[0.700rem] p-5 flex flex-col gap-2 mt-3 mb-1 bg-ternary',
+        "rounded-[0.700rem] p-5 flex flex-col gap-2 mt-3 mb-1 bg-ternary",
         className
       )}
     >
@@ -96,7 +96,7 @@ const SwapAssetPanel = ({
 };
 
 const WalletSwitch: FC<
-  Pick<SwapAssetPanel, 'spendFromWallet' | 'disabled'> & {
+  Pick<SwapAssetPanel, "spendFromWallet" | "disabled"> & {
     label: string;
     onChange(x: boolean): void;
     id?: string;
@@ -110,8 +110,8 @@ const WalletSwitch: FC<
         variant="xs"
         component="span"
         className={classNames(
-          disabled ? 'pointer-events-none opacity-40' : '',
-          'flex items-center gap-2 !justify-start'
+          disabled ? "pointer-events-none opacity-40" : "",
+          "flex items-center gap-2 !justify-start"
         )}
       >
         {label}
@@ -146,20 +146,20 @@ const WalletSwitch: FC<
 const InputPanel: FC<
   Pick<
     SwapAssetPanel,
-    'currency' | 'value' | 'onChange' | 'disabled' | 'priceImpact'
+    "currency" | "value" | "onChange" | "disabled" | "priceImpact"
   > & { priceImpactCss?: string }
 > = ({ currency, value, onChange, disabled, priceImpact, priceImpactCss }) => {
-  const usdcValue = useUSDCValue(tryParseAmount(value || '1', currency));
+  const usdcValue = useUSDCValue(tryParseAmount(value || "1", currency));
   const span = useRef<HTMLSpanElement | null>(null);
   const [width, setWidth] = useState(0);
   const priceImpactClassName = useMemo(() => {
     if (!priceImpact) return undefined;
-    if (priceImpact.lessThan('0')) return 'text-green';
+    if (priceImpact.lessThan("0")) return "text-green";
     const severity = warningSeverity(priceImpact);
-    if (severity < 1) return 'text-green';
-    if (severity < 2) return 'text-yellow';
-    if (severity < 3) return 'text-red';
-    return 'text-red';
+    if (severity < 1) return "text-green";
+    if (severity < 2) return "text-yellow";
+    if (severity < 3) return "text-red";
+    return "text-red";
   }, [priceImpact]);
 
   useEffect(() => {
@@ -172,7 +172,7 @@ const InputPanel: FC<
     <Typography className="relative items-baseline gap-3 overflow-hidden z-[0]">
       <NumericalInput
         disabled={disabled}
-        value={value || ''}
+        value={value || ""}
         onUserInput={onChange}
         placeholder="0.00"
         className="focus:placeholder:text-low-emphesis  text-white flex-grow w-full text-left bg-transparent  disabled:cursor-not-allowed text-2xl font-normal w-full"
@@ -183,12 +183,12 @@ const InputPanel: FC<
 };
 
 const BalancePanel: FC<
-  Pick<SwapAssetPanel, 'disabled' | 'currency' | 'onChange' | 'spendFromWallet'>
+  Pick<SwapAssetPanel, "disabled" | "currency" | "onChange" | "spendFromWallet">
 > = ({ disabled, currency, onChange, spendFromWallet }) => {
   const { i18n } = useLingui();
   const { account } = useActiveWeb3React();
   const balance = useBentoOrWalletBalance(
-    account ? account : undefined, 
+    account ? account : undefined,
     currency,
     spendFromWallet
   );
@@ -211,7 +211,7 @@ const BalancePanel: FC<
         variant="sm"
         className="ml-2 text-right !font-semibold text-sm text-Indigo"
       >
-        {balance ? balance.toSignificant(6) : '0.00'}
+        {balance ? balance.toSignificant(6) : "0.00"}
       </Typography>
     </div>
   );
@@ -220,28 +220,28 @@ const BalancePanel: FC<
 const SwapAssetPanelHeader: FC<
   Pick<
     SwapAssetPanel,
-    | 'currency'
-    | 'currencies'
-    | 'onSelect'
-    | 'walletToggle'
-    | 'spendFromWallet'
-    | 'disabled'
-    | 'onChange'
-    | 'value'
-    | 'disabled'
-    | 'onChange'
-    | 'priceImpact'
-    | 'value'
-    | 'priceImpactCss'
-    | 'selected'
-    | 'title'
-    | 'error'
-    | 'isItemShow'
-    | 'walletCLass'
-    | 'currencyInputClass'
-    | 'selectcurrencyClass'
-    | 'popoverPanelClass'
-    | 'transitionCss'
+    | "currency"
+    | "currencies"
+    | "onSelect"
+    | "walletToggle"
+    | "spendFromWallet"
+    | "disabled"
+    | "onChange"
+    | "value"
+    | "disabled"
+    | "onChange"
+    | "priceImpact"
+    | "value"
+    | "priceImpactCss"
+    | "selected"
+    | "title"
+    | "error"
+    | "isItemShow"
+    | "walletCLass"
+    | "currencyInputClass"
+    | "selectcurrencyClass"
+    | "popoverPanelClass"
+    | "transitionCss"
   > & { label: string; id?: string }
 > = ({
   walletToggle,
@@ -272,15 +272,15 @@ const SwapAssetPanelHeader: FC<
     currency,
     spendFromWallet
   );
-  const usdcValue = useUSDCValue(tryParseAmount(value || '1', currency));
+  const usdcValue = useUSDCValue(tryParseAmount(value || "1", currency));
   const priceImpactClassName = useMemo(() => {
     if (!priceImpact) return undefined;
-    if (priceImpact.lessThan('0')) return 'text-green';
+    if (priceImpact.lessThan("0")) return "text-green";
     const severity = warningSeverity(priceImpact);
-    if (severity < 1) return 'text-green';
-    if (severity < 2) return 'text-yellow';
-    if (severity < 3) return 'text-red';
-    return 'text-red';
+    if (severity < 1) return "text-green";
+    if (severity < 2) return "text-yellow";
+    if (severity < 3) return "text-red";
+    return "text-red";
   }, [priceImpact]);
 
   const handleClick = useCallback(() => {
@@ -292,14 +292,14 @@ const SwapAssetPanelHeader: FC<
     <div
       id={id}
       className={classNames(
-        'flex justify-between w-full bg-field border rounded-md border-Gray hover:border-[#eebd54]',
+        "flex justify-between w-full bg-field border rounded-md border-Gray hover:border-[#eebd54]",
         selectcurrencyClass
       )}
     >
       <div className="grid grid-col-2 ">
         <div className="flex items-center justify-between ml-3 mt-2 mb-2">
           <CurrencyLogo
-            style={{ marginRight: '8px' }}
+            style={{ marginRight: "8px" }}
             currency={currency}
             className="!rounded-full overflow-hidden"
             size={30}
@@ -332,7 +332,7 @@ const SwapAssetPanelHeader: FC<
                 variant="sm"
                 className="ml-1 !font-semibold text-sm text-[#eebd54]"
               >
-                {balance ? balance.toSignificant(6) : '0.00'}
+                {balance ? balance.toSignificant(6) : "0.00"}
                 <span className="ml-0.5"></span>
                 {!spendFromWallet ? currency.wrapped.symbol : currency.symbol}
               </Typography>
@@ -366,7 +366,7 @@ const SwapAssetPanelHeader: FC<
       size="sm"
       variant="filled"
       id={id}
-      className="w-full text-base font-normal !text-white bg-black hover:bg-black/80 rounded-[0.350rem] h-12"
+      className="w-full text-base font-normal !text-black bg-[#eebd54] hover:bg-[#eebd54]/90 rounded-[0.350rem] h-12"
     >
       {i18n._(t`Select a Token`)}
       <ChevronDownIcon width={18} />
@@ -375,7 +375,7 @@ const SwapAssetPanelHeader: FC<
 
   return (
     <>
-      <div className={classNames('items-end gap-x-3.5', currencyInputClass)}>
+      <div className={classNames("items-end gap-x-3.5", currencyInputClass)}>
         <CurrencySearchModal
           selectedCurrency={currency}
           onCurrencySelect={(currency) => onSelect && onSelect(currency)}
@@ -458,7 +458,7 @@ const SwapAssetPanelHeader: FC<
           </div>
         )}
       </div>
-      <div className={classNames('text-white', walletCLass)}>
+      <div className={classNames("text-white", walletCLass)}>
         {walletToggle && walletToggle({ spendFromWallet })}
         {isItemShow && (
           <BalancePanel

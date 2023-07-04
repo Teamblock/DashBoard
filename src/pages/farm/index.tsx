@@ -43,12 +43,9 @@ export default function Farm(): JSX.Element {
     old: (farm) => farm.chef === Chef.OLD_FARMS,
   };
 
- 
-  
-
   const rewards = useFarmRewards();
-    console.log(rewards,"REWARDSSSSS");
-    
+  console.log(rewards, "REWARDSSSSS");
+
   const data = rewards.filter((farm) => {
     // @ts-ignore TYPE NEEDS FIXING
     return type in FILTER ? FILTER[type](farm) : true;
@@ -83,7 +80,7 @@ export default function Farm(): JSX.Element {
                 t`Earn fees and rewards by depositing and  your tokens to the platform.`
               )}
             </Typography>
-            <button className="mt-3 capitalize border-2 disabled:pointer-events-none border-dark-700 hover:bg-dark-700/30 active:bg-dark-700/50 focus:bg-dark-700/30 text-sm rounded px-3 h-[36px] font-bold flex items-center justify-center gap-1 !text-black bg-[#eebd54] hover:bg-[#eebd54]/80 hover:text-white font-bold text-white rounded-[0.350rem] w-[9rem] !h-[2.5rem] !border-none">
+            <button className="mt-3 capitalize border-2 disabled:pointer-events-none border-dark-700  active:bg-[#eebd54]-700/50 focus:bg-[#eebd54]-700/30 text-sm rounded px-3 h-[36px] font-bold flex items-center justify-center gap-1 !text-black bg-[#eebd54] hover:bg-[#eebd54]/80 hover:text-white font-bold text-white rounded-[0.350rem] w-[9rem] !h-[2.5rem] !border-none">
               apply for onsen
             </button>
           </div>

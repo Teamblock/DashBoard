@@ -252,9 +252,9 @@ const PoolDeposit = ({ currencyA, currencyB, header }) => {
           onChange={onFieldAInput}
         />
         <div className="z-10 flex justify-center -my-6 md:-my-8">
-          <div className="p-1 md:p-2 rounded-full bg-Gray-900 shadow-md ">
-            <div className="p-1.5 md:p-2 rounded-full bg-primary shadow-md">
-              <PlusIcon className="text-white w-3 md:w-6 " />
+          <div className="p-1 md:p-2 rounded-full bg-[#eebd54] shadow-md ">
+            <div className="p-1.5 md:p-2 rounded-full">
+              <PlusIcon className="text-black w-3 md:w-6 " />
             </div>
           </div>
         </div>
