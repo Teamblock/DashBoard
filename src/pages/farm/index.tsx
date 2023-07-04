@@ -22,6 +22,7 @@ export default function Farm(): JSX.Element {
   const router = useRouter();
   const type =
     router.query.filter === null ? "all" : (router.query.filter as string);
+    
 
   const FILTER = {
     // @ts-ignore TYPE NEEDS FIXING
@@ -51,7 +52,6 @@ export default function Farm(): JSX.Element {
     // @ts-ignore TYPE NEEDS FIXING
     return type in FILTER ? FILTER[type](farm) : true;
   });
-
 
   
   const options = {
