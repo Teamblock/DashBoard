@@ -48,7 +48,7 @@ const useMenu: UseMenu = () => {
     let bridgeMenu: MenuItem = {
       key: "bridge",
       title: i18n._(t`Bridge`),
-      link: "/bridge",
+      link: "https://thoughtwin-bridge.netlify.app",
     };
 
     const poolMenu = [
@@ -113,7 +113,7 @@ const useMenu: UseMenu = () => {
     let launchpad: MenuItem = {
       key: "launchpad",
       title: i18n._(t`Launchpad`),
-      link: "/launchpad",
+      link: "https://thoughtwin-launchpad.netlify.app",
     };
     mainItems.push(launchpad);
 
