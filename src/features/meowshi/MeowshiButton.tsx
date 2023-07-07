@@ -138,7 +138,7 @@ const MeowshiButton: FC<MeowshiButtonProps> = ({ meowshiState }) => {
   if (approvalState === ApprovalState.NOT_APPROVED)
     return (
       <Button onClick={approve} color="btn_primary" className='h-10 rounded-[0.350rem]' disabled={!!buttonDisabledText}>
-        {buttonDisabledText || i18n._(t`Approve`)}
+        {buttonDisabledText || i18n._(t`Approve 789`)}
       </Button>
     )
 
