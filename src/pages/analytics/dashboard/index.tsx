@@ -494,7 +494,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
               className="!text-black rounded-[0.350rem] !bg-[#eebd54] !font-bold h-14 w-[10rem] md:w-[11rem] maxLg:text-sm maxLg:h-10"
             >
               <a
-                href="/launchpad/createIloGeneral"
+                href="https://thoughtwin-launchpad.netlify.app/launchpad/createIloGeneral"
                 target="_blank"
                 rel="noreferrer"
               >
