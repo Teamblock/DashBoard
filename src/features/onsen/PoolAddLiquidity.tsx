@@ -271,7 +271,7 @@ const PoolDeposit = ({ currencyA, currencyB, header }) => {
           <div className="flex justify-center">
             <Button
               variant="outlined"
-              className="rounded-[0.350rem] h-10 w-full text-white hover:bg-primary"
+              className="rounded-[0.350rem] h-10 w-full !text-white hover:bg-[primary]"
               onClick={() => setUseETH(!useETH)}
             >
               {i18n._(t`Use`)} {useETH && "W"}
@@ -286,7 +286,7 @@ const PoolDeposit = ({ currencyA, currencyB, header }) => {
       {!account ? (
         <Web3Connect
           fullWidth
-          className="!rounded-[0.350rem] !font-normal text-white !h-10 !bg-black text-white"
+          className="!rounded-[0.350rem] !font-normal !text-white !h-10 !bg-[#eebd54]"
         />
       ) : isValid &&
         (approvalA === ApprovalState.NOT_APPROVED ||
@@ -297,7 +297,7 @@ const PoolDeposit = ({ currencyA, currencyB, header }) => {
           {approvalA !== ApprovalState.APPROVED && (
             <Button
               fullWidth
-              className="!rounded-[0.350rem] !font-normal text-white !h-10 !bg-primary"
+              className="!rounded-[0.350rem] !font-normal text-black !h-10 bg-[#eebd54] !hover:bg-[#eebd54]/80"
               loading={approvalA === ApprovalState.PENDING}
               onClick={approveACallback}
               disabled={approvalA === ApprovalState.PENDING}
@@ -313,7 +313,7 @@ const PoolDeposit = ({ currencyA, currencyB, header }) => {
             <Button
               fullWidth
               variant="filled"
-              className="!rounded-[0.350rem] !font-normal text-white !h-10 bg-primary"
+              className="!rounded-[0.350rem] !font-normal text-black !h-10 bg-[#eebd54] !hover:bg-[#eebd54]/80"
               loading={approvalB === ApprovalState.PENDING}
               onClick={approveBCallback}
               disabled={approvalB === ApprovalState.PENDING}

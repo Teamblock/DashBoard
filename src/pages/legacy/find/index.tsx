@@ -185,7 +185,7 @@ export default function PoolFinder() {
                       <Button
                         color="green"
                         variant="filled"
-                        className="w-full text-base font-normal !text-white bg-primary hover:bg-primary/95 rounded-[0.350rem] !h-10"
+                        className="w-full text-base font-normal !text-white bg-[#eebd54] hover:bg-[#eebd54]/95 rounded-[0.350rem] !h-10"
                       >
                         {i18n._(t`Add liquidity`)}
                       </Button>

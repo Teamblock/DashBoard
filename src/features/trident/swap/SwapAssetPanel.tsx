@@ -364,9 +364,8 @@ const SwapAssetPanelHeader: FC<
     <Button
       color="green"
       size="sm"
-      variant="filled"
       id={id}
-      className="w-full text-base font-normal !text-black bg-[#eebd54] hover:bg-[#eebd54]/90 rounded-[0.350rem] h-12"
+      className="w-full text-base font-normal !text-black bg-[#eebd54] !hover:bg-[#eebd54]/80 rounded-[0.350rem] h-10"
     >
       {i18n._(t`Select a Token`)}
       <ChevronDownIcon width={18} />
@@ -424,7 +423,7 @@ const SwapAssetPanelHeader: FC<
                     : currency.symbol
                   : null}
                 <Button
-                  className="text-lg !text-Gray-500 font-semiblod pointer-events-auto rounded-[0.350rem] !bg-transparent border border-[#eebd54] py-1 px-3 hover:!text-white"
+                  className="text-lg !text-white font-semiblod pointer-events-auto rounded-[0.350rem] !bg-transparent border border-[#eebd54] py-1 px-3 hover:!text-white"
                   onClick={handleClick}
                 >
                   {i18n._(t`Max`)}

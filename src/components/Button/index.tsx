@@ -38,7 +38,7 @@ const SIZE = {
 
 const FILLED = {
   default:
-    "!text-black !font-normal hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none",
+    "!text-black !font-normal hover:bg-[#eebd54]/90 focus:bg-[#eebd54]/90 active:bg-[#eebd54]/90 disabled:pointer-events-none",
   blue: "bg-blue",
   red: "bg-red",
   pink: "bg-pink",

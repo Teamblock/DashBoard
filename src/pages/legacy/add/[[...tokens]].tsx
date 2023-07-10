@@ -470,8 +470,8 @@ export default function Add() {
               </div>
               <div className="flex justify-center items-center">
                 <Button className="z-10 -my-9 rounded-full bg-[#464646] shadow-lg p-2.5">
-                  <div className="p-2.5 rounded-full shadow-btnShadow">
-                    <Plus size="32" stroke-width="1" color="white" />
+                  <div className="p-2.5 rounded-full">
+                    <Plus size="32" stroke-width="1" color="black" />
                   </div>
                 </Button>
               </div>
