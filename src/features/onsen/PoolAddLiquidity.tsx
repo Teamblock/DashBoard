@@ -272,14 +272,23 @@ const PoolDeposit = ({ currencyA, currencyB, header }) => {
             <Button
               variant="outlined"
 <<<<<<< HEAD
+<<<<<<< HEAD
               className="rounded-[0.350rem] h-10 w-full !text-white hover:bg-[primary]"
 =======
+=======
+>>>>>>> 73d0b89 (UI)
 <<<<<<< HEAD
               className="rounded-[0.350rem] h-10 w-full  !hover:text-black hover:bg-[#eebd54]"
 =======
               className="rounded-[0.350rem] h-10 w-full !text-white hover:bg-[primary]"
 >>>>>>> c812d96 (Fixed UI changes)
+<<<<<<< HEAD
 >>>>>>> 14f384f (Fixed UI changes)
+=======
+=======
+              className="rounded-[0.350rem] h-10 w-full  !hover:text-black hover:bg-[#eebd54]"
+>>>>>>> 360ddb4 (UI)
+>>>>>>> 73d0b89 (UI)
               onClick={() => setUseETH(!useETH)}
             >
               {i18n._(t`Use`)} {useETH && "W"}
@@ -306,14 +315,23 @@ const PoolDeposit = ({ currencyA, currencyB, header }) => {
             <Button
               fullWidth
 <<<<<<< HEAD
+<<<<<<< HEAD
               className="!rounded-[0.350rem] !font-normal text-black !h-10 bg-[#eebd54] !hover:bg-[#eebd54]/80"
 =======
+=======
+>>>>>>> 73d0b89 (UI)
 <<<<<<< HEAD
               className="!rounded-[0.350rem] !font-normal text-white !h-10 bg-[#eebd54]"
 =======
               className="!rounded-[0.350rem] !font-normal text-black !h-10 bg-[#eebd54] !hover:bg-[#eebd54]/80"
 >>>>>>> c812d96 (Fixed UI changes)
+<<<<<<< HEAD
 >>>>>>> 14f384f (Fixed UI changes)
+=======
+=======
+              className="!rounded-[0.350rem] !font-normal text-white !h-10 bg-[#eebd54]"
+>>>>>>> 360ddb4 (UI)
+>>>>>>> 73d0b89 (UI)
               loading={approvalA === ApprovalState.PENDING}
               onClick={approveACallback}
               disabled={approvalA === ApprovalState.PENDING}
@@ -329,7 +347,7 @@ const PoolDeposit = ({ currencyA, currencyB, header }) => {
             <Button
               fullWidth
               variant="filled"
-              className="!rounded-[0.350rem] !font-normal text-black !h-10 bg-[#eebd54] !hover:bg-[#eebd54]/80"
+              className="!rounded-[0.350rem] !font-normal text-white !h-10 bg-[#eebd54]"
               loading={approvalB === ApprovalState.PENDING}
               onClick={approveBCallback}
               disabled={approvalB === ApprovalState.PENDING}
