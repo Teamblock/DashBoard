@@ -33,12 +33,12 @@ export const OLD_MINICHEF = {
 }
 
 // @ts-ignore TYPE NEEDS FIXING
-export const miniChef = async (query, chainId = ChainId.ETHEREUM, variables = undefined) =>
+export const miniChef = async (query, chainId = ChainId.MATIC_TESTNET, variables = undefined) =>
   // @ts-ignore TYPE NEEDS FIXING
   request(`${GRAPH_HOST[chainId]}/subgraphs/name/${MINICHEF[chainId]}`, query, variables)
 
 // @ts-ignore TYPE NEEDS FIXING
-export const oldMiniChef = async (query, chainId = ChainId.ETHEREUM) =>
+export const oldMiniChef = async (query, chainId = ChainId.MATIC_TESTNET) =>
   // @ts-ignore TYPE NEEDS FIXING
   request(`${GRAPH_HOST[chainId]}/subgraphs/name/${OLD_MINICHEF[chainId]}`, query)
 
@@ -87,7 +87,7 @@ export const getMasterChefV1PairAddreses = async () => {
 export const getMasterChefV2Farms = async (variables = undefined) => {
 
   const { pools } = await masterChefV2(poolsV2Query, undefined, variables)
-  const tokens = await getTokenSubset(ChainId.ETHEREUM, {
+  const tokens = await getTokenSubset(ChainId.MATIC_TESTNET, {
     // @ts-ignore TYPE NEEDS FIXING
     tokenAddresses: Array.from(pools.map((pool) => pool.rewarder.rewardToken)),
   })
@@ -107,7 +107,7 @@ export const getMasterChefV2PairAddreses = async () => {
   return pools
 }
 
-export const getOldMiniChefFarms = async (chainId = ChainId.ETHEREUM) => {
+export const getOldMiniChefFarms = async (chainId = ChainId.MATIC_TESTNET) => {
   const { pools } = await oldMiniChef(miniChefPoolsQuery, chainId)
   return pools
 }
@@ -117,7 +117,7 @@ export const getMiniChefFarms = async (chainId = ChainId.MATIC_TESTNET, variable
   return pools
 }
 
-export const getMiniChefPairAddreses = async (chainId = ChainId.ETHEREUM) => {
+export const getMiniChefPairAddreses = async (chainId = ChainId.MATIC_TESTNET) => {
   console.debug('getMiniChefPairAddreses')
   const { pools } = await miniChef(miniChefPairAddressesQuery, chainId)
   return pools

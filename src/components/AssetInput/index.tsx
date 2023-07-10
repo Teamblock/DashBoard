@@ -303,7 +303,7 @@ const AssetInputPanel = ({
             <Button
               size="xs"
               variant="outlined"
-              className="!border"
+              className="!border !text-white"
               onClick={() => onMax()}
             >
               Max

@@ -47,7 +47,7 @@ const LimitOrderApprovalCheck: FC = () => {
             {i18n._(t`Do not show again`)}
           </Button>
           <Button loading={approvalState === BentoApprovalState.PENDING} color="btn_primary" size="sm" onClick={approve}>
-            {i18n._(t`Approve`)}
+            {i18n._(t`Approve 456`)}
           </Button>
         </div>
       </div>

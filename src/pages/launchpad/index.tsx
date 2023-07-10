@@ -161,7 +161,7 @@ const Launchpad: FC = () => {
             className="!text-white !font-medium rounded-[0.350rem] !bg-black h-14 w-[10rem] md:w-[11rem] maxLg:text-sm maxLg:h-10 font-normal"
           >
             <a
-              href="/launchpad/createIloGeneral"
+              href="https://thoughtwin-launchpad.netlify.app/launchpad/createIloGeneral"
               target="_blank"
               rel="noreferrer"
             >

@@ -18,7 +18,8 @@ const usePending = (farm) => {
   const cloneRewarder = useCloneRewarderContract(farm?.rewarder?.id)
 
   const complexRewarder = useComplexRewarderContract(farm?.rewarder?.id)
-
+  console.log(complexRewarder,"complexRewarder");
+  
   const contract = useMemo(
     () => ({
       [ChainId.ETHEREUM]: cloneRewarder,
@@ -31,6 +32,8 @@ const usePending = (farm) => {
       [ChainId.FUSE]: complexRewarder,
       [ChainId.FANTOM]: complexRewarder,
       [ChainId.MOONBEAM]: complexRewarder,
+      [ChainId.MATIC_TESTNET]: complexRewarder,
+
     }),
     [complexRewarder, cloneRewarder]
   )

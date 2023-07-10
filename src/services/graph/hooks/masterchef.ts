@@ -108,11 +108,15 @@ export function useMiniChefFarms({ chainId, swrConfig = undefined }: useFarmsPro
   }, [data])
 }
 
+
 export function useFarms({ chainId, swrConfig = undefined }: useFarmsProps) {
+
   const masterChefV1Farms = useMasterChefV1Farms({ chainId })
   const masterChefV2Farms = useMasterChefV2Farms({ chainId })
   const miniChefFarms = useMiniChefFarms({ chainId })
   const oldMiniChefFarms = useOldMiniChefFarms()
+
+  
 
   return useMemo(
     () =>

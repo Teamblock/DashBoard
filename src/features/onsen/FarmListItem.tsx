@@ -29,8 +29,9 @@ const FarmListItem: FC<FarmListItem> = ({ farm, onClick, farmListCss }) => {
   console.log("cssss", farmListCss);
   const { i18n } = useLingui();
   const token0 = useCurrency(farm.pair.token0.id) ?? undefined;
+ 
+   
   const token1 = useCurrency(farm.pair.token1.id) ?? undefined;
-
   return (
     <>
       {" "}
@@ -53,7 +54,7 @@ const FarmListItem: FC<FarmListItem> = ({ farm, onClick, farmListCss }) => {
                     : "text-white"
                 }
               >
-                {farm?.pair?.token1?.symbol}
+                {farm?.pair?.token0?.symbol}
               </span>
               <span
                 className={
@@ -83,7 +84,7 @@ const FarmListItem: FC<FarmListItem> = ({ farm, onClick, farmListCss }) => {
                       : "text-white"
                   }
                 >
-                  {i18n._(t`EnergyfiSwap Farm`)}
+                  {i18n._(t`TwinSwap Farm`)}
                 </span>
               </Typography>
             )}
@@ -130,6 +131,8 @@ const FarmListItem: FC<FarmListItem> = ({ farm, onClick, farmListCss }) => {
                 }
               >
                 {formatNumber(reward.rewardPerDay)}{" "}
+           
+                
               </span>
               <CurrencyLogo
                 className="text-white"

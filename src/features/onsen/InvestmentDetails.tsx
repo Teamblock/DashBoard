@@ -75,6 +75,7 @@ const InvestmentDetails = ({ farm }) => {
       // @ts-ignore TYPE NEEDS FIXING
       kashiPair.asset
     );
+console.log("FARM",farm);
 
   const pendingEnergyFi = usependingEnergyFi(farm);
   const pendingReward = usePendingReward(farm);
@@ -96,6 +97,9 @@ const InvestmentDetails = ({ farm }) => {
             .toBigNumber(USD[chainId].decimals)
         )
   );
+
+
+  
 
   // @ts-ignore TYPE NEEDS FIXING
   const secondaryRewardOnly = [ChainId.FUSE].includes(chainId);

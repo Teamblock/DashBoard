@@ -110,6 +110,7 @@ export function useTokenBalance(account?: string, token?: Token): CurrencyAmount
   const tokenBalances = useTokenBalances(account, [token])
   if (!token) return undefined
   return tokenBalances[token.address]
+  
 }
 
 export function useCurrencyBalances(
@@ -138,6 +139,7 @@ export function useCurrencyBalances(
 }
 
 export function useCurrencyBalance(account?: string, currency?: Currency): CurrencyAmount<Currency> | undefined {
+  
   return useCurrencyBalances(account, [currency])[0]
 }
 

@@ -1,11 +1,11 @@
-import { getAddress } from '@ethersproject/address'
-import { ChainId, Currency, NATIVE, SUSHI, Token } from '@sushiswap/core-sdk'
-import { ARBITRUM_TOKENS, MATIC_TOKENS, XDAI_TOKENS } from 'app/config/tokens'
-import { Feature } from 'app/enums'
-import { Chef, PairType } from 'app/features/onsen/enum'
-import { usePositions } from 'app/features/onsen/hooks'
-import { featureEnabled } from 'app/functions'
-import { aprToApy } from 'app/functions/convert'
+import { getAddress } from "@ethersproject/address";
+import { ChainId, Currency, NATIVE, SUSHI, Token } from "@sushiswap/core-sdk";
+import { ARBITRUM_TOKENS, MATIC_TOKENS, XDAI_TOKENS } from "app/config/tokens";
+import { Feature } from "app/enums";
+import { Chef, PairType } from "app/features/onsen/enum";
+import { usePositions } from "app/features/onsen/hooks";
+import { featureEnabled } from "app/functions";
+import { aprToApy } from "app/functions/convert";
 import {
   useAverageBlockTime,
   useCeloPrice,
@@ -28,28 +28,27 @@ import {
   useSpellPrice,
   useSushiPairs,
   useSushiPrice,
-} from 'app/services/graph'
-import { useActiveWeb3React } from 'app/services/web3'
-import toLower from 'lodash/toLower'
-import { useMemo } from 'react'
+} from "app/services/graph";
+import { useActiveWeb3React } from "app/services/web3";
+import toLower from "lodash/toLower";
+import { useMemo } from "react";
 
 export default function useFarmRewards() {
-  const { chainId } = useActiveWeb3React()
+  const { chainId } = useActiveWeb3React();
+ 
 
   // @ts-ignore TYPE NEEDS FIXING
-  const positions = usePositions(chainId)
-  console.log("LINE 42",positions);
+  const positions = usePositions(chainId);
 
-  // console.log({ positions })
 
-  const block1d:any= useOneDayBlock({ chainId, shouldFetch: !!chainId })
+
+  const block1d: any = useOneDayBlock({ chainId, shouldFetch: !!chainId });
 
   // @ts-ignore TYPE NEEDS FIXING
-  const farms = useFarms({ chainId })
+  const farms = useFarms({ chainId });
 
-  console.log("LINE 50 ", farms);
-  
-  const farmAddresses = useMemo(() => farms.map((farm) => farm.pair), [farms])
+
+  const farmAddresses = useMemo(() => farms.map((farm) => farm.pair), [farms]);
 
   const swapPairs = useSushiPairs({
     chainId,
@@ -59,10 +58,7 @@ export default function useFarmRewards() {
       },
     },
     shouldFetch: !!farmAddresses,
-  })
-
-  
-
+  });
 
   const swapPairs1d = useSushiPairs({
     chainId,
@@ -73,18 +69,19 @@ export default function useFarmRewards() {
       },
     },
     shouldFetch: !!block1d && !!farmAddresses,
-  })
+  });
 
   const kashiPairs = useKashiPairs({
     chainId,
     variables: { where: { id_in: farmAddresses.map(toLower) } },
-    shouldFetch: !!chainId && !!farmAddresses && featureEnabled(Feature.KASHI, chainId),
-  })
+    shouldFetch:
+      !!chainId && !!farmAddresses && featureEnabled(Feature.KASHI, chainId),
+  });
 
-  const averageBlockTime = useAverageBlockTime({ chainId })
+  const averageBlockTime = useAverageBlockTime({ chainId });
 
-  const masterChefV1TotalAllocPoint = useMasterChefV1TotalAllocPoint()
-  const masterChefV1SushiPerBlock = useMasterChefV1SushiPerBlock()
+  const masterChefV1TotalAllocPoint = useMasterChefV1TotalAllocPoint();
+  const masterChefV1SushiPerBlock = useMasterChefV1SushiPerBlock();
 
   const [
     sushiPrice,
@@ -101,42 +98,42 @@ export default function useFarmRewards() {
     magicPrice,
     glimmerPrice,
   ] = [
-      useSushiPrice(),
-      useEthPrice(),
-      useMaticPrice(),
-      useGnoPrice(),
-      useOnePrice(),
-      useSpellPrice(),
-      useCeloPrice(),
-      useFantomPrice(),
-      useMovrPrice(),
-      useOhmPrice(),
-      useFusePrice(),
-      useMagicPrice(),
-      useGlimmerPrice(),
-      useDevPrice(),
-    ]
+    useSushiPrice(),
+    useEthPrice(),
+    useMaticPrice(),
+    useGnoPrice(),
+    useOnePrice(),
+    useSpellPrice(),
+    useCeloPrice(),
+    useFantomPrice(),
+    useMovrPrice(),
+    useOhmPrice(),
+    useFusePrice(),
+    useMagicPrice(),
+    useGlimmerPrice(),
+    useDevPrice(),
+  ];
 
-  const blocksPerDay = 86400 / Number(averageBlockTime)
+  const blocksPerDay = 86400 / Number(averageBlockTime);
 
   // @ts-ignore TYPE NEEDS FIXING
   const map = (pool) => {
     // TODO: Deal with inconsistencies between properties on subgraph
-    pool.owner = pool?.owner || pool?.masterChef || pool?.miniChef
-    pool.balance = pool?.balance || pool?.slpBalance
+    pool.owner = pool?.owner || pool?.masterChef || pool?.miniChef;
+    pool.balance = pool?.balance || pool?.slpBalance;
 
     // @ts-ignore TYPE NEEDS FIXING
-    const swapPair = swapPairs?.find((pair) => pair.id === pool.pair)
+    const swapPair = swapPairs?.find((pair) => pair.id === pool.pair);
     // @ts-ignore TYPE NEEDS FIXING
-    const swapPair1d = swapPairs1d?.find((pair) => pair.id === pool.pair)
+    const swapPair1d = swapPairs1d?.find((pair) => pair.id === pool.pair);
     // @ts-ignore TYPE NEEDS FIXING
-    const kashiPair = kashiPairs?.find((pair) => pair.id === pool.pair)
+    const kashiPair = kashiPairs?.find((pair) => pair.id === pool.pair);
 
-    const pair = swapPair || kashiPair
+    const pair = swapPair || kashiPair;
 
-    const type = swapPair ? PairType.SWAP : PairType.KASHI
+    const type = swapPair ? PairType.SWAP : PairType.KASHI;
 
-    const blocksPerHour = 3600 / averageBlockTime
+    const blocksPerHour = 3600 / averageBlockTime;
 
     function getRewards() {
       // TODO: Some subgraphs give sushiPerBlock & energyFiPerSecond, and mcv2 gives nothing
@@ -144,59 +141,73 @@ export default function useFarmRewards() {
       const sushiPerBlock =
         pool?.owner?.sushiPerBlock / 1e18 ||
         (pool?.owner?.energyFiPerSecond / 1e18) * averageBlockTime ||
-        masterChefV1SushiPerBlock
+        masterChefV1SushiPerBlock;
 
       // @ts-ignore TYPE NEEDS FIXING
-      const rewardPerBlock = (pool.allocPoint / pool.owner.totalAllocPoint) * sushiPerBlock
+      const rewardPerBlock =
+        (pool.allocPoint / pool.owner.totalAllocPoint) * sushiPerBlock;
 
       const defaultReward = {
-        currency: SUSHI[ChainId.MOONBEAM],
+        currency: SUSHI[ChainId.MATIC_TESTNET],
         rewardPerBlock,
         rewardPerDay: rewardPerBlock * blocksPerDay,
         rewardPrice: sushiPrice,
-      }
+      };
 
-      let rewards: { currency: Currency; rewardPerBlock: number; rewardPerDay: number; rewardPrice: number }[] = [
+      let rewards: {
+        currency: Currency;
+        rewardPerBlock: number;
+        rewardPerDay: number;
+        rewardPrice: number;
+      }[] = [
         // @ts-ignore TYPE NEEDS FIXING
         defaultReward,
-      ]
-
+      ];
       if (pool.chef === Chef.MASTERCHEF_V2) {
         // override for mcv2...
-        pool.owner.totalAllocPoint = masterChefV1TotalAllocPoint
+        pool.owner.totalAllocPoint = masterChefV1TotalAllocPoint;
 
         // CVX-WETH hardcode 0 rewards since ended, can remove after swapping out rewarder
-        if (pool.id === '1') {
-          pool.rewarder.rewardPerSecond = 0
+        if (pool.id === "1") {
+          pool.rewarder.rewardPerSecond = 0;
         }
 
         // vestedQUARTZ to QUARTZ adjustments
-        if (pool.rewarder.rewardToken === '0x5dd8905aec612529361a35372efd5b127bb182b3') {
-          pool.rewarder.rewardToken = '0xba8a621b4a54e61c442f5ec623687e2a942225ef'
-          pool.rewardToken.id = '0xba8a621b4a54e61c442f5ec623687e2a942225ef'
-          pool.rewardToken.symbol = 'vestedQUARTZ'
-          pool.rewardToken.derivedETH = pair.token1.derivedETH
-          pool.rewardToken.decimals = 18
+        if (
+          pool.rewarder.rewardToken ===
+          "0x5dd8905aec612529361a35372efd5b127bb182b3"
+        ) {
+          pool.rewarder.rewardToken =
+            "0xba8a621b4a54e61c442f5ec623687e2a942225ef";
+          pool.rewardToken.id = "0xba8a621b4a54e61c442f5ec623687e2a942225ef";
+          pool.rewardToken.symbol = "vestedQUARTZ";
+          pool.rewardToken.derivedETH = pair.token1.derivedETH;
+          pool.rewardToken.decimals = 18;
         }
 
-        const decimals = 10 ** pool.rewardToken.decimals
+        const decimals = 10 ** pool.rewardToken.decimals;
 
-        if (pool.rewarder.rewardToken !== '0x0000000000000000000000000000000000000000') {
+        if (
+          pool.rewarder.rewardToken !==
+          "0x0000000000000000000000000000000000000000"
+        ) {
           const rewardPerBlock =
-            pool.rewardToken.symbol === 'ALCX'
+            pool.rewardToken.symbol === "ALCX"
               ? pool.rewarder.rewardPerSecond / decimals
-              : pool.rewardToken.symbol === 'LDO'
-                ? (77160493827160493 / decimals) * averageBlockTime
-                : (pool.rewarder.rewardPerSecond / decimals) * averageBlockTime
+              : pool.rewardToken.symbol === "LDO"
+              ? (77160493827160493 / decimals) * averageBlockTime
+              : (pool.rewarder.rewardPerSecond / decimals) * averageBlockTime;
 
           const rewardPerDay =
-            pool.rewardToken.symbol === 'ALCX'
+            pool.rewardToken.symbol === "ALCX"
               ? (pool.rewarder.rewardPerSecond / decimals) * blocksPerDay
-              : pool.rewardToken.symbol === 'LDO'
-                ? (77160493827160493 / decimals) * averageBlockTime * blocksPerDay
-                : (pool.rewarder.rewardPerSecond / decimals) * averageBlockTime * blocksPerDay
+              : pool.rewardToken.symbol === "LDO"
+              ? (77160493827160493 / decimals) * averageBlockTime * blocksPerDay
+              : (pool.rewarder.rewardPerSecond / decimals) *
+                averageBlockTime *
+                blocksPerDay;
 
-          const rewardPrice = pool.rewardToken.derivedETH * ethPrice
+          const rewardPrice = pool.rewardToken.derivedETH * ethPrice;
 
           const reward = {
             currency: new Token(
@@ -209,22 +220,27 @@ export default function useFarmRewards() {
             rewardPerBlock,
             rewardPerDay,
             rewardPrice,
-          }
-          rewards[1] = reward
+          };
+          rewards[1] = reward;
         }
       } else if (pool.chef === Chef.MINICHEF) {
-        const energyFiPerSecond = ((pool.allocPoint / pool.miniChef.totalAllocPoint) * pool.miniChef.energyFiPerSecond) / 1e18
-        const sushiPerBlock = energyFiPerSecond * averageBlockTime
-        const sushiPerDay = sushiPerBlock * blocksPerDay
+        const energyFiPerSecond =
+          ((pool.allocPoint / pool.miniChef.totalAllocPoint) *
+            pool.miniChef.energyFiPerSecond) /
+          1e18;
+        const sushiPerBlock = energyFiPerSecond * averageBlockTime;
+        const sushiPerDay = sushiPerBlock * blocksPerDay;
 
         const rewardPerSecond =
           pool.rewarder.rewardPerSecond && chainId === ChainId.ARBITRUM
             ? pool.rewarder.rewardPerSecond / 1e18
-            : ((pool.allocPoint / pool.miniChef.totalAllocPoint) * pool.rewarder.rewardPerSecond) / 1e18
+            : ((pool.allocPoint / pool.miniChef.totalAllocPoint) *
+                pool.rewarder.rewardPerSecond) /
+              1e18;
 
-        const rewardPerBlock = rewardPerSecond * averageBlockTime
+        const rewardPerBlock = rewardPerSecond * averageBlockTime;
 
-        const rewardPerDay = rewardPerBlock * blocksPerDay
+        const rewardPerDay = rewardPerBlock * blocksPerDay;
 
         const reward = {
           [ChainId.MATIC]: {
@@ -287,73 +303,88 @@ export default function useFarmRewards() {
             rewardPerDay: rewardPerSecond * 86400,
             rewardPrice: glimmerPrice,
           },
-        }
+        };
+     
 
         if (chainId === ChainId.FUSE) {
           // Secondary reward only
-          rewards[0] = reward[ChainId.FUSE]
+          rewards[0] = reward[ChainId.FUSE];
         } else {
+          // if(chainId === ChainId.MATIC_TESTNET){
+          // // Secondary reward only
+          // rewards[0] = reward[ChainId.MATIC_TESTNET]
+          // if (chainId in reward) {
+          //   // @ts-ignore TYPE NEEDS FIXING
+          //   rewards[1] = reward[chainId]
+          // }
+          // }else{
+
           // @ts-ignore TYPE NEEDS FIXING
           rewards[0] = {
             ...defaultReward,
             rewardPerBlock: sushiPerBlock,
             rewardPerDay: sushiPerDay,
-          }
+          };
           // @ts-ignore TYPE NEEDS FIXING
           if (chainId in reward) {
             // @ts-ignore TYPE NEEDS FIXING
-            rewards[1] = reward[chainId]
+            rewards[1] = reward[chainId];
           }
         }
 
-        if (chainId === ChainId.ARBITRUM && ['9', '11'].includes(pool.id)) {
+        if (chainId === ChainId.ARBITRUM && ["9", "11"].includes(pool.id)) {
           rewards[1] = {
             currency: ARBITRUM_TOKENS.SPELL,
             rewardPerBlock,
             rewardPerDay,
             rewardPrice: spellPrice,
-          }
+          };
         }
-        if (chainId === ChainId.ARBITRUM && ['12'].includes(pool.id)) {
+        if (chainId === ChainId.ARBITRUM && ["12"].includes(pool.id)) {
           rewards[1] = {
             currency: ARBITRUM_TOKENS.gOHM,
             rewardPerBlock,
             rewardPerDay,
             rewardPrice: ohmPrice,
-          }
+          };
         }
-        if (chainId === ChainId.ARBITRUM && ['13'].includes(pool.id)) {
+        if (chainId === ChainId.ARBITRUM && ["13"].includes(pool.id)) {
           rewards[1] = {
             currency: ARBITRUM_TOKENS.MAGIC,
             rewardPerBlock,
             rewardPerDay,
             rewardPrice: magicPrice,
-          }
+          };
         }
-        if (chainId === ChainId.MATIC && ['47'].includes(pool.id)) {
-          const rewardTokenPerSecond = 0.00000462962963
-          const rewardTokenPerBlock = rewardTokenPerSecond * averageBlockTime
-          const rewardTokenPerDay = 0.4
+        if (chainId === ChainId.MATIC && ["47"].includes(pool.id)) {
+          const rewardTokenPerSecond = 0.00000462962963;
+          const rewardTokenPerBlock = rewardTokenPerSecond * averageBlockTime;
+          const rewardTokenPerDay = 0.4;
           rewards[1] = {
             currency: MATIC_TOKENS.gOHM,
             rewardPerBlock: rewardTokenPerBlock,
             rewardPerDay: rewardTokenPerDay,
             rewardPrice: ohmPrice,
-          }
+          };
         }
       } else if (pool.chef === Chef.OLD_FARMS) {
-        const energyFiPerSecond = ((pool.allocPoint / pool.miniChef.totalAllocPoint) * pool.miniChef.energyFiPerSecond) / 1e18
-        const sushiPerBlock = energyFiPerSecond * averageBlockTime
-        const sushiPerDay = sushiPerBlock * blocksPerDay
+        const energyFiPerSecond =
+          ((pool.allocPoint / pool.miniChef.totalAllocPoint) *
+            pool.miniChef.energyFiPerSecond) /
+          1e18;
+        const sushiPerBlock = energyFiPerSecond * averageBlockTime;
+        const sushiPerDay = sushiPerBlock * blocksPerDay;
 
         const rewardPerSecond =
           pool.rewarder.rewardPerSecond && chainId === ChainId.ARBITRUM
             ? pool.rewarder.rewardPerSecond / 1e18
-            : ((pool.allocPoint / pool.miniChef.totalAllocPoint) * pool.rewarder.rewardPerSecond) / 1e18
+            : ((pool.allocPoint / pool.miniChef.totalAllocPoint) *
+                pool.rewarder.rewardPerSecond) /
+              1e18;
 
-        const rewardPerBlock = rewardPerSecond * averageBlockTime
+        const rewardPerBlock = rewardPerSecond * averageBlockTime;
 
-        const rewardPerDay = rewardPerBlock * blocksPerDay
+        const rewardPerDay = rewardPerBlock * blocksPerDay;
 
         const reward = {
           [ChainId.CELO]: {
@@ -362,65 +393,79 @@ export default function useFarmRewards() {
             rewardPerDay: rewardPerSecond * 86400,
             rewardPrice: celoPrice,
           },
-        }
+        };
 
         // @ts-ignore TYPE NEEDS FIXING
         rewards[0] = {
           ...defaultReward,
           rewardPerBlock: sushiPerBlock,
           rewardPerDay: sushiPerDay,
-        }
+        };
 
         // @ts-ignore TYPE NEEDS FIXING
         if (chainId in reward) {
           // @ts-ignore TYPE NEEDS FIXING
-          rewards[1] = reward[chainId]
+          rewards[1] = reward[chainId];
         }
       }
 
-      return rewards
+      return rewards;
     }
 
-    const rewards = getRewards()
+    const rewards = getRewards();
 
-    const balance = swapPair ? Number(pool.balance / 1e18) : pool.balance / 10 ** kashiPair.token0.decimals
+    const balance = swapPair
+      ? Number(pool.balance / 1e18)
+      : pool.balance / 10 ** kashiPair.token0.decimals;
 
     const tvl = swapPair
       ? (balance / Number(swapPair.totalSupply)) * Number(swapPair.reserveUSD)
-      : balance * kashiPair.token0.derivedETH * ethPrice
+      : balance * kashiPair.token0.derivedETH * ethPrice;
 
     const feeApyPerYear =
       swapPair && swapPair1d
-        ? aprToApy((((pair?.volumeUSD - swapPair1d?.volumeUSD) * 0.0025 * 365) / pair?.reserveUSD) * 100, 3650) / 100
-        : 0
+        ? aprToApy(
+            (((pair?.volumeUSD - swapPair1d?.volumeUSD) * 0.0025 * 365) /
+              pair?.reserveUSD) *
+              100,
+            3650
+          ) / 100
+        : 0;
 
-    const feeApyPerMonth = feeApyPerYear / 12
-    const feeApyPerDay = feeApyPerMonth / 30
-    const feeApyPerHour = feeApyPerDay / blocksPerHour
+    const feeApyPerMonth = feeApyPerYear / 12;
+    const feeApyPerDay = feeApyPerMonth / 30;
+    const feeApyPerHour = feeApyPerDay / blocksPerHour;
 
     const roiPerBlock =
       rewards.reduce((previousValue, currentValue) => {
-        return previousValue + currentValue.rewardPerBlock * currentValue.rewardPrice
-      }, 0) / tvl
+        return (
+          previousValue + currentValue.rewardPerBlock * currentValue.rewardPrice
+        );
+      }, 0) / tvl;
 
-    const rewardAprPerHour = roiPerBlock * blocksPerHour
-    const rewardAprPerDay = rewardAprPerHour * 24
-    const rewardAprPerMonth = rewardAprPerDay * 30
-    const rewardAprPerYear = rewardAprPerMonth * 12
+    const rewardAprPerHour = roiPerBlock * blocksPerHour;
+    const rewardAprPerDay = rewardAprPerHour * 24;
+    const rewardAprPerMonth = rewardAprPerDay * 30;
+    const rewardAprPerYear = rewardAprPerMonth * 12;
 
-    const roiPerHour = rewardAprPerHour + feeApyPerHour
-    const roiPerMonth = rewardAprPerMonth + feeApyPerMonth
-    const roiPerDay = rewardAprPerDay + feeApyPerDay
-    const roiPerYear = rewardAprPerYear + feeApyPerYear
+    const roiPerHour = rewardAprPerHour + feeApyPerHour;
+    const roiPerMonth = rewardAprPerMonth + feeApyPerMonth;
+    const roiPerDay = rewardAprPerDay + feeApyPerDay;
+    const roiPerYear = rewardAprPerYear + feeApyPerYear;
 
-    const position = positions.find((position) => position.id === pool.id && position.chef === pool.chef)
+    const position = positions.find(
+      (position) => position.id === pool.id && position.chef === pool.chef
+    );
 
     return {
       ...pool,
       ...position,
       pair: {
         ...pair,
-        decimals: pair.type === PairType.KASHI ? Number(pair.asset.tokenInfo.decimals) : 18,
+        decimals:
+          pair.type === PairType.KASHI
+            ? Number(pair.asset.tokenInfo.decimals)
+            : 18,
         type,
       },
       balance,
@@ -439,8 +484,8 @@ export default function useFarmRewards() {
       roiPerYear,
       rewards,
       tvl,
-    }
-  }
+    };
+  };
 
   return farms
     .filter((farm) => {
@@ -449,7 +494,7 @@ export default function useFarmRewards() {
         (swapPairs && swapPairs.find((pair) => pair.id === farm.pair)) ||
         // @ts-ignore TYPE NEEDS FIXING
         (kashiPairs && kashiPairs.find((pair) => pair.id === farm.pair))
-      )
+      );
     })
-    .map(map)
+    .map(map);
 }

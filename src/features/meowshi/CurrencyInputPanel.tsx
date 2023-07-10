@@ -27,6 +27,7 @@ const CurrencyInputPanel: FC<CurrencyInputPanelProps> = ({ field, meowshiState, 
   const currency = currencies[field]
   // @ts-ignore TYPE NEEDS FIXING
   const balance = useTokenBalance(account, currency)
+  
   // @ts-ignore TYPE NEEDS FIXING
   const inputUSDCValue = useUSDCValue(tryParseAmount(fields[field], currencies[field]))
   const balanceUSDCValue = useUSDCValue(balance)
