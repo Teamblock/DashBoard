@@ -62,7 +62,7 @@ export function TokenApproveButton({ children, value, token, needed, color }: an
         <Dots>{`Approving ${token.symbol}`}</Dots>
       ) : (
         <>
-          {i18n._(t`Approve 123`)} {token.symbol}
+          {i18n._(t`Approve`)} {token.symbol}
         </>
       )}
     </Button>

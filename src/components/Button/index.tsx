@@ -64,7 +64,7 @@ const OUTLINED = {
   gradient:
     "border-purple hover:bg-purple/10 active:bg-purple/20 text-purple focus:bg-purple/10",
   gray: "border-dark-700 hover:bg-dark-700/30 active:bg-dark-700/50 focus:bg-dark-700/30",
-  btn_primary: "border border-white hover:bg-field !text-black",
+  btn_primary: "border border-white !text-black",
   green: "border border-Green",
   transparent: "bg-transparent",
   btnSecondary: "bg-Grean",
