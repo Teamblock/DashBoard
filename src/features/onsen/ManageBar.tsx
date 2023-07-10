@@ -158,10 +158,10 @@ const ManageBar = ({ farm }) => {
               className={classNames(
                 "text-md border rounded-[0.350rem]",
                 toggle
-                  ? "focus:ring-Gray hover:ring-Gray border-Gray"
-                  : "!bg-black border-Gray",
+                  ? "focus:ring-Gray hover:ring-Gray border-Gray !text-white"
+                  : "!bg-black border-Gray ",
                 selectedTab === multiplier
-                  ? "!bg-[#eebd54] border-black border !text-black"
+                  ? "!bg-[#eebd54] border-[#eebd54] border !text-black"
                   : "border-Gray !bg-transparent"
               )}
             >

@@ -85,7 +85,7 @@ const Launchpad: FC = () => {
             component="h1"
             className="!font-bold text-black text-xl"
           >
-            Launchpad
+            Launchpad 123
           </Typography>
           <Typography className="text-gray-700 text-xs md:text-lg mt-2 max-w-[45%] maxLg:max-w-full">
             Cross-Chain and permissionless rugpull proof Launchpad

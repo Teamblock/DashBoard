@@ -38,7 +38,7 @@ const SIZE = {
 
 const FILLED = {
   default:
-    "!text-black !font-normal hover:bg-gradient-to-b hover:from-black/20 focus:to-black/20 focus:bg-gradient-to-b focus:from-black/20 hover:to-black/20 active:bg-gradient-to-b active:from-black/40 active:to-black/40 disabled:pointer-events-none",
+    "!text-black !font-normal hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none",
   blue: "bg-blue",
   red: "bg-red",
   pink: "bg-pink",
@@ -72,7 +72,7 @@ const OUTLINED = {
 
 const EMPTY = {
   default:
-    "bg-[#eebd54] !text-black hover:bg-[#eebd54] focus:brightness-[90%] active:brightness-[80%] disabled:pointer-events-none shadow",
+    "bg-[#eebd54] !text-black hover:bg-[#eebd54] disabled:pointer-events-none shadow",
   blue: "text-blue",
   orange: "text-orange",
   green: "text-Green",

@@ -80,7 +80,7 @@ const FarmListItemDetails = ({ farm, onDismiss }) => {
             </ToggleButtonGroup.Button>
             <ToggleButtonGroup.Button
               value={OnsenModalView.Position}
-              className="bg-black text-white"
+              className="bg-[#eebd54] text-white"
             >
               {i18n._(t`Rewards`)}
             </ToggleButtonGroup.Button>
