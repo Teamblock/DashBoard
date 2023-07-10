@@ -56,7 +56,7 @@ const SubmittedModalContent: FC<SubmittedModalContentProps> = ({
       <HeadlessUiModal.Content>
         <div className="flex flex-col divide-y divide-dark-700">
           <div className="flex justify-between gap-2 py-2">
-            <Typography variant="sm" className="text-secondary">
+            <Typography variant="sm" className="text-white">
               {i18n._(t`Transaction Hash`)}
             </Typography>
             {txHash && (
