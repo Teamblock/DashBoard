@@ -271,7 +271,15 @@ const PoolDeposit = ({ currencyA, currencyB, header }) => {
           <div className="flex justify-center">
             <Button
               variant="outlined"
+<<<<<<< HEAD
               className="rounded-[0.350rem] h-10 w-full !text-white hover:bg-[primary]"
+=======
+<<<<<<< HEAD
+              className="rounded-[0.350rem] h-10 w-full  !hover:text-black hover:bg-[#eebd54]"
+=======
+              className="rounded-[0.350rem] h-10 w-full !text-white hover:bg-[primary]"
+>>>>>>> c812d96 (Fixed UI changes)
+>>>>>>> 14f384f (Fixed UI changes)
               onClick={() => setUseETH(!useETH)}
             >
               {i18n._(t`Use`)} {useETH && "W"}
@@ -297,7 +305,15 @@ const PoolDeposit = ({ currencyA, currencyB, header }) => {
           {approvalA !== ApprovalState.APPROVED && (
             <Button
               fullWidth
+<<<<<<< HEAD
               className="!rounded-[0.350rem] !font-normal text-black !h-10 bg-[#eebd54] !hover:bg-[#eebd54]/80"
+=======
+<<<<<<< HEAD
+              className="!rounded-[0.350rem] !font-normal text-white !h-10 bg-[#eebd54]"
+=======
+              className="!rounded-[0.350rem] !font-normal text-black !h-10 bg-[#eebd54] !hover:bg-[#eebd54]/80"
+>>>>>>> c812d96 (Fixed UI changes)
+>>>>>>> 14f384f (Fixed UI changes)
               loading={approvalA === ApprovalState.PENDING}
               onClick={approveACallback}
               disabled={approvalA === ApprovalState.PENDING}
