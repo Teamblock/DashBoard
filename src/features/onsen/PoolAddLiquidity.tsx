@@ -268,36 +268,19 @@ const PoolDeposit = ({ currencyA, currencyB, header }) => {
           className="!mt-0"
         />
         {(oneCurrencyIsETH || oneCurrencyIsWETH) && chainId != ChainId.CELO && (
-          <div className="flex justify-center">
-            <Button
-              variant="outlined"
-<<<<<<< HEAD
-<<<<<<< HEAD
-              className="rounded-[0.350rem] h-10 w-full !text-white hover:bg-[primary]"
-=======
-=======
->>>>>>> 73d0b89 (UI)
-<<<<<<< HEAD
-              className="rounded-[0.350rem] h-10 w-full  !hover:text-black hover:bg-[#eebd54]"
-=======
-              className="rounded-[0.350rem] h-10 w-full !text-white hover:bg-[primary]"
->>>>>>> c812d96 (Fixed UI changes)
-<<<<<<< HEAD
->>>>>>> 14f384f (Fixed UI changes)
-=======
-=======
-              className="rounded-[0.350rem] h-10 w-full  !hover:text-black hover:bg-[#eebd54]"
->>>>>>> 360ddb4 (UI)
->>>>>>> 73d0b89 (UI)
-              onClick={() => setUseETH(!useETH)}
-            >
-              {i18n._(t`Use`)} {useETH && "W"}
-              {/* @ts-ignore TYPE NEEDS FIXING */}
-              {NATIVE[chainId].symbol} instead of {!useETH && "W"}
-              {/* @ts-ignore TYPE NEEDS FIXING */}
-              {NATIVE[chainId].symbol}
-            </Button>
-          </div>
+    <div className="flex justify-center">
+    <Button
+      variant="outlined"
+      className="rounded-[0.350rem] h-10 w-full !text-white hover:bg-[primary]"
+      onClick={() => setUseETH(!useETH)}
+    >
+      {i18n._(t`Use`)} {useETH && "W"}
+      {/* @ts-ignore TYPE NEEDS FIXING */}
+      {NATIVE[chainId].symbol} instead of {!useETH && "W"}
+      {/* @ts-ignore TYPE NEEDS FIXING */}
+      {NATIVE[chainId].symbol}
+    </Button>
+  </div>
         )}
       </HeadlessUiModal.BorderedContent>
       {!account ? (
@@ -310,52 +293,35 @@ const PoolDeposit = ({ currencyA, currencyB, header }) => {
           approvalA === ApprovalState.PENDING ||
           approvalB === ApprovalState.NOT_APPROVED ||
           approvalB === ApprovalState.PENDING) ? (
-        <div className="flex gap-4">
-          {approvalA !== ApprovalState.APPROVED && (
-            <Button
-              fullWidth
-<<<<<<< HEAD
-<<<<<<< HEAD
-              className="!rounded-[0.350rem] !font-normal text-black !h-10 bg-[#eebd54] !hover:bg-[#eebd54]/80"
-=======
-=======
->>>>>>> 73d0b89 (UI)
-<<<<<<< HEAD
-              className="!rounded-[0.350rem] !font-normal text-white !h-10 bg-[#eebd54]"
-=======
-              className="!rounded-[0.350rem] !font-normal text-black !h-10 bg-[#eebd54] !hover:bg-[#eebd54]/80"
->>>>>>> c812d96 (Fixed UI changes)
-<<<<<<< HEAD
->>>>>>> 14f384f (Fixed UI changes)
-=======
-=======
-              className="!rounded-[0.350rem] !font-normal text-white !h-10 bg-[#eebd54]"
->>>>>>> 360ddb4 (UI)
->>>>>>> 73d0b89 (UI)
-              loading={approvalA === ApprovalState.PENDING}
-              onClick={approveACallback}
-              disabled={approvalA === ApprovalState.PENDING}
-              style={{
-                width: approvalB !== ApprovalState.APPROVED ? "48%" : "100%",
-              }}
-              variant="filled"
-            >
-              {i18n._(t`Approve ${currencies[Field.CURRENCY_A]?.symbol}`)}
-            </Button>
-          )}
-          {approvalB !== ApprovalState.APPROVED && (
-            <Button
-              fullWidth
-              variant="filled"
-              className="!rounded-[0.350rem] !font-normal text-white !h-10 bg-[#eebd54]"
-              loading={approvalB === ApprovalState.PENDING}
-              onClick={approveBCallback}
-              disabled={approvalB === ApprovalState.PENDING}
-            >
-              {i18n._(t`Approve ${currencies[Field.CURRENCY_B]?.symbol}`)}
-            </Button>
-          )}
-        </div>
+            <div className="flex gap-4">
+            {approvalA !== ApprovalState.APPROVED && (
+              <Button
+                fullWidth
+                className="!rounded-[0.350rem] !font-normal text-black !h-10 bg-[#eebd54] !hover:bg-[#eebd54]/80"
+                loading={approvalA === ApprovalState.PENDING}
+                onClick={approveACallback}
+                disabled={approvalA === ApprovalState.PENDING}
+                style={{
+                  width: approvalB !== ApprovalState.APPROVED ? "48%" : "100%",
+                }}
+                variant="filled"
+              >
+                {i18n._(t`Approve ${currencies[Field.CURRENCY_A]?.symbol}`)}
+              </Button>
+            )}
+            {approvalB !== ApprovalState.APPROVED && (
+              <Button
+                fullWidth
+                variant="filled"
+                className="!rounded-[0.350rem] !font-normal text-black !h-10 bg-[#eebd54] !hover:bg-[#eebd54]/80"
+                loading={approvalB === ApprovalState.PENDING}
+                onClick={approveBCallback}
+                disabled={approvalB === ApprovalState.PENDING}
+              >
+                {i18n._(t`Approve ${currencies[Field.CURRENCY_B]?.symbol}`)}
+              </Button>
+            )}
+          </div>
       ) : (
         <Button
           variant="filled"
