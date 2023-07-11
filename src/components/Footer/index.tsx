@@ -57,36 +57,28 @@ const Footer = () => {
                 Polygon all while accelerating their adoption.`
                 )}
               </Typography>
-              
             </div>
             <div className="flex justify-end">
               <div className="grid md:grid-cols-04 grid-cols-1 pb-10 pt-7 w-full mt-[0.7rem] md:mt-[3.7rem] relative">
-              <div className="absolute right-0">
-                <h1 className="text-white text-end font-bold">Contact Us</h1>
-                <FooterIcons footerIconsCss="mt-4 md:-ml-3" />
-              </div>
+                <div className="absolute right-0">
+                  <h1 className="text-white text-end font-bold">Contact Us</h1>
+                  <FooterIcons footerIconsCss="mt-4 md:-ml-3" />
+                </div>
               </div>
             </div>
           </div>
-          <div className="w-full flex md:justify-between maxMd:flex-col maxMd:justify-around items-center md:pt-5 maxMd:h-[6rem] maxMd:my-[1rem]">
+          {/* <div className="w-full flex md:justify-between maxMd:flex-col maxMd:justify-around items-center md:pt-5 maxMd:h-[6rem] maxMd:my-[1rem]">
             <Typography variant="sm" className="!font-light	 text-white-700">
               {i18n._(t`contact@dex.io`)}
             </Typography>
             <Typography variant="sm" className="!font-light text-white-700">
               {i18n._(t`© 2023 by Dex`)}
             </Typography>
-          </div>
+          </div> */}
         </Container>
       </div>
-      <div className="justify-center items-center flex w-full bg-[#1a202e] py-4 maxMd:py-5">
-        <Typography
-          variant="sm"
-          className="text-white-700 mr-2.5 hover:text-high-emphesis font-bold"
-        >
-          {i18n._(t`Audited by:`)}
-        </Typography>
-        <SFIcon height={31} className="mr-[0.6rem]" />
-        {/* <Chainsulting width={125} height={50} /> */}
+      <div className="justify-center items-center flex w-full bg-[#1a202e] py-4 maxMd:py-5 border-t border-[#eebd54]/40">
+        <p>Copyright @ 2023, All Rights Reserved. Thoughtwin</p>
       </div>
     </>
   );
