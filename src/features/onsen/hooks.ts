@@ -99,6 +99,8 @@ export function usependingEnergyFi(farm) {
   const value = result?.[0]
 
   const amount = value ? JSBI.BigInt(value.toString()) : undefined
+ 
+  
 
   // @ts-ignore TYPE NEEDS FIXING
   return amount ? CurrencyAmount?.fromRawAmount(SUSHI[chainId], amount) : undefined

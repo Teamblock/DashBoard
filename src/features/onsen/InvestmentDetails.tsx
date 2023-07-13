@@ -43,6 +43,7 @@ const RewardRow = ({ value, symbol }) => {
 const InvestmentDetails = ({ farm }) => {
   const { i18n } = useLingui();
   const { chainId } = useActiveWeb3React();
+  
   const { harvest } = useMasterChef(farm.chef);
   const router = useRouter();
   const addTransaction = useTransactionAdder();
@@ -79,6 +80,7 @@ console.log("FARM",farm);
 
   const pendingEnergyFi = usependingEnergyFi(farm);
   const pendingReward = usePendingReward(farm);
+  
 
   const positionFiatValue = CurrencyAmount.fromRawAmount(
     // @ts-ignore TYPE NEEDS FIXING
@@ -110,10 +112,17 @@ console.log("FARM",farm);
       (farm?.rewards?.[1]?.rewardPrice ?? 0) * Number(pendingReward ?? 0)
     : (farm?.rewards?.[0]?.rewardPrice ?? 0) * Number(pendingReward ?? 0);
 
+    
+
   async function onHarvest() {
+
     setPendingTx(true);
     try {
+     
+      
       const tx = await harvest(farm.id);
+      console.log(tx,"TXXXX");
+      
       addTransaction(tx, {
         summary: i18n._(
           t`Harvest ${farm.pair.token0.name}/${farm.pair.token1.name}`
@@ -255,8 +264,10 @@ console.log("FARM",farm);
             (pendingReward && Number(pendingReward) > 0)
           )
         }
+        
         onClick={onHarvest}
       >
+        
         {i18n._(t`Connect Wallet`)}
       </Button>
     </>

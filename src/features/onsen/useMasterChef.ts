@@ -13,6 +13,7 @@ export default function useMasterChef(chef: Chef) {
   const sushi = useSushiContract()
 
   const contract = useChefContract(chef)
+  
 
   // Deposit
   const deposit = useCallback(
@@ -60,6 +61,7 @@ export default function useMasterChef(chef: Chef) {
   )
 
   const harvest = useCallback(
+  
     async (pid: number) => {
       try {
         let tx
@@ -85,6 +87,8 @@ export default function useMasterChef(chef: Chef) {
           }
         } else if (chef === Chef.MINICHEF || chef === Chef.OLD_FARMS) {
           tx = await contract?.harvest(pid, account)
+      
+          
         }
 
         return tx
@@ -93,8 +97,9 @@ export default function useMasterChef(chef: Chef) {
         return e
       }
     },
+    
     [account, chef, contract, sushi]
+    
   )
-
   return { deposit, withdraw, harvest }
 }

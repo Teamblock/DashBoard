@@ -67,8 +67,10 @@ const usePending = (farm) => {
       fetchPendingReward()
     }
   }, [account, currentBlockNumber, cloneRewarder, complexRewarder, farm, library, contract, chainId])
+console.log(balance,"BALANCE");
 
   return balance
+  
 }
 
 export default usePending

@@ -356,7 +356,7 @@ export default function Stake() {
                       }`,
                       inputError ? " pl-9 md:pl-12" : ""
                     )}
-                    placeholder=" "
+                    placeholder="0 TWT"
                   />
                   {/* input overlay: */}
                   <div className="relative w-full h-0 pointer-events-none bottom-14">
@@ -378,9 +378,9 @@ export default function Stake() {
                             input ? "text-high-emphesis" : "text-secondary"
                           }`}
                         >
-                          {`${input ? input : "0"} ${
+                          {/* {`${input ? input : "0"} ${
                             activeTab === 0 ? "" : "x"
-                          }TWT`}
+                          }TWT`} */}
                         </Typography>
                       </div>
                       <div className="flex items-center text-sm text-secondary md:text-base">
