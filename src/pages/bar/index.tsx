@@ -13,6 +13,7 @@ import { XTWT_CALL } from "app/config/tokens";
 import { classNames } from "app/functions";
 import { aprToApy } from "app/functions/convert/apyApr";
 import { tryParseAmount } from "app/functions/parse";
+import Devlogo from "../../../public/images/DLogo.svg";
 import {
   ApprovalState,
   useApproveCallback,
@@ -350,6 +351,7 @@ export default function Stake() {
                   <Input.Numeric
                     value={input}
                     onUserInput={handleInput}
+                    style={{marginLeft: "8px"}}
                     className={classNames(
                       `w-full h-14 pl-[3rem] mt-3 md:mt-4 rounded-[0.350rem] bg-ternary text-sm md:text-lg font-bold text-white whitespace-nowrap caret-high-emphesis ${
                         inputError ? "!pl-[5rem]" : ""
@@ -357,6 +359,7 @@ export default function Stake() {
                       inputError ? " pl-9 md:pl-12" : ""
                     )}
                     placeholder="0 TWT"
+                  
                   />
                   {/* input overlay: */}
                   <div className="relative w-full h-0 pointer-events-none bottom-14">
@@ -366,8 +369,14 @@ export default function Stake() {
                       }`}
                     >
                       <div className="flex items-center space-x-2">
-                        <span className="bg-white p-2 rounded-full flex items-center justify-center ">
-                          <ELogo className="w-[15px] h-[15px]" />
+                        <span className="p-2 rounded-full flex items-center justify-center ">
+                          {/* <ELogo className="w-[15px] h-[15px]" /> */}
+                          <img
+                            className="max-w-[110px] cursor-pointer"
+                            src={Devlogo.src}
+                            alt="energyfiLogo" 
+                            style={{width : "35px",height : "auto", marginLeft : "-7px"}} 
+                          />
                         </span>
                         <div className="border-r border-Gray h-10" />
                         {inputError && (
@@ -448,8 +457,14 @@ export default function Stake() {
               </Typography>
               <div className="flex items-center border border-white/50 rounded-[0.350rem] h-14">
                 <div className="flex items-center w-full mx-2.5">
-                  <span className="bg-white p-2 rounded-full">
-                    <ELogo className="w-[15px] h-[15px]" />
+                  <span className="p-2 rounded-full">
+                    {/* <ELogo className="w-[15px] h-[15px]" /> */}
+                    <img
+                            className="max-w-[110px] cursor-pointer"
+                            src={Devlogo.src}
+                            alt="energyfiLogo"  
+                            style={{width : "35px",height : "auto", marginLeft : "-7px"}} 
+                          />
                   </span>
                   <div className="flex items-center justify-between w-full">
                     <Typography className="!font-semibold text-sm md:text-base text-white ml-2">
@@ -467,8 +482,14 @@ export default function Stake() {
               </div>
               <div className="flex items-center border border-white/50 rounded-[0.350rem] h-14">
                 <div className="flex items-center w-full mx-2.5">
-                  <span className="bg-white p-2 rounded-full">
-                    <ELogo className="w-[15px] h-[15px]" />
+                  <span className="p-2 rounded-full">
+                    {/* <ELogo className="w-[15px] h-[15px]" /> */}
+                    <img
+                            className="max-w-[110px] cursor-pointer"
+                            src={Devlogo.src}
+                            alt="energyfiLogo"  
+                            style={{width : "35px",height : "auto", marginLeft : "-7px"}} 
+                          />
                   </span>
                   <div className="flex items-center justify-between w-full">
                     <Typography className="!font-semibold text-sm md:text-base text-white ml-2">
@@ -482,7 +503,7 @@ export default function Stake() {
               </div>
 
               {account && (
-                <Link href={`/analytics/xEFT`}>
+                <Link href={`/analytics/xTwin`}>
                   <Button
                     variant="outlined"
                     className="h-[3.1rem] w-full mt-[0.4rem] border border-white rounded-[0.350rem] transition hover:!bg-[#eebd54] !text-white hover:!text-black hover:border-[#eebd54]"

@@ -93,7 +93,7 @@ type FarmListNameProps = {
       id: string;
     };
     name: string;
-    type: "Energyfi Farm" | "Kashi Farm";
+    type: "Twin Farm" | "Kashi Farm";
   };
 };
 
@@ -746,7 +746,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
                 variant="filled"
                 className="text-base !text-black w-[10rem] md:w-[11rem] maxLg:text-sm maxLg:h-10 font-normal rounded-[0.350rem] h-14 !bg-[#eebd54]"
                 onClick={() => {
-                  router.push(`/analytics/xEFT`);
+                  router.push(`/analytics/xTwin`);
                 }}
               >
                 TWT Stats
@@ -809,7 +809,7 @@ const Dashboard: FC<DashboardProps> = ({}) => {
               name:
                 farm.pair.symbol ??
                 `${farm.pair.token0.symbol}-${farm.pair.token1.symbol}`,
-              type: farm.pair.symbol ? "Kashi Farm" : "Energyfi Farm",
+              type: farm.pair.symbol ? "Kashi Farm" : "Twin Farm",
             },
             rewards: farm.rewards,
             liquidity: farm.tvl,

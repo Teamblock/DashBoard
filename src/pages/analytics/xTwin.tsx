@@ -223,19 +223,19 @@ export default function xEnergyfi() {
               <Typography
                 variant="h1"
                 component="h1"
-                className="!text-3xl !font-bold text-black"
+                className="!text-3xl !font-bold text-white"
               >
                 Dex Analytics
               </Typography>
-              <Typography className="!font-normal text-xl text-black">
+              <Typography className="!font-normal text-xl text-white">
                 Find out all about Dex here.
               </Typography>
             </div>
             <div className="flex justify-end space-x-12">
               <div className="flex flex-col">
-                <div className="font-bold text-black/60">Price</div>
+                <div className="font-bold text-white/60">Price</div>
                 <div className="flex items-center space-x-2">
-                  <div className="text-lg font-medium text-black">
+                  <div className="text-lg font-medium text-white">
                     {formatNumber(xEnergyFIPrice ?? 0, true)}
                   </div>
                   <ColoredNumber
@@ -245,9 +245,9 @@ export default function xEnergyfi() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <div className="font-bold text-black/60">Market Cap</div>
+                <div className="font-bold text-white/60">Market Cap</div>
                 <div className="flex items-center space-x-2">
-                  <div className="text-lg font-medium text-black">
+                  <div className="text-lg font-medium text-white">
                     {formatNumber(xEnergyFIMarketcap ?? 0, true, false)}
                   </div>
                   <ColoredNumber
@@ -269,11 +269,11 @@ export default function xEnergyfi() {
             />
             <InfoCard text="APY (Last 7 Days)" number={formatPercent(APY1w)} />
             <InfoCard
-              text="xEnergyfi Supply"
+              text="xTwin Supply"
               number={formatNumber(bar?.totalSupply)}
             />
             <InfoCard
-              text="xEnergyfi : Energyfi"
+              text="xTwin : TWin"
               number={Number(bar?.ratio ?? 0)?.toFixed(4)}
             />
           </div>

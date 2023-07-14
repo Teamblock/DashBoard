@@ -24,7 +24,7 @@ export default function Farms(): JSX.Element {
             name:
               farm.pair.symbol ??
               `${farm.pair.token0.symbol}-${farm.pair.token1.symbol}`,
-            type: farm.pair.symbol ? "Kashi Farm" : "Energyfi Farm",
+            type: farm.pair.symbol ? "Kashi Farm" : "Twin Farm",
           },
           rewards: farm.rewards,
           liquidity: farm.tvl,

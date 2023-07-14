@@ -25,7 +25,7 @@ type FarmListNameProps = {
       id: string;
     };
     name: string;
-    type: "Energyfi Farm" | "Kashi Farm";
+    type: "Twin Farm" | "Kashi Farm";
   };
 };
 
