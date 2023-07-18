@@ -8,7 +8,7 @@ export default function AnalyticsContainer({ children }): JSX.Element {
   return (
     <>
       <Head>
-        <title>Energyfi Analytics | Energyfi</title>
+        <title>TWin Analytics | TWin</title>
         <meta
           name="description"
           content="EnergyfiSwap Liquidity Pair (SLP) Analytics by Energyfi"
