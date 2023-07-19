@@ -77,7 +77,7 @@ const Footer = () => {
           </div> */}
         </Container>
       </div>
-      <div className="justify-center items-center flex w-full bg-[#1a202e] py-4 maxMd:py-5 border-t border-[#eebd54]/40">
+      <div className="justify-center items-center flex w-full bg-[#1a202e] py-4 maxMd:py-5 ">
         <p>Copyright @ 2023, All Rights Reserved. Thoughtwin</p>
       </div>
     </>
